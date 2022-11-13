@@ -14,10 +14,17 @@ let bd3 = document.getElementById("bd3");
 let bd0 = document.getElementById("bd4");
 let blackdrop = document.getElementById("blackdrop");
           //      0         1     2       3       4      5        6     7       8       9       10      11      12      13      14         15       16       17     18      19        20        21
-let Waypoints=[[-13,57],[0,57],[24,58],[55,60],[2,75],[20,75],[45,76],[20,97],[-10,38],[6,42],[19,39],[33,34],[47,33],[57,32],[65,31],[62.5,39],[80,40.5],[100,39],[85,66],[70,97],[28,26] ,[20.5,18]];
+let Waypoints=[[-13,57],[0,57],[24,58],[48,60],[2,75],[20,75],[45,76],[20,97],[-10,38],[6,42],[19,39],[33,34],[47,33],[57,32],[65,31],[62.5,39],[80,40.5],[100,39],[85,66],[70,97],[28,26] ,[20.5,18]];
+
 
           //               0         1       2      3    4      5   6        7             8         9     10      11         12      13       14     15         16         17        18        19        20     21
 let Connectiongraph = [[1,8,17,19],[0,2],[1,3,5],[2,15],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[3,13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
+
+
+function adaptConnectionGraph(newgraph){
+  Connectiongraph = newgraph; 
+  console.log(Connectiongraph);
+}
 
 const root = document.querySelector(':root');
 
@@ -298,7 +305,7 @@ function StartNextSong(){
   }
 }
 setTimeout(()=>{
-  StartNextSong();
+  // StartNextSong();
 },10000)
 
 function OpenPuzzle(){

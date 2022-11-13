@@ -10,6 +10,11 @@ function FillInOwnedCards(){
     let Recipes = sessionStorage.getItem("recipes").split(",");
     for(let i = 0; i<Recipes.length;i++){
         innerhtml +='<div class="card crezept" onclick="SelectForDay('+Recipes[i]+')" id="CR'+Recipes[i]+'"></div>'
+        if(i==Recipes.length-1){
+            setTimeout(()=>{
+                FilterText("");
+            },1000)
+        }
     }
     document.getElementById("cardstoselect").innerHTML = innerhtml;
     cards_Start();

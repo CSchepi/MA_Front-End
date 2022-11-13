@@ -89,7 +89,7 @@ body{
   transform: translateX(73vh);
 }
 #c1value, #c2value{
-  transition: 1s ease;
+  transition: 2.5s ease;
 }
 #c1value{
   clip: rect(calc((100 - var(--cylinder-co2))/100*60vh),40vh,60vh,0);

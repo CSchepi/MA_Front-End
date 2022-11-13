@@ -3,6 +3,9 @@ let ToRegisterField = document.getElementById("toRegister");
 let LoginField = document.getElementById("login");
 let data=null;
 
+
+//wake up backend
+let wakeupt = new XMLHttpRequest().open("GET","https://ma-tommi.herokuapp.com/getIngredients?filternum=1").send();
 ClearSessionStorage();
 
 function Login(){

@@ -1,6 +1,6 @@
 //All points to change are marked with "CHANGE"
-let Regionabfolge = []; //CHANGE
-let HelpComments = []; //CHANGE
+let Regionabfolge = [[14],[1,2,3,4,5,6],[18],[1],[9],[3],[11],[6],[21],[12],[21],[15],[17]]; //CHANGE
+let HelpComments = [["Die Schweine sind im Stall"],["Ich muss die Schweine auf die Weide bringen"],["Ich sollte Wasser vom Brunnen holen"],["Der Wassertank muss auf die weide"],["Futter gibt's bei den Silos"],["Ab auf die Weider mit dem Futter"],[],["Ich muss ein Schwein zum Schlachtem holen"],["Der Sdchlachthof ist auf dem Hügel"],["Jetzt noch dier Kartons holen!"],["Das Fleisch steht neben der Scheune bereit"],["Auf zum Supermarkt"]]; //CHANGE
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint
@@ -25,11 +25,17 @@ function getLevelNumber(){
   return 2;
 }
 
+  	      //                      0         1     2    3    4      5   6        7             8         9     10      11         12      13       14     15         16         17        18        19        20     21
+let Connectiongraph_adapt = [[1,8,17,19],[0,2],[1,3,5],[2],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
+setTimeout(()=>{
+   adaptConnectionGraph(Connectiongraph_adapt);
+},1000)
+
 //CHANGE
 setTimeout(()=>{
   ShowText("Hi! Heute wollen wir versuchen unsere eigenen Karotten anzubauen. Bist du bereit?",true);
   setTimeout(()=>{
-    ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
+    // ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
   },6000)
   animationinprogress = false;
   cards_Start();
@@ -74,8 +80,126 @@ function CheckEvent(){
     wrongactioncount =0;
     //CHANGE
     if(Fortschrittspointer == 1){
+      setTimeout(()=>{
+        document.getElementById("scheune").style.display="block";
+        setTimeout(()=>{
+          document.getElementById("pig_sign").style.display="block";
+        },1000)
+      },500)
     }
 
+    if(Fortschrittspointer==2){
+      setTimeout(()=>{
+        let pig1 =    document.getElementById("pig1");
+        let pig2 =    document.getElementById("pig2");
+        document.getElementById("pig_sign").style.display="none";
+        pig1.style.opacity="0";
+        pig2.style.opacity="0";
+        pig1.style.display="block";
+        pig2.style.display="block";
+        pig1.style.transition = "1s ease";
+        pig2.style.transition = "1s ease";
+        setTimeout(()=>{
+          pig1.style.opacity="1";
+          pig2.style.opacity="1";
+          setTimeout(()=>{
+            Stand_CO2 +=20;
+            addanimation("c",20,55);
+            UpdateTubes();
+          },2000)
+        },500)
+      },500);
+    }
+    if(Fortschrittspointer==3){
+      setTimeout(()=>{
+        MoveTo(1);
+      },500);
+    }
+    if(Fortschrittspointer==4){
+      animationinprogress=true;
+      setTimeout(()=>{
+        let tank = document.getElementById("tank");
+        tank.style.left="-30vh";
+        tank.style.display="block";
+        tank.style.transition="3s ease";
+        setTimeout(()=>{
+          tank.style.left="0vh"
+          setTimeout(()=>{
+            Stand_H2O +=30;
+            addanimation("w",5,47);
+            UpdateTubes();
+            animationinprogress=false;
+          },2000)
+        },300)
+      },500);
+    }
+    if(Fortschrittspointer==5){
+      setTimeout(()=>{
+        MoveTo(3);
+    },500);
+  }
+    if(Fortschrittspointer==6){
+      setTimeout(()=>{
+        document.getElementById("heu").style.display = "block";
+        setTimeout(()=>{
+          Stand_CO2 +=20;
+          addanimation("c",45,50);
+          UpdateTubes();
+          MoveTo(11)
+        },1500)
+    },500);
+  }
+    if(Fortschrittspointer==7){
+      animationinprogress=true;
+      setTimeout(()=>{
+        NextSeason();
+        setTimeout(()=>{
+          document.getElementById("heu").style.display = "none";
+          document.getElementById("heu_klein").style.display = "block";
+          setTimeout(()=>{
+            animationinprogress=false;
+          },2000)
+        },2000)
+    },500);
+  }
+    if(Fortschrittspointer==8){
+      setTimeout(()=>{
+        let pig2 =    document.getElementById("pig2");
+        pig2.style.opacity ="0";
+        pig2.style.display ="none";
+        setTimeout(()=>{
+          revealpuzzlepiece();
+        },1000);
+    },500);
+  }
+    if(Fortschrittspointer==9){
+      Stand_H2O +=50;
+      addanimation("w",15,0);
+      UpdateTubes();
+  }
+    if(Fortschrittspointer==10){
+      setTimeout(()=>{
+        document.getElementById("karton").style.display="none";
+    },500);
+  }
+    if(Fortschrittspointer==11){
+      setTimeout(()=>{
+        Stand_CO2 +=20;
+        addanimation("c",15,0);
+        UpdateTubes();
+        setTimeout(()=>{
+          Stand_CO2 +=20;
+          addanimation("c",15,0);
+          UpdateTubes();
+          	document.getElementById("karton_voll").style.display="block";
+        },3000)
+    },500);
+  }
+    if(Fortschrittspointer==12){
+      setTimeout(()=>{
+        document.getElementById("karton_voll").style.display="none";
+    },500);
+  }
     if(Fortschrittspointer == Regionabfolge.length){
       LevelCompleted(39,2); //Enter Product Number and Lvl number //CHANGE
     }

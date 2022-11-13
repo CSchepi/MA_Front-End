@@ -1,9 +1,9 @@
-let Regionabfolge = [[12],[15],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[18],[11],[1,2,3,4,5,6],[11],[12],[3],[21],[15],[17]];
-let HelpComments = [["Hierfür brauche ich eine Maschine","Ich sollte den Traktor nehmen"],["Ich muss die Säcke mit den Samen holen"],["Ich muss die Samen auf dem Acker einpflanzen"],["Am Brunnen steht eine Gießkanne"],["Ich muss auf das Feld um die Pföanzen zu gießen"],[""],["Hier liegt doch irgendwo das passende Werkzeug rum"],["Ab aufs Feld!"],[""],["Für die Ernte brauche ich den Traktor"],["Ich sollte die Kiste aufsammeln"],["Auf dem Hügel gibt es eine Fabrik."],["Die fertigen Karotten stehen an neben der Scheune"],["Ich sollte zum Schild mit dem Einkaufswagen gehen"]];
+let Regionabfolge = [[12],[15],[1,3,5],[4],[18],[1,2,3,4,5,6],[18],[11],[1,2,3,4,5,6],[11],[12],[3],[21],[15],[17]];
+let HelpComments = [["Hierfür brauche ich eine Maschine","Ich sollte den Traktor nehmen"],["Ich muss die Säcke mit den Samen holen"],["Ich muss die Samen auf dem Acker einpflanzen"],[],["Am Brunnen steht eine Gießkanne"],["Ich muss auf das Feld um die Pföanzen zu gießen"],[""],["Hier liegt doch irgendwo das passende Werkzeug rum"],["Ab aufs Feld!"],[""],["Für die Ernte brauche ich den Traktor"],["Ich sollte die Kiste aufsammeln"],["Auf dem Hügel gibt es eine Fabrik."],["Die fertigen Karotten stehen an neben der Scheune"],["Ich sollte zum Schild mit dem Einkaufswagen gehen"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint
-let Fortschrittspointer = 0;
+let Fortschrittspointer = 1;
 let wrongactioncount = 0;
 let Stand_CO2 = 0;
 let Stand_H2O = 0;
@@ -122,16 +122,16 @@ function CheckEvent(){
     }
 
     if(Fortschrittspointer == 3){
-      animationinprogress = true;
       setTimeout(()=>{
-        if(TommiField==4){
-          GoTo(1);
-        }
-        else{
-          GoTo(4);
-        }
+        
         document.getElementById("K0").style.display="none"
-        setTimeout(()=>{
+        MoveTo(4);
+  
+      },1000)
+    }
+    if(Fortschrittspointer == 4){
+      setTimeout(()=>{
+          animationinprogress = true;
           GoTo(3);
           document.getElementById("K1_1").style.display="block"
           setTimeout(()=>{
@@ -142,17 +142,15 @@ function CheckEvent(){
             animationinprogress =false;
             ShowText("Perfekt. Damit die Karotten schneller wachsen können, sollten wir sie noch ein wenig gießen.",true);
           },7000)
-        },7000)
-      },1000)
+      },500)
     }
-
-    if(Fortschrittspointer == 4){
+    if(Fortschrittspointer == 5){
       setTimeout(()=>{
         document.getElementById("Kanne").style.display = "none";
       },500)
     }
 
-    if(Fortschrittspointer == 5){
+    if(Fortschrittspointer == 6){
       setTimeout(()=>{
           document.getElementById("Gießen").style.display="block";
           Stand_H2O +=5;
@@ -164,7 +162,7 @@ function CheckEvent(){
       },500)
     }
 
-    if(Fortschrittspointer == 6){
+    if(Fortschrittspointer == 7){
       setTimeout(()=>{
         document.getElementById("Kanne").style.display = "block";
         setTimeout(()=>{
@@ -181,13 +179,13 @@ function CheckEvent(){
       },500)
     }
 
-    if(Fortschrittspointer == 7){
+    if(Fortschrittspointer == 8){
       setTimeout(()=>{
         document.getElementById("Werkzeug").style.display = "none";
       },500)
     }
 
-    if(Fortschrittspointer == 8){
+    if(Fortschrittspointer == 9){
       setTimeout(()=>{
           document.getElementById("Unkraut").style.display="none";
           setTimeout(()=>{
@@ -196,7 +194,7 @@ function CheckEvent(){
       },500)
     }
 
-    if(Fortschrittspointer ==9){
+    if(Fortschrittspointer ==10){
       setTimeout(()=>{
         document.getElementById("Werkzeug").style.display="block";
         setTimeout(()=>{
@@ -211,7 +209,7 @@ function CheckEvent(){
       },500)
     }
 
-    if(Fortschrittspointer==10){
+    if(Fortschrittspointer==11){
     let TraktorKlein = document.getElementById("TrK");
     let TraktorL = document.getElementById("TrL");
     let TraktorR = document.getElementById("TrR");
@@ -258,13 +256,13 @@ function CheckEvent(){
     },9000)
     }
 
-    if(Fortschrittspointer == 11){
+    if(Fortschrittspointer == 12){
       setTimeout(()=>{
         document.getElementById("Box").style.display="none";
         ShowText("Nur noch ein wenig Putzen und verpacken und schon ist das Gemüse bereit verkauft zu werden! ",true);
       },500)
     }
-    if(Fortschrittspointer == 12){
+    if(Fortschrittspointer == 13){
       setTimeout(()=>{        
         Stand_H2O +=5;
         addanimation("w",10,0);
@@ -278,7 +276,7 @@ function CheckEvent(){
         },2600)
       },500)
     }
-    if(Fortschrittspointer == 13){
+    if(Fortschrittspointer == 14){
       setTimeout(()=>{       
         document.getElementById("BoxPacked").style.display="none";
         ShowText("Auf zum Laden!",true);
