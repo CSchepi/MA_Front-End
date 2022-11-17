@@ -153,12 +153,12 @@ function CheckEvent(){
       setTimeout(()=>{
         document.getElementById("schild").style.display="none";
         document.getElementById("korb").style.display="block";
+        revealpuzzlepiece();
       },500);
     }
 
     if(Fortschrittspointer ==10){
       setTimeout(()=>{
-
         document.getElementById("korb").style.display="none";
       },500);
     }

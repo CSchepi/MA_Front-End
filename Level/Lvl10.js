@@ -31,7 +31,7 @@ function getLevelNumber(){
 setTimeout(()=>{
   ShowText("Anfangstext",true);
   setTimeout(()=>{
-    ShowText("Anfangstext 2 (optional)",true);
+    // ShowText("Anfangstext 2 (optional)",true);
   },6000)
   animationinprogress = false;
   cards_Start();

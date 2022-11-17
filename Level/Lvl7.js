@@ -1,6 +1,6 @@
 
 //APFEL
-let Regionabfolge = [];
+let Regionabfolge = [[11],[1,5,6],[1,5,6],[1,5,6],[11],[15],[2,3,4],[2,3,4],[2,3,4],[15],[1,2,3,4,5,6],[1,2,3,4,5,6],[18],[21],[15],[17]];
 //CHANGE
 let HelpComments = [];
 let timesbeforespeaking = 1;
@@ -24,14 +24,22 @@ let animationinprogress = true;
 
 //CHANGE
 function getLevelNumber(){
-  return 3;
+  return 7;
 }
+document.getElementById("bd4").style.opacity = "1";
+
+  	      //                      0         1     2    3    4      5   6        7             8         9     10      11         12      13       14     15         16         17        18        19        20     21
+let Connectiongraph_adapt = [[1,8,17,19],[0,2],[1,3,5],[2],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
+setTimeout(()=>{
+   adaptConnectionGraph(Connectiongraph_adapt);
+},1000)
 
 //CHANGE
 setTimeout(()=>{
   ShowText("Anfangstext",true);
   setTimeout(()=>{
-    ShowText("Anfangstext 2 (optional)",true);
+    document.getElementById("bd4").style.opacity = "0";
+    // ShowText("Anfangstext 2 (optional)",true);
   },6000)
   animationinprogress = false;
   cards_Start();
@@ -77,64 +85,169 @@ function CheckEvent(){
     //CHANGE
     if(Fortschrittspointer == 1){
       setTimeout(()=>{
-
+        document.getElementById("schere").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 2){
       setTimeout(()=>{
-
+        document.getElementById("ast"+TommiField).style.display="none";
+        const index = Regionabfolge[3].indexOf(TommiField);
+        if (index > -1) { 
+          Regionabfolge[2].splice(index, 1); 
+          Regionabfolge[3].splice(index, 1); 
+        }
       },500);
     }
 
     if(Fortschrittspointer == 3){
       setTimeout(()=>{
-
+        document.getElementById("ast"+TommiField).style.display="none";
+        const index = Regionabfolge[3].indexOf(TommiField);
+        if (index > -1) { 
+          Regionabfolge[3].splice(index, 1); 
+        }
       },500);
     }
     if(Fortschrittspointer == 4){
       setTimeout(()=>{
-
+        document.getElementById("ast"+TommiField).style.display="none";
+        MoveTo(11);
       },500);
     }
 
     if(Fortschrittspointer == 5){
+      animationinprogress=true;
       setTimeout(()=>{
-
+        document.getElementById("schere").style.display="block";
+        setTimeout(()=>{
+          NextSeason();
+          setTimeout(()=>{
+            document.getElementById("pestizid").style.display="block";
+            document.getElementById("w2").style.display="block";
+            document.getElementById("w3").style.display="block";
+            document.getElementById("w4").style.display="block";
+            animationinprogress=false;
+          },2000)
+        },500)
       },500);
     }
     if(Fortschrittspointer == 6){
       setTimeout(()=>{
-
+        document.getElementById("pestizid").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 7){
-      setTimeout(()=>{
-
-      },500);
+      animationinprogress=true;
+        setTimeout(()=>{
+          document.getElementById("w"+TommiField).style.opacity="1";
+          document.getElementById("w"+TommiField).style.transition="1s ease";
+          setTimeout(()=>{
+          document.getElementById("w"+TommiField).style.opacity="0";
+          setTimeout(()=>{
+            animationinprogress=false;
+          },800)
+          },100)
+          const index = Regionabfolge[8].indexOf(TommiField);
+          if (index > -1) { 
+            Regionabfolge[7].splice(index, 1); 
+            Regionabfolge[8].splice(index, 1); 
+          }
+        },500);
     }
 
     if(Fortschrittspointer == 8){
-      setTimeout(()=>{
-
-      },500);
+      animationinprogress=true;
+        setTimeout(()=>{
+          document.getElementById("w"+TommiField).style.opacity="1";
+          document.getElementById("w"+TommiField).style.transition="1s ease";
+          setTimeout(()=>{
+          document.getElementById("w"+TommiField).style.opacity="0";
+          setTimeout(()=>{
+            animationinprogress=false;
+          },800)
+          },100)
+          const index = Regionabfolge[8].indexOf(TommiField);
+          if (index > -1) { 
+            Regionabfolge[8].splice(index, 1); 
+          }
+        },500);
     }
 
     if(Fortschrittspointer == 9){
-      setTimeout(()=>{
-
-      },500);
+      animationinprogress=true;
+        setTimeout(()=>{
+          document.getElementById("w"+TommiField).style.opacity="1";
+          document.getElementById("w"+TommiField).style.transition="1s ease";
+          setTimeout(()=>{
+          document.getElementById("w"+TommiField).style.opacity="0";
+          setTimeout(()=>{
+            animationinprogress=false;
+            MoveTo(15);
+          },800)
+          },100)
+        },500);
     }
 
     if(Fortschrittspointer ==10){
       setTimeout(()=>{
+        NextSeason();
+        setTimeout(()=>{
+          document.getElementById("traubeH").style.display="block";
+          document.getElementById("traubeV").style.display="block";
+        },2200)
+      },500);
+    }
 
+    if(Fortschrittspointer ==11){
+      setTimeout(()=>{
+        if(TommiField<4){
+          Regionabfolge[11]=[4,5,6];
+          document.getElementById("traubeH").style.display="none";
+          document.getElementById("k2").style.display="block";
+        }
+        else{
+          Regionabfolge[11]=[1,2,3];
+          document.getElementById("traubeV").style.display="none";
+          document.getElementById("k1").style.display="block";
+        }
+      },500);
+    }
+    if(Fortschrittspointer ==12){
+      setTimeout(()=>{
+        if(TommiField<4){
+          document.getElementById("traubeH").style.display="none";
+          document.getElementById("k2").style.display="block";
+        }
+        else{
+          document.getElementById("traubeV").style.display="none";
+          document.getElementById("k1").style.display="block";
+        }
+        revealpuzzlepiece();
+      },500);
+    }
+    if(Fortschrittspointer ==13){
+      setTimeout(()=>{
+        document.getElementById("k1").style.display="none";
+        document.getElementById("k2").style.display="none";
+      },500);
+    }
+
+    if(Fortschrittspointer ==14){
+      setTimeout(()=>{
+        document.getElementById("box").style.display="block";
+      },500);
+    }
+
+    if(Fortschrittspointer ==15){
+      setTimeout(()=>{
+        document.getElementById("box").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == Regionabfolge.length){
-      LevelCompleted(39,3); //Enter Product Number and Lvl number //CHANGE
+      LevelCompleted(61,7); //Enter Product Number and Lvl number //CHANGE
     }
 
   }

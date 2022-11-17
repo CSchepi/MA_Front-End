@@ -1,6 +1,6 @@
 
 //APFEL
-let Regionabfolge = [];
+let Regionabfolge = [[12],[15],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[18],[10],[1,2,3,4,5,6],[15],[12],[3],[21],[11],[17]];
 //CHANGE
 let HelpComments = [];
 let timesbeforespeaking = 1;
@@ -24,14 +24,14 @@ let animationinprogress = true;
 
 //CHANGE
 function getLevelNumber(){
-  return 3;
+  return 6;
 }
 
 //CHANGE
 setTimeout(()=>{
   ShowText("Anfangstext",true);
   setTimeout(()=>{
-    ShowText("Anfangstext 2 (optional)",true);
+    // ShowText("Anfangstext 2 (optional)",true);
   },6000)
   animationinprogress = false;
   cards_Start();
@@ -76,65 +76,178 @@ function CheckEvent(){
     //Game Logic happening here 
     //CHANGE
     if(Fortschrittspointer == 1){
+      let TraktorKlein = document.getElementById("TrK");
+      let TraktorL = document.getElementById("TrL");
+      let TraktorR = document.getElementById("TrR");
+      TraktorKlein.style.display="none";
+      animationinprogress = true;
       setTimeout(()=>{
-
-      },500);
+        GoTo(8);
+      },500)
+      setTimeout(()=>{
+        TraktorR.style.left="-60vh";
+        TraktorR.style.transition="5s linear";
+        TraktorL.style.left="00vh";
+        TraktorL.style.transition="5s linear";
+        TraktorR.style.display="block";
+        setTimeout(()=>{
+          TraktorR.style.left="20vh";
+          setTimeout(()=>{
+            TraktorR.style.display="none";
+            TraktorL.style.display="block";
+            setTimeout(()=>{
+              TraktorL.style.left="-70vh";
+              Stand_CO2 +=3;
+              // addanimation("c",20,55);
+              // UpdateTubes();
+              setTimeout(()=>{ 
+                document.getElementById("stein").style.display ="none";
+                setTimeout(()=>{
+                  GoTo(12);
+                  setTimeout(()=>{
+                    animationinprogress = false;
+                    TraktorKlein.style.display="block";
+                    },8500)
+                },1000)
+              },5200)
+            },100)
+          },5200)
+        },100)
+        
+      },9000)
     }
 
     if(Fortschrittspointer == 2){
       setTimeout(()=>{
-
+        document.getElementById("samen").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 3){
       setTimeout(()=>{
-
+        document.getElementById("klein").style.display="block";
       },500);
     }
     if(Fortschrittspointer == 4){
       setTimeout(()=>{
-
+        document.getElementById("kanne").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 5){
       setTimeout(()=>{
-
+        document.getElementById("wasser").style.display="block";
+        MoveTo(18);
       },500);
     }
     if(Fortschrittspointer == 6){
+      animationinprogress=true;
       setTimeout(()=>{
-
+        document.getElementById("kanne").style.display="block";
+        NextSeason();
+        setTimeout(()=>{
+          document.getElementById("mittel").style.display="block";
+          document.getElementById("klein").style.display="none";
+          document.getElementById("wasser").style.display="none";
+          animationinprogress=false;
+        },2200)
       },500);
     }
 
     if(Fortschrittspointer == 7){
       setTimeout(()=>{
-
+        document.getElementById("dünger_sack").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 8){
       setTimeout(()=>{
-
+        document.getElementById("dünger").style.display="block";
+        MoveTo(15);
       },500);
     }
 
     if(Fortschrittspointer == 9){
+      animationinprogress=true;
       setTimeout(()=>{
-
+        NextSeason();
+        setTimeout(()=>{
+          document.getElementById("groß").style.display="block";
+          document.getElementById("mittel").style.display="none";
+          document.getElementById("dünger").style.display="none";
+          document.getElementById("TrK").style.display="none";
+          document.getElementById("MäK").style.display="block";
+          animationinprogress=false;
+        },2200)
       },500);
     }
 
     if(Fortschrittspointer ==10){
+      let TraktorKlein = document.getElementById("MäK");
+      let TraktorL = document.getElementById("MäL");
+      let TraktorR = document.getElementById("MäR");
+      TraktorKlein.style.display="none";
+      animationinprogress = true;
       setTimeout(()=>{
+        GoTo(8);
+      },500)
+      setTimeout(()=>{
+        TraktorL.style.display="none";
+        TraktorR.style.left="-60vh";
+        TraktorR.style.transition="5s linear";
+        TraktorL.style.left="00vh";
+        TraktorL.style.transition="5s linear";
+        TraktorR.style.display="block";
+        setTimeout(()=>{
+          TraktorR.style.left="20vh";
+          setTimeout(()=>{
+            TraktorR.style.display="none";
+            TraktorL.style.display="block";
+            setTimeout(()=>{
+              TraktorL.style.left="-70vh";
+              Stand_CO2 +=3;
+              // addanimation("c",20,55);
+              // UpdateTubes();
+              setTimeout(()=>{ 
+                setTimeout(()=>{
+                  GoTo(12);
+                  document.getElementById("groß").style.display="none";
+                  setTimeout(()=>{
+                    document.getElementById("kiste").style.display="block";
+                    revealpuzzlepiece();
+                   },500)
+                  setTimeout(()=>{
+                    animationinprogress = false;
+                    TraktorKlein.style.display="block";
+                  },8500)
+                },1000)
+              },5200)
+            },100)
+          },5200)
+        },100)
+      },9000)
+    }
 
+    if(Fortschrittspointer ==11){
+      setTimeout(()=>{
+        document.getElementById("kiste").style.display="none";
+      },500);
+    }
+
+    if(Fortschrittspointer ==12){
+      setTimeout(()=>{
+        document.getElementById("mehl").style.display="block";
+      },500);
+    }
+
+    if(Fortschrittspointer ==13){
+      setTimeout(()=>{
+        document.getElementById("mehl").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == Regionabfolge.length){
-      LevelCompleted(39,3); //Enter Product Number and Lvl number //CHANGE
+      LevelCompleted(31,6); //Enter Product Number and Lvl number //CHANGE
     }
 
   }

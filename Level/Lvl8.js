@@ -1,6 +1,6 @@
 
 //APFEL
-let Regionabfolge = [];
+let Regionabfolge = [[14],[16],[1,2,3,4,5,6],[11],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[16],[18],[1,2,3,4,5,6],[18],[21],[11],[1,2,3,4,5,6],[11],[17]];
 //CHANGE
 let HelpComments = [];
 let timesbeforespeaking = 1;
@@ -24,14 +24,18 @@ let animationinprogress = true;
 
 //CHANGE
 function getLevelNumber(){
-  return 3;
+  return 8;
 }
-
+          //                      0         1     2    3    4      5   6        7             8         9     10      11         12      13       14     15         16         17        18        19        20     21
+let Connectiongraph_adapt = [[1,8,17,19],[0,2],[1,3,5],[2],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
+setTimeout(()=>{
+   adaptConnectionGraph(Connectiongraph_adapt);
+},1000)
 //CHANGE
 setTimeout(()=>{
   ShowText("Anfangstext",true);
   setTimeout(()=>{
-    ShowText("Anfangstext 2 (optional)",true);
+    // ShowText("Anfangstext 2 (optional)",true);
   },6000)
   animationinprogress = false;
   cards_Start();
@@ -39,6 +43,11 @@ setTimeout(()=>{
 
 
 function MoveTo(position){
+  if(position==4||position==5||position==6){
+    document.getElementById("GM2").style.display="none";
+    document.getElementById("MM2").style.display="none";
+    document.getElementById("SM2").style.display="none";
+  }
   if(position == 17 && Regionabfolge[Fortschrittspointer]!=17){
     position = 16;
   }
@@ -77,64 +86,123 @@ function CheckEvent(){
     //CHANGE
     if(Fortschrittspointer == 1){
       setTimeout(()=>{
-
+        document.getElementById("tor").style.display="block";
+        document.getElementById("topf").style.display="block";
       },500);
     }
 
     if(Fortschrittspointer == 2){
       setTimeout(()=>{
-
+        document.getElementById("schaufel").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 3){
       setTimeout(()=>{
-
+        document.getElementById("löcher").style.display="block";
       },500);
     }
     if(Fortschrittspointer == 4){
       setTimeout(()=>{
-
+        document.getElementById("topf").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 5){
       setTimeout(()=>{
-
+        document.getElementById("saat").style.display="block";
       },500);
     }
     if(Fortschrittspointer == 6){
       setTimeout(()=>{
-
+        document.getElementById("stöcke").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 7){
       setTimeout(()=>{
-
+        document.getElementById("saat").style.display="none";
+        document.getElementById("SH").style.display="block";
+        document.getElementById("SM1").style.display="block";
+        document.getElementById("SM2").style.display="block";
+        document.getElementById("SV").style.display="block";
+        MoveTo(16);
       },500);
     }
 
     if(Fortschrittspointer == 8){
       setTimeout(()=>{
-
+        document.getElementById("schaufel").style.display="block";
+        NextSeason();
+        setTimeout(()=>{
+        document.getElementById("SH").style.display="none";
+        document.getElementById("SM1").style.display="none";
+        document.getElementById("SM2").style.display="none";
+        document.getElementById("SV").style.display="none";
+        document.getElementById("MH").style.display="block";
+        document.getElementById("MM1").style.display="block";
+        document.getElementById("MM2").style.display="block";
+        document.getElementById("MV").style.display="block";
+        },2200)
       },500);
     }
 
     if(Fortschrittspointer == 9){
       setTimeout(()=>{
-
+        document.getElementById("kanne").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer ==10){
       setTimeout(()=>{
-
+        document.getElementById("wasser").style.display="block";
+        MoveTo(18);
       },500);
     }
 
+    if(Fortschrittspointer ==11){
+      setTimeout(()=>{ 
+        document.getElementById("kanne").style.display="block";
+        NextSeason();
+        setTimeout(()=>{
+        document.getElementById("MH").style.display="none";
+        document.getElementById("MM1").style.display="none";
+        document.getElementById("MM2").style.display="none";
+        document.getElementById("MV").style.display="none";
+        document.getElementById("GH").style.display="block";
+        document.getElementById("GM1").style.display="block";
+        document.getElementById("GM2").style.display="block";
+        document.getElementById("GV").style.display="block";
+        },2200)
+      },500);
+    }
+    
+    if(Fortschrittspointer ==12){
+      setTimeout(()=>{
+        document.getElementById("tüten_leer").style.display="block";
+      },500);
+    }
+    
+    if(Fortschrittspointer ==13){
+      setTimeout(()=>{
+        document.getElementById("tüten_leer").style.display="none";
+      },500);
+    }
+
+    if(Fortschrittspointer ==14){
+      setTimeout(()=>{
+        document.getElementById("tüten").style.display="block";
+        revealpuzzlepiece();
+      },500);
+    }
+    
+    if(Fortschrittspointer ==15){
+      setTimeout(()=>{
+        document.getElementById("tüten").style.display="none";
+      },500);
+    }
     if(Fortschrittspointer == Regionabfolge.length){
-      LevelCompleted(39,3); //Enter Product Number and Lvl number //CHANGE
+      LevelCompleted(91,8); //Enter Product Number and Lvl number //CHANGE
     }
 
   }

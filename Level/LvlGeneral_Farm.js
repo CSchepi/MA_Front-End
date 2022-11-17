@@ -35,10 +35,19 @@ setTimeout(()=>{
 let currentlymoving = false;
 
 currentScene=1;
-bd1.style.opacity = 1;
-bd2.style.opacity = 0;
-bd3.style.opacity = 0;
-bd4.style.opacity = 0;
+bd1.style.opacity = "1";
+
+function SetCurrentScene(num){
+  currentScene=num;
+  bd1.style.opacity = 0;
+  bd2.style.opacity = 0;
+  bd3.style.opacity = 0;
+  bd4.style.opacity = 0;
+  if(currentScene==1){ bd1.style.opacity = 1;}
+  if(currentScene==2){ bd2.style.opacity = 1;}
+  if(currentScene==3){ bd3.style.opacity = 1;}
+  if(currentScene==4){ bd4.style.opacity = 1;}
+}
 
 // Starting the Level
   blackdrop.style.display="block";
