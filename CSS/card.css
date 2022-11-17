@@ -11,7 +11,7 @@
     margin-bottom: calc(2*var(--card-scale));
     width: calc(20*var(--card-scale));
     aspect-ratio: 1/1.5;
-    background-image: url("../img/AddCard.png");
+    background-image: url("../img/Cards/AddCard.png");
     background-size: 150%;
     border: calc(0.5*var(--card-scale)) solid rgb(240,210,40);
     border-radius: calc(1*var(--card-scale));
@@ -19,11 +19,11 @@
     transition: 0.5s ease;
     overflow: hidden;
 }
-.ckat0{background-image: url("../img/CB0.png");}
-.ckat1{background-image: url("../img/CB1.png");}
-.ckat2{background-image: url("../img/CB2.png");}
-.ckat3{background-image: url("../img/CB3.png");}
-.ckat4{background-image: url("../img/CB4.png");}
+.ckat0{background-image: url("../img/Cards/CB0.png");}
+.ckat1{background-image: url("../img/Cards/CB1.png");}
+.ckat2{background-image: url("../img/Cards/CB2.png");}
+.ckat3{background-image: url("../img/Cards/CB3.png");}
+.ckat4{background-image: url("../img/Cards/CB4.png");}
 
 
 .card:hover{
@@ -304,7 +304,7 @@
 
 
 .crezept{
-    background-image: url("../img/CR.png");
+    background-image: url("../img/Cards/CR.png");
     border: calc(0.5*var(--card-scale)) solid rgb(50,220,200);
 }
 .crezept .cimg{

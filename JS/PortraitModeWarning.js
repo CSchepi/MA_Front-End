@@ -39,7 +39,7 @@ function ShowOverlay(){
     "   <div id='PortraitBlockContent' style='position: absolute; border: 2px solid black;border-radius:1vw;width: 50%;height: 50%;top:25%;left:25%'>\n"+
     "       <p>Hi! The following settings are highly recommended:</p>\n"+
     "          <h2>Use in landscape mode</h2>  \n"+
-    "           <img src='../img/RotatePhone.gif' width='40%'> \n"+
+    "           <img src='../img/Icons/RotatePhone.gif' width='40%'> \n"+
     "      <a style='position:absolute;left:1vw;bottom:5px;font-size: 2vw;'><input id='PortraitCheckBox' type='checkbox'>Don't show again!</a>\n"+
     "     <a style='position:absolute;right:1vw;bottom:5px;font-size:2vw;cursor: pointer;text-decoration: underline;' onclick='skip()'>skip>></a> \n"+
     " </div>\n"+ 

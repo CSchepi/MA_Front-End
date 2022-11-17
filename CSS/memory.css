@@ -9,7 +9,7 @@
     row-gap: calc(0.1 * var(--memory-scale));
 }
 .memorycard{
-    background-image: url("../img/MemoryBack.png");
+    background-image: url("../img/LVL_General/MemoryBack.png");
     width: 100%;
     background-size: cover;
     border-radius: 10%;

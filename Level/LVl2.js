@@ -33,7 +33,7 @@ setTimeout(()=>{
 
 //CHANGE
 setTimeout(()=>{
-  ShowText("Hi! Heute wollen wir versuchen unsere eigenen Karotten anzubauen. Bist du bereit?",true);
+  ShowText("Dieses mal stellen wir Schweinefleisch her. Dafür müssen die Tiere erstmal aus dem Stall.",true);
   setTimeout(()=>{
     // ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
   },6000)
@@ -112,11 +112,12 @@ function CheckEvent(){
     }
     if(Fortschrittspointer==3){
       setTimeout(()=>{
-        MoveTo(1);
+        document.getElementById("Schild_Wasser").style.display="block";
       },500);
     }
     if(Fortschrittspointer==4){
       animationinprogress=true;
+      document.getElementById("Schild_Wasser").style.display="none";
       setTimeout(()=>{
         let tank = document.getElementById("tank");
         tank.style.left="-30vh";
@@ -135,10 +136,11 @@ function CheckEvent(){
     }
     if(Fortschrittspointer==5){
       setTimeout(()=>{
-        MoveTo(3);
+        document.getElementById("Schild_Futter").style.display="block";
     },500);
   }
     if(Fortschrittspointer==6){
+      document.getElementById("Schild_Futter").style.display="none";
       setTimeout(()=>{
         document.getElementById("heu").style.display = "block";
         setTimeout(()=>{
@@ -249,11 +251,11 @@ let gifcounter = 0;
 function addanimation(type,left,top){
   createdgif = gifcounter;
   if(type=="c"){
-    document.getElementById("gifwrapper").innerHTML += '<img src="../img/carbon.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
+    document.getElementById("gifwrapper").innerHTML += '<img src="../img/LVL_General/carbon.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
     gifcounter++;
   }
   if(type=="w"){
-    document.getElementById("gifwrapper").innerHTML += '<img src="../img/water.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
+    document.getElementById("gifwrapper").innerHTML += '<img src="../img/LVL_General/water.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
     gifcounter++;
   }
   setTimeout(()=>{

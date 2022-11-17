@@ -9,7 +9,7 @@ let cardwrapper = document.getElementsByClassName("cardwrapper")[0];
 let root = document.querySelector(':root');
 
 function FillInOwnedCards(){
-    let innerhtml = '<img src="./img/AddCard.png" onclick="window.location.href=\'AddCardNav.html\'"  id="addcartfield" alt="">';
+    let innerhtml = '<img src="./img/Cards/AddCard.png" onclick="window.location.href=\'AddCardNav.html\'"  id="addcartfield" alt="">';
     let Ingredients = sessionStorage.getItem("ingredients").split(",");
     // let Ingredients = [];
     // for(let i = 1; i<101;i++){  Ingredients.push(i); }

@@ -92,19 +92,19 @@ function move(val){
   // 0 = Stop 1 = front 2 = back 3=left 4=back
  
   if(val==0){
-    Tommi.src="../img/Standing.gif"
+    Tommi.src="../img/LVL_General/Standing.gif"
   }
   if(val==1){
-    Tommi.src="../img/Walkcycle_Front.gif"
+    Tommi.src="../img/LVL_General/Walkcycle_Front.gif"
   }
   if(val==2){
-    Tommi.src="../img/Walkcycle_Back.gif"
+    Tommi.src="../img/LVL_General/Walkcycle_Back.gif"
   }
   if(val==3){
-    Tommi.src="../img/Walkcycle_Left.gif"
+    Tommi.src="../img/LVL_General/Walkcycle_Left.gif"
   }
   if(val==4){
-    Tommi.src="../img/Walkcycle_Right.gif"
+    Tommi.src="../img/LVL_General/Walkcycle_Right.gif"
   }
 }
 
@@ -217,12 +217,12 @@ function Mute(){
   if(mute){
     mute=false;
     sessionStorage.setItem("mute",0);
-    document.getElementById("voiceimg").src="../img/voice_0.png";
+    document.getElementById("voiceimg").src="../img/Icons/voice_0.png";
   }
   else{
     mute=true;
     sessionStorage.setItem("mute",1);
-    document.getElementById("voiceimg").src="../img/voice_1.png";
+    document.getElementById("voiceimg").src="../img/Icons/voice_1.png";
   }
 }
 
@@ -231,12 +231,12 @@ function Audiocontroll(){
   if(audioactive){
     audioactive =false;
     audio.volume = 0;
-    document.getElementById("audioimg").src="../img/music_0.png";
+    document.getElementById("audioimg").src="../img/Icons/music_0.png";
   }
   else{
     audioactive = true;
     StartNextSong();
-    document.getElementById("audioimg").src="../img/music_1.png";
+    document.getElementById("audioimg").src="../img/Icons/music_1.png";
   }
 }
 

@@ -197,10 +197,10 @@ function UpdatePlan(){
             checkfull=false;
             if(findnext==null){
                 findnext = i;
-                innerHTML += '<img src="./img/Tag'+(i+1)+'.png" class="addcartfield" id="day'+(i+1)+'placeholder"  style="border: 2px solid red;">';
+                innerHTML += '<img src="./img/Cards/Tag'+(i+1)+'.png" class="addcartfield" id="day'+(i+1)+'placeholder"  style="border: 2px solid red;">';
             }
             else{   
-                innerHTML += '<img src="./img/Tag'+(i+1)+'.png" onclick="ChangePlaceholder('+i+')" class="addcartfield" id="day'+(i+1)+'placeholder" alt="">';
+                innerHTML += '<img src="./img/Cards/Tag'+(i+1)+'.png" onclick="ChangePlaceholder('+i+')" class="addcartfield" id="day'+(i+1)+'placeholder" alt="">';
             }
         }
         else{

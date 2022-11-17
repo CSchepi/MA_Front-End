@@ -45,7 +45,7 @@ function InitiateCards(){
                     }
                     document.getElementById(id).innerHTML=
                     '<div id="CR'+cardnum+'Front" style="display: block;">'+
-                        '<img src="./img/Flip.png" alt="" class="cflip"  onclick="TurnCard(\'R'+cardnum+'\',1)"> '+
+                        '<img src="./img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard(\'R'+cardnum+'\',1)"> '+
                         '<h3 class="cname">'+cname+'</h3>'+
                         '<img src="'+recipedata["imgurl"]+'" alt="" class="cimg">'+
                         '<div class="ccategory">Nr.'+fillzeros+cardnum+': '+recipedata["cardidentifier"]+'   </div>'+
@@ -53,17 +53,17 @@ function InitiateCards(){
                         '<p class="cringredients">'+zutaten+'</p>'+
                         '<hr class="crseperator">'+
                         '<div class="cpoints cpointumwelt crpoints1" value="'+recipedata["carbonmedal"]+'" style="width: calc('+(recipedata["carbonmedal"]*20)+'%/2);">'+
-                        '    <img class="cpointimg" src="./img/CO2Points.png" alt="">'+
+                        '    <img class="cpointimg" src="./img/Cards/CO2Points.png" alt="">'+
                         '</div>'+
                         '<div class="cpoints cpointwater crpoints2" value="'+recipedata["watermedal"]+'" style="width: calc('+(recipedata["watermedal"]*20)+'%/2);">'+
-                        '    <img class="cpointimg cpointimgwater" src="./img/H2OPoints.png" alt="">'+
+                        '    <img class="cpointimg cpointimgwater" src="./img/Cards/H2OPoints.png" alt="">'+
                         '</div>'+
                         '<div class="cshine" id="CshineR'+cardnum+'-1"></div>'+
                         '<div class="cshine cshine2" id="CshineR'+cardnum+'-2"></div>'+
                     '</div>'+
                     '<div id="CR'+cardnum+'Back" style="display: none;">'+
                         '<div class="cbackimg"></div>'+
-                        '<img src="./img/Flip.png" alt="" class="cflip"  onclick="TurnCard(\'R'+cardnum+'\',0)">'+
+                        '<img src="./img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard(\'R'+cardnum+'\',0)">'+
                         '<h3 class="cname cbacktext">'+cname+'</h3>'+
                         '<div class="ctextfield">'+recipedata["backtext"]+'</div>'+
                         '<a href="./RecipeSingleView.html?r='+cardnum+'">Jetzt Kochen! ➜</a>'+
@@ -104,10 +104,10 @@ function InitiateCards(){
             }
             document.getElementById(id).innerHTML=
             '<div id="C'+cardnum+'Front" style="display: block;">'+
-                '<img src="./img/Flip.png" alt="" class="cflip"  onclick="TurnCard('+cardnum+',1)"> '+
+                '<img src="./img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard('+cardnum+',1)"> '+
                 '<h3 class="cname">'+cardinfos["name"]+'</h3>'+
-                '<img src="./img/Zutaten/'+cardnum+'.jpg"" alt="" class="cimg">'+
-                '<img src="./img/Medallien/M-'+cardinfos["region"]+'-'+cardinfos["type"]+'.png" alt="" class="cstamp">'+
+                '<img src="./img/Cards/Zutaten/'+cardnum+'.jpg"" alt="" class="cimg">'+
+                '<img src="./img/Cards/Medallien/M-'+cardinfos["region"]+'-'+cardinfos["type"]+'.png" alt="" class="cstamp">'+
                 '<div class="ccategory'+optionalstyle1+'">Nr.'+numbersting+': '+cardinfos["infobar"]+' / '+kategorystring+'  </div>'+
                 '<p class="csubtitle'+optionalstyle2+'">Saison:</p>'+
                 '<div class="cseasontext">❄️ &emsp;&ensp; 🌱 &emsp;&ensp; ☀️ &emsp;&ensp; 🍂 &emsp;&ensp; ❄️</div>'+
@@ -119,12 +119,12 @@ function InitiateCards(){
                 '</div>'+
                 '<p class="csubtitle">Umwelt:</p>'+
                 '<div class="cpoints cpointumwelt" style="width: calc('+(cardinfos["carbonmedal"]*20)+'%/2);">'+
-                '    <img class="cpointimg" src="./img/CO2Points.png" alt="">'+
+                '    <img class="cpointimg" src="./img/Cards/CO2Points.png" alt="">'+
                 '    <div class="cinfo cumweltinfo">Die Produktion von 100g '+cardinfos["name"]+dativ_n+' erzeugt '+cardinfos["carbonpoints"]+'g CO2.</div>'+
                 '</div>'+
                 '<p class="csubtitle cwatertitle">Wasser:</p>'+
                 '<div class="cpoints cpointwater" style="width: calc('+(cardinfos["watermedal"]*20)+'%/2);">'+
-                '    <img class="cpointimg cpointimgwater" src="./img/H2OPoints.png" alt="">'+
+                '    <img class="cpointimg cpointimgwater" src="./img/Cards/H2OPoints.png" alt="">'+
                 '    <div class="cinfo cwaterinfo">Die Produktion von 100g '+cardinfos["name"]+dativ_n+' benötigt '+cardinfos["waterpoints"]+' Lieter Wasser.</div>'+
                 '</div>'+
                 '<div class="cshine" id="Cshine'+cardnum+'-1"></div>'+
@@ -132,7 +132,7 @@ function InitiateCards(){
             '</div>'+
             '<div id="C'+cardnum+'Back" style="display: none;">'+
                 '<div class="cbackimg"></div>'+
-                '<img src="./img/Flip.png" alt="" class="cflip"  onclick="TurnCard('+cardnum+',0)">'+
+                '<img src="./img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard('+cardnum+',0)">'+
                 '<h3 class="cname cbacktext">'+cardinfos["name"]+'</h3>'+
                 '<div class="ctextfield">'+cardinfos["backtext"]+'</div>'+
                 '<svg class="barcode"'+

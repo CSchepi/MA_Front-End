@@ -3,7 +3,7 @@ let HelpComments = [["Hierfür brauche ich eine Maschine","Ich sollte den Trakto
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint
-let Fortschrittspointer = 1;
+let Fortschrittspointer = 0;
 let wrongactioncount = 0;
 let Stand_CO2 = 0;
 let Stand_H2O = 0;
@@ -331,11 +331,11 @@ let gifcounter = 0;
 function addanimation(type,left,top){
   createdgif = gifcounter;
   if(type=="c"){
-    document.getElementById("gifwrapper").innerHTML += '<img src="../img/carbon.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
+    document.getElementById("gifwrapper").innerHTML += '<img src="../img/LVL_General/carbon.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
     gifcounter++;
   }
   if(type=="w"){
-    document.getElementById("gifwrapper").innerHTML += '<img src="../img/water.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
+    document.getElementById("gifwrapper").innerHTML += '<img src="../img/LVL_General/water.gif" class="gameelement gif" style="left: '+left+'%; top:'+top+'%;" id="gif'+gifcounter+'">';
     gifcounter++;
   }
   setTimeout(()=>{

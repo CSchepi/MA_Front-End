@@ -59,7 +59,7 @@ function Rotate(cnumber, sidetoturnto){
     card.style.transform="rotateY(90deg)"
     setTimeout(()=>{
         if(sidetoturnto==0){
-            card.style.backgroundImage = "url('../img/MemoryBack.png')";
+            card.style.backgroundImage = "url('../img/LVL_General/MemoryBack.png')";
         }
         else{
             console.log()
