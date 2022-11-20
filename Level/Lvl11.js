@@ -1,6 +1,6 @@
 
-//MILCH
-let Regionabfolge = [[14],[1,2,3,4,5,6],[18],[1],[9],[3],[11],[1,2,3,4,5,6],[14],[11],[14],[12],[21],[11],[17]]; //CHANGE
+//APFEL
+let Regionabfolge = [];
 //CHANGE
 let HelpComments = [];
 let timesbeforespeaking = 1;
@@ -24,19 +24,15 @@ let animationinprogress = true;
 
 //CHANGE
 function getLevelNumber(){
-  return 9;
+  return 3;
 }
-//                      0         1     2    3    4      5   6        7             8         9     10      11         12      13       14     15         16         17        18        19        20     21
-let Connectiongraph_adapt = [[1,8,17,19],[0,2],[1,3,5],[2],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
-setTimeout(()=>{
-   adaptConnectionGraph(Connectiongraph_adapt);
-},1000)
-          
+
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
+  ShowText("Leider sind bisher nur die ersten 10 Level implementiert. Danke, dass du so weit gespielt hast!",true);
   setTimeout(()=>{
     // ShowText("Anfangstext 2 (optional)",true);
+    window.location.href="../level_overview.html"
   },6000)
   animationinprogress = false;
   cards_Start();
@@ -82,133 +78,64 @@ function CheckEvent(){
     //CHANGE
     if(Fortschrittspointer == 1){
       setTimeout(()=>{
-        document.getElementById("scheune").style.display="block";
-        setTimeout(()=>{
-          document.getElementById("cow_sign").style.display="block";
-        },1000)
-      },500)
+
+      },500);
     }
 
-    if(Fortschrittspointer==2){
+    if(Fortschrittspointer == 2){
       setTimeout(()=>{
-        let pig1 =    document.getElementById("Kuh_H");
-        let pig2 =    document.getElementById("Kuh_V");
-        document.getElementById("cow_sign").style.display="none";
-        pig1.style.opacity="0";
-        pig2.style.opacity="0";
-        pig1.style.display="block";
-        pig2.style.display="block";
-        pig1.style.transition = "1s ease";
-        pig2.style.transition = "1s ease";
-        setTimeout(()=>{
-          pig1.style.opacity="1";
-          pig2.style.opacity="1";
-          setTimeout(()=>{
-            Stand_CO2 +=20;
-            // addanimation("c",20,55);
-            // UpdateTubes();
-          },2000)
-        },500)
+
       },500);
     }
-    if(Fortschrittspointer==3){
+
+    if(Fortschrittspointer == 3){
       setTimeout(()=>{
-        document.getElementById("Schild_Wasser").style.display="block";
+
       },500);
     }
-    if(Fortschrittspointer==4){
-      animationinprogress=true;
-      document.getElementById("Schild_Wasser").style.display="none";
+    if(Fortschrittspointer == 4){
       setTimeout(()=>{
-        let tank = document.getElementById("tank");
-        tank.style.left="-30vh";
-        tank.style.display="block";
-        tank.style.transition="3s ease";
-        setTimeout(()=>{
-          tank.style.left="0vh"
-          setTimeout(()=>{
-            Stand_H2O +=30;
-            // addanimation("w",5,47);
-            // UpdateTubes();
-            animationinprogress=false;
-          },2000)
-        },300)
+
       },500);
     }
-    if(Fortschrittspointer==5){
+
+    if(Fortschrittspointer == 5){
       setTimeout(()=>{
-        document.getElementById("Schild_Futter").style.display="block";
-    },500);
-  }
-    if(Fortschrittspointer==6){
-      document.getElementById("Schild_Futter").style.display="none";
-      setTimeout(()=>{
-        document.getElementById("heu").style.display = "block";
-        setTimeout(()=>{
-          Stand_CO2 +=20;
-          // addanimation("c",45,50);
-          // UpdateTubes();
-          MoveTo(11)
-        },1500)
-    },500);
-  }
-    if(Fortschrittspointer==7){
-      animationinprogress=true;
-      setTimeout(()=>{
-        NextSeason();
-        setTimeout(()=>{
-          document.getElementById("heu").style.display = "none";
-          document.getElementById("heu_klein").style.display = "block";
-          setTimeout(()=>{
-            animationinprogress=false;
-          },2000)
-        },2000)
-    },500);
-  }
-    if(Fortschrittspointer==8){
-      setTimeout(()=>{
-        document.getElementById("Kuh_V").style.opacity="0";
-        document.getElementById("Kuh_H").style.opacity="0";
-    },500);
-  }
-    if(Fortschrittspointer==9){
-      setTimeout(()=>{
-        document.getElementById("scheune").style.display="none";
-      },500)
+
+      },500);
     }
-  
-    if(Fortschrittspointer==10){
+    if(Fortschrittspointer == 6){
       setTimeout(()=>{
-        document.getElementById("canE").style.display="none";
-      },500)
+
+      },500);
     }
-  
-    if(Fortschrittspointer==11){
+
+    if(Fortschrittspointer == 7){
       setTimeout(()=>{
-        document.getElementById("canF").style.display="block";
-        revealpuzzlepiece();
-      },500)
+
+      },500);
     }
-  
-    if(Fortschrittspointer==12){
+
+    if(Fortschrittspointer == 8){
       setTimeout(()=>{
-        document.getElementById("canF").style.display="none";
-      },500)
+
+      },500);
     }
-  
-    if(Fortschrittspointer==13){
+
+    if(Fortschrittspointer == 9){
       setTimeout(()=>{
-        document.getElementById("milch").style.display="block";
-      },500)
+
+      },500);
     }
-    if(Fortschrittspointer==14){
+
+    if(Fortschrittspointer ==10){
       setTimeout(()=>{
-        document.getElementById("milch").style.display="none";
-      },500)
+
+      },500);
     }
 
     if(Fortschrittspointer == Regionabfolge.length){
-      LevelCompleted(17,9); //Enter Product Number and Lvl number //CHANGE
+      LevelCompleted(39,3); //Enter Product Number and Lvl number //CHANGE
     }
 
   }

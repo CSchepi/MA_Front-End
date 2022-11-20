@@ -83,12 +83,22 @@ input{
     transform: translateX(-12vw);
 }
 #shiftleft, #shiftright{
-    top: calc(16vh + 18*var(--card-scale));
+    top: calc(11vh + 18*var(--card-scale));
+    cursor: pointer;
     position: absolute;
-    background: red;
+    background: rgba(233,233,233,0.9);
     width: calc(4*var(--card-scale));
+    height: 10vh;
     font-size: calc(4*var(--card-scale));
+    line-height: 10vh;
+    text-align: center;
+    border: 0.3vh solid gray;
+    border-radius: 1vh;
     display: none;
+    transition: 0.2s ease;
+}
+#shiftleft:hover, #shiftright:hover{
+    background: rgba(255,255,255,1);
 }
 #shiftright{
     transform: translateX(calc((-3vw) + 72*var(--card-scale)));

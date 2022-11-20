@@ -24,7 +24,7 @@ let animationinprogress = true;
 
 //CHANGE
 function getLevelNumber(){
-  return 3;
+  return 10;
 }
 
 //CHANGE
@@ -134,7 +134,7 @@ function CheckEvent(){
     }
 
     if(Fortschrittspointer == Regionabfolge.length){
-      LevelCompleted(39,3); //Enter Product Number and Lvl number //CHANGE
+      LevelCompleted(33,10); //Enter Product Number and Lvl number //CHANGE
     }
 
   }
