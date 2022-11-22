@@ -1,4 +1,4 @@
-console.log("Ja Moinsen!");
+
 let printcards = document.getElementsByClassName("card");
 let toremove = [];
 let toclone = [];

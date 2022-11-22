@@ -4,7 +4,6 @@ let firstrecognised = false;
 
 function onScanSuccess(decodedText, decodedResult) {
     document.getElementById("StopButton").click();
-    console.log(decodedText);
     if(decodedText.charAt(0)=="R"){
         window.alert("Es können nur Produkte eingescannt werden.")
         return;
@@ -26,7 +25,6 @@ function eanfound(decodedText){
             let productinfo = JSON.parse(OFF_req.responseText);
             if(productinfo["status"]==1){
                 let keywords =  JSON.stringify(productinfo["product"]["_keywords"])+JSON.stringify(productinfo["product"]["categories"])+JSON.stringify(productinfo["product"]["brands_tags"])+JSON.stringify(productinfo["product"]["categories_tags"]);
-                console.log(productinfo["product"]);
                 document.getElementById("h31").innerHTML="Product: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "+productinfo["product"]["product_name_de"];
                 if(productinfo["product"]["nutrition_grades"]=="a"){document.getElementById("h33").src="./img/nutriscore/A.JPG"}
                 if(productinfo["product"]["nutrition_grades"]=="b"){document.getElementById("h33").src="./img/nutriscore/B.JPG"}
@@ -37,7 +35,6 @@ function eanfound(decodedText){
                     let producttotest = cardnames[i];
                     for(j in producttotest[1]){
                         if(keywords.toLowerCase().includes(producttotest[1][j].toLowerCase())){
-                            console.log(producttotest[1][0]);
                             if(!firstrecognised){
                                 AddCardType(producttotest);
                             }
@@ -72,7 +69,6 @@ function AddCardType(producttotest){
     getdbproduct_req.onreadystatechange=()=>{
         if(getdbproduct_req.status==200&&getdbproduct_req.readyState==4&&getdbproduct_req.responseText){
             let ingredient = JSON.parse(getdbproduct_req.responseText)[0];
-            console.log(ingredient);
             document.getElementById("h34").style.width=(ingredient["watermedal"]*5)+"vh"
             document.getElementById("h35").style.width=(ingredient["carbonmedal"]*5)+"vh"
         }

@@ -202,7 +202,6 @@ function ShowResult(){
     Recipeoptions_req.send();
     Recipeoptions_req.onreadystatechange = ()=>{
         if(Recipeoptions_req.responseText && Recipeoptions_req.readyState==4 && Recipeoptions_req.status==200){
-            console.log("Here");
             options = Recipeoptions_req.responseText.replace("[","").replace("]","").split(",");
             let randompos = Math.floor(Math.random()*options.length);
             rezipenum = options[randompos];
@@ -226,7 +225,6 @@ function ShowResult(){
                 updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?addR="+rezipenum+"&id="+userid,true);
                 updateuser_req.send();
                 Recipes.push(rezipenum);
-                console.log(Recipes);
                 sessionStorage.setItem("recipes",Recipes);
 
             },10)

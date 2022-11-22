@@ -23,7 +23,6 @@ let Connectiongraph = [[1,8,17,19],[0,2],[1,3,5],[2,15],[5],[2,4,6],[5],[0,5,8,1
 
 function adaptConnectionGraph(newgraph){
   Connectiongraph = newgraph; 
-  console.log(Connectiongraph);
 }
 
 const root = document.querySelector(':root');
@@ -314,7 +313,7 @@ function StartNextSong(){
   }
 }
 setTimeout(()=>{
-  // StartNextSong();
+  StartNextSong();
 },10000)
 
 function OpenPuzzle(){
@@ -351,7 +350,6 @@ for(let i in prevownedcards){prevownedcards[i]=Number(prevownedcards[i])}
 if(prevownedcards[0]==0){prevownedcards=[];}
 let lvl_num = 0;
 let lvl_product = 0;
-console.log(prevownedcards);
 
 function LevelCompleted(productnumber, lvlnum){
   lvl_num=lvlnum-1;

@@ -5,7 +5,6 @@ recipe_req.send();
 recipe_req.onreadystatechange = ()=>{
     if(recipe_req.status==200&&recipe_req.readyState==4&&recipe_req.responseText){
         recipedata = JSON.parse(recipe_req.responseText)[0];   
-        console.log(recipedata);
         document.getElementById("Banner").src=recipedata["imgurl"];
         document.getElementById("title").innerText=recipedata["name"];
         let ingredients = recipedata["ingredientlist"].split("//")

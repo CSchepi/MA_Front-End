@@ -11,7 +11,6 @@ let cardlinks = [null,null,null,null,null,null,null,null,null,null,null,null,]//
 let allurls = [['https://images.unsplash.com/photo-1650161800866-58e30cfa8205?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80','https://images.unsplash.com/photo-1653803224575-2ff779cfca9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80','https://images.unsplash.com/photo-1562016600-ece13e8ba570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=738&q=80','https://images.unsplash.com/photo-1601286423471-ade6d6139024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80','https://images.unsplash.com/photo-1608022749628-3251d92cdd79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80','https://images.unsplash.com/photo-1568147719968-c30d75159894?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80','https://images.unsplash.com/photo-1472476443507-c7a5948772fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80','https://images.unsplash.com/photo-1504263716296-ed1a29eca28c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80','https://images.unsplash.com/photo-1528750596806-ff12e21cda04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80','https://images.unsplash.com/photo-1598712584487-36ffaf2fbcc0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80','https://images.unsplash.com/photo-1565060299583-08dd3af8e3cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80','https://images.unsplash.com/photo-1612524681749-2f7615663729?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],]
 
 let LvlNumber = getLevelNumber();
-console.log(LvlNumber)
 let urls = allurls[LvlNumber-1];
 function Initialshuffle(){
     for(let i = 1; i<12;i++){
@@ -32,7 +31,6 @@ function Initialshuffle(){
             }
         }
     }
-    console.log(cardorder);
 }
 Initialshuffle();
 
@@ -62,7 +60,6 @@ function Rotate(cnumber, sidetoturnto){
             card.style.backgroundImage = "url('../img/LVL_General/MemoryBack.png')";
         }
         else{
-            console.log()
             card.style.backgroundImage = "url('"+urls[cardorder[cnumber]]+"')";
         }
         card.style.transform="rotateY(0deg)"

@@ -97,7 +97,7 @@ function InitiateCards(){
             document.getElementById(id).classList.add("cmed"+cardinfos["region"]); 
             let optionalstyle1 = "";
             let optionalstyle2 = "";
-            console.log("Nummer: "+cardnum+" : "+(cardinfos["infobar"].length+kategorystring.length));
+            // console.log("Nummer: "+cardnum+" : "+(cardinfos["infobar"].length+kategorystring.length));
             if(cardinfos["infobar"].length+kategorystring.length>=19){
                 optionalstyle1=" ccategorylong";
                 optionalstyle2=" csubtitleshort";

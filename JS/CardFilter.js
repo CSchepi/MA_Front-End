@@ -56,7 +56,7 @@ function TryPrintElem(Elem){
         PrintElem(Elem);
     }
     else{
-        console.log("Nope");
+        console.log("No");
     }
 }
 
@@ -115,7 +115,6 @@ let KatFilter = 5;
 function FilterKat(val){
     TextInputField.value="";
     KatFilter = val;
-    console.log("Med: "+MedFilter+", Kat: "+KatFilter);
     if(val==5){
         document.getElementById("KatDropdown").innerText="Kathegorie ▼";   
         if(MedFilter==5){displaycards("cardI", "block");}
@@ -144,7 +143,6 @@ function FilterKat(val){
 function FilterMed(val){
     TextInputField.value="";
     MedFilter = val;
-    console.log("Med: "+MedFilter+", Kat: "+KatFilter);
     if(val==5){
         document.getElementById("MedDropdown").innerText="Medallie ▼";
         if(KatFilter==5){displaycards("cardI", "block");}

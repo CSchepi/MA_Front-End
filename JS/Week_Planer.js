@@ -82,7 +82,6 @@ function FilterPoints(carbon, water){
         cardtocheck.style.display="none";
         let cardcvalue = cardtocheck.getElementsByClassName("crpoints1")[0].getAttribute("value");
         let cardwvalue = cardtocheck.getElementsByClassName("crpoints2")[0].getAttribute("value");
-        console.log(cardcvalue);
         if(cardcvalue <= carbon && cardwvalue <= water){
             let cardnumber = cardtocheck.id.replace("CR","");
             filteredRecipeArray.push(Number(cardnumber));
@@ -226,9 +225,7 @@ function UpdatePlan(){
             co2wert = (weekco2/amountofrecipes);
             co2wert = ((co2wert ** (1/3.5))-1.9)*16.5;
             waterwert=(weekwater/amountofrecipes);
-            console.log(waterwert);
             waterwert = ((waterwert ** (1/3.5))-2.3)*16.5;
-            console.log(waterwert);
         }
         root.style.setProperty('--cylinder-co2', co2wert);
         root.style.setProperty('--cylinder-water', waterwert);

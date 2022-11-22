@@ -127,3 +127,10 @@ a{
 #LoadingAnimation img{
     width: 100%;
 }
+#loadingcircle{
+    position: relative;
+    top: 1vh;
+    height: 3vh;
+    margin-left: 1vw;
+    display: none;
+}

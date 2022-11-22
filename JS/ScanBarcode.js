@@ -30,7 +30,6 @@
      }
      filler ="R";
    }
-   console.log(isnew);
    if(cardnum != undefined){
      document.getElementsByClassName("newcardwrapper")[0].style.display="flex";
      let cardid = "C"+filler+cardnum;

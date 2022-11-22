@@ -7,8 +7,6 @@ function PrintElem(elem)
     mywindow.document.write(document.getElementById(elem).innerHTML);
     mywindow.document.write('<script src="./JS/PrinterContent.js"></script></body></html>');
 
-    console.log("Längte:"+document.getElementsByClassName("card").length);
-
     mywindow.document.close(); // necessary for IE >= 10
     mywindow.focus(); // necessary for IE >= 10
 

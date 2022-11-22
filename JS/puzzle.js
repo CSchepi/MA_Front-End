@@ -279,7 +279,6 @@ function Move(id){
             let y2 = (selectedpiece.getBoundingClientRect().top+selectedpiece.getBoundingClientRect().bottom)/2;
             let distance = getDistance(x1,y1,x2,y2);
             if(distance<30){
-                console.log("Locked at "+i);
                 selectedpiece.style.transform = "translate("+(x1-offsets[id-1][0])+"px, "+(y1-offsets[id-1][1])+"px)";
                 zuordnung[id-1]=i+1;
                 checkwin();
@@ -289,7 +288,6 @@ function Move(id){
         selectedpiece=null;
     }
     else{
-        console.log(id);
         selectedpiece=document.getElementById("p"+id);
         svg.insertBefore(selectedpiece, null);
         partoffsetX = offsets[id-1][0];
@@ -322,7 +320,6 @@ function checkwin(){
     for(let i = 0; i<64;i++){
         if(zuordnung[i]!=i+1){return false};
     }
-    console.log("Correct");
     return true;
 }
 

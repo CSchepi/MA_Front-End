@@ -9,6 +9,7 @@ let wakeupt = new XMLHttpRequest().open("GET","https://ma-tommi.herokuapp.com/ge
 ClearSessionStorage();
 
 function Login(){
+    document.getElementById("loadingcircle").style.display="inline";
     let username=document.getElementById("loginName").value;
     let pw= document.getElementById("loginPw").value;
     if(username!=null && pw!=null){
@@ -19,7 +20,6 @@ function Login(){
             req.send();
             req.onreadystatechange = ()=>{
                 if (req.readyState == 4 && req.status == 200){
-                    console.log(req.responseText.length);
                     if(req.responseText.length<10){
                         window.alert("Bitte überprüfe deine Eingaben nochmal.")
                     }
