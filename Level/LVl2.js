@@ -34,6 +34,8 @@ setTimeout(()=>{
 //CHANGE
 setTimeout(()=>{
   ShowText("Dieses mal stellen wir Schweinefleisch her. Dafür müssen die Tiere erstmal aus dem Stall.",true);
+  revealpuzzlepiece();
+
   setTimeout(()=>{
     // ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
   },6000)
@@ -102,6 +104,7 @@ function CheckEvent(){
         setTimeout(()=>{
           pig1.style.opacity="1";
           pig2.style.opacity="1";
+          ShowText("Gut gemacht. Die Schwein sehen durstig aus...",true);
           setTimeout(()=>{
             Stand_CO2 +=20;
             addanimation("c",20,55);
@@ -129,6 +132,7 @@ function CheckEvent(){
             Stand_H2O +=30;
             addanimation("w",5,47);
             UpdateTubes();
+            ShowText("Noch eine kleinigkeit zu essen und die Tiere sind rundum glücklich.",true);
             animationinprogress=false;
           },2000)
         },300)
@@ -159,6 +163,7 @@ function CheckEvent(){
           document.getElementById("heu").style.display = "none";
           document.getElementById("heu_klein").style.display = "block";
           setTimeout(()=>{
+            ShowText("Und schon ist es zeit für's schlachten. Das gehört nunmal auch dazu.",true);
             animationinprogress=false;
           },2000)
         },2000)
@@ -200,6 +205,7 @@ function CheckEvent(){
     if(Fortschrittspointer==12){
       setTimeout(()=>{
         document.getElementById("karton_voll").style.display="none";
+        ShowText("Eingepackt und ab zum Laden!",true);
     },500);
   }
     if(Fortschrittspointer == Regionabfolge.length){

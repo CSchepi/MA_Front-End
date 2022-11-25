@@ -29,7 +29,8 @@ function getLevelNumber(){
 
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
+  ShowText("Egal ob Brot, Nudeln oder Plätzchen - Nichts davon geht ohne Mehl. Also ab auf den Acker!",true);
+
   setTimeout(()=>{
     // ShowText("Anfangstext 2 (optional)",true);
   },6000)
@@ -97,9 +98,9 @@ function CheckEvent(){
             TraktorL.style.display="block";
             setTimeout(()=>{
               TraktorL.style.left="-70vh";
-              Stand_CO2 +=3;
-              // addanimation("c",20,55);
-              // UpdateTubes();
+              Stand_CO2 +=5;
+              addanimation("c",20,55);
+              UpdateTubes();
               setTimeout(()=>{ 
                 document.getElementById("stein").style.display ="none";
                 setTimeout(()=>{
@@ -137,6 +138,9 @@ function CheckEvent(){
     if(Fortschrittspointer == 5){
       setTimeout(()=>{
         document.getElementById("wasser").style.display="block";
+        Stand_H2O +=15;
+        addanimation("w",25,55);
+        UpdateTubes();
         MoveTo(18);
       },500);
     }
@@ -146,6 +150,7 @@ function CheckEvent(){
         document.getElementById("kanne").style.display="block";
         NextSeason();
         setTimeout(()=>{
+          ShowText("Wusstest du, dass Mehl aus allen möglichen Getreidesorten hergestellt werden kann? Dazu zählen neben Weizen auch Mais, Roggen, Gerste, Hafer und Reis.",true);
           document.getElementById("mittel").style.display="block";
           document.getElementById("klein").style.display="none";
           document.getElementById("wasser").style.display="none";
@@ -163,6 +168,9 @@ function CheckEvent(){
     if(Fortschrittspointer == 8){
       setTimeout(()=>{
         document.getElementById("dünger").style.display="block";
+        Stand_H2O +=20;
+        addanimation("w",25,55);
+       UpdateTubes();
         MoveTo(15);
       },500);
     }
@@ -205,9 +213,9 @@ function CheckEvent(){
             TraktorL.style.display="block";
             setTimeout(()=>{
               TraktorL.style.left="-70vh";
-              Stand_CO2 +=3;
-              // addanimation("c",20,55);
-              // UpdateTubes();
+              Stand_CO2 +=10;
+              addanimation("c",20,55);
+              UpdateTubes();
               setTimeout(()=>{ 
                 setTimeout(()=>{
                   GoTo(12);
@@ -231,18 +239,28 @@ function CheckEvent(){
     if(Fortschrittspointer ==11){
       setTimeout(()=>{
         document.getElementById("kiste").style.display="none";
+        ShowText("Wusstest du, dass du anhand der Zahl auf dem Mehl sehen kannst, wie fein es gemahlen wurde?",true);
       },500);
     }
 
     if(Fortschrittspointer ==12){
       setTimeout(()=>{
+        Stand_CO2 +=5;
+        addanimation("c",15,0);
+        UpdateTubes();
+      setTimeout(()=>{
+        Stand_H2O +=15;
+        addanimation("w",15,0);
+        UpdateTubes();
         document.getElementById("mehl").style.display="block";
+      },3000)
       },500);
     }
 
     if(Fortschrittspointer ==13){
       setTimeout(()=>{
         document.getElementById("mehl").style.display="none";
+        ShowText("Klasse! Das Mehl kann jetzt für alles mögliche verwendet werden. Vielleicht brauchen wir es ja später selbst nochmal.",true);
       },500);
     }
 

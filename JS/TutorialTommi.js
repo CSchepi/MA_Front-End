@@ -67,7 +67,7 @@ function StartTutorial(pos){
   '<div id="sprechblase">'+
   '  <img src="./img/LVL_General/Sprechblase.png" alt=""width="30%" style="z-index:4;position:fixed; top: 60vh; right: 10vw;">'+
   '  <p id="tutorialtext" style="z-index:5; position:fixed; width:25%; display: inline-block; top: 61vh; right: 12.5vw; font-size: 1.5vw;">Hier steht ein Text der dem SPieler weiterhelfen soll und ihm sachen erklärt!</p>'+
-  '  <p onclick="CloseTutorial('+pos+')" style="position:fixed; display: inline-block; width:18vh;color:white;top: calc(61vh + 12vw);right: 25vh; font-size: 3vh; cursor: pointer;">Weiter >></p>'+
+  '  <p onclick="CloseTutorial('+pos+')" style="position:fixed; display: inline-block; width:18vh;color:white;top: calc(61vh + 12vw);right: 25vh; font-size: 3vh; cursor: pointer;">Weiter ➜</p>'+
   '</div>'+
   '</div>'
 }
@@ -78,7 +78,7 @@ function StartTutorialLevel(pos){
   '<div id="sprechblase">'+
   '  <img src="../img/LVL_General/Sprechblase.png" alt=""width="30%" style="position:fixed; top: 60vh; right: 10vw;">'+
   '  <p id="tutorialtext" style="position:fixed; width:25%; display: inline-block; top: 61vh; right: 12.5vw; font-size: 1.5vw;">Hier steht ein Text der dem SPieler weiterhelfen soll und ihm sachen erklärt!</p>'+
-  '  <p onclick="CloseTutorial('+pos+')" style="position:fixed; display: inline-block; width:18vh;color:white;top: calc(61vh + 12vw);right: 25vh; font-size: 3vh; cursor: pointer;">Weiter >></p>'+
+  '  <p onclick="CloseTutorial('+pos+')" style="position:fixed; display: inline-block; width:18vh;color:white;top: calc(61vh + 12vw);right: 25vh; font-size: 3vh; cursor: pointer;">Weiter ➜</p>'+
   '</div>'+
   '</div>'
 }

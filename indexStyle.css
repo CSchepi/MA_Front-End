@@ -134,3 +134,8 @@ a{
     margin-left: 1vw;
     display: none;
 }
+#infotext{
+    text-decoration: none;
+    color: black;
+    display: none;
+}

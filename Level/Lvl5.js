@@ -34,11 +34,12 @@ setTimeout(()=>{
 
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
+  ShowText("Ein Frühstücksei und der Tag kann beginnen! Heute schauen wir uns an, wo die eigentlich herkommen.",true);
+
   setTimeout(()=>{
-    // ShowText("Anfangstext 2 (optional)",true);
+    ShowText("Zuerst müssen die Hühner natürlich aus dem Stall gelassen werden.",true);
+    animationinprogress = false;
   },6000)
-  animationinprogress = false;
   cards_Start();
 },4000)
 
@@ -89,6 +90,7 @@ function CheckEvent(){
         document.getElementById("chicken").style.transition="1s ease";
         setTimeout(()=>{
           document.getElementById("chicken").style.opacity="1";
+          ShowText("Auch Hühner brauchen Frühstück, sonst kann das mit dem Eier legen ja garnicht klappen.",true);
           animationinprogress=false;
         },1000)
       },500);
@@ -96,6 +98,9 @@ function CheckEvent(){
 
     if(Fortschrittspointer == 2){
       setTimeout(()=>{
+        Stand_H2O +=20;
+        addanimation("w",5,20);
+        UpdateTubes();
         document.getElementById("sf1").style.display="block";
         document.getElementById("sf5").style.display="block";
       },500);
@@ -107,6 +112,9 @@ function CheckEvent(){
         document.getElementById("sf"+TommiField).style.display="none";
         const index = Regionabfolge[3].indexOf(TommiField);
         if (index > -1) { 
+          Stand_CO2 +=15;
+          addanimation("c",25,55);
+          UpdateTubes();
           Regionabfolge[3].splice(index, 1); 
         }
       },500);
@@ -115,6 +123,9 @@ function CheckEvent(){
       setTimeout(()=>{
         document.getElementById("f"+TommiField).style.display="block";
         document.getElementById("sf"+TommiField).style.display="none";
+        Stand_CO2 +=15;
+        addanimation("c",25,55);
+        UpdateTubes();
         MoveTo(16);
       },500);
     }
@@ -125,6 +136,7 @@ function CheckEvent(){
         NextSeason();
         setTimeout(()=>{
           document.getElementById("kot").style.display="block";
+          ShowText("Was rein geht, muss auch wieder raus. Wir sollten das Gehege besser sauber machen.",true);
           animationinprogress=false;
         },2000)
       },500);
@@ -138,6 +150,9 @@ function CheckEvent(){
     if(Fortschrittspointer == 7){
       setTimeout(()=>{
         document.getElementById("kot").style.display="none";
+        Stand_CO2 +=20;
+        addanimation("c",25,55);
+        UpdateTubes();
         MoveTo(11);
       },500);
     }
@@ -153,6 +168,7 @@ function CheckEvent(){
       setTimeout(()=>{
         document.getElementById("schild").style.display="none";
         document.getElementById("korb").style.display="block";
+        ShowText("Sehr schön! Damit die Eier den Transport unbeschadet überstehen sollten wir sie noch schnell in Eierkartons packen.",true);
         revealpuzzlepiece();
       },500);
     }
@@ -165,6 +181,14 @@ function CheckEvent(){
 
     if(Fortschrittspointer ==11){
       setTimeout(()=>{
+        Stand_CO2 +=20;
+        addanimation("c",15,0);
+        UpdateTubes();
+        setTimeout(()=>{
+          Stand_H2O +=20;
+          addanimation("w",15,0);
+          UpdateTubes();
+        },3000)
         document.getElementById("karton").style.display="block";
       },500);
     }

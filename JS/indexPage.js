@@ -10,6 +10,9 @@ ClearSessionStorage();
 
 function Login(){
     document.getElementById("loadingcircle").style.display="inline";
+    setTimeout(()=>{
+        document.getElementById("infotext").style.display="inline";
+    },1500)
     let username=document.getElementById("loginName").value;
     let pw= document.getElementById("loginPw").value;
     if(username!=null && pw!=null){

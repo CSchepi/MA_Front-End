@@ -29,11 +29,12 @@ function getLevelNumber(){
 
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext4",true);
+  ShowText("Wir sind wieder zurück auf dem Acker. Dieses mal sind aber die Kartoffeln dran.",true);
+
   setTimeout(()=>{
-    // ShowText("Anfangstext 2 (optional)",true);
+    ShowText("Es geht fast so wie mit den Karotten, also leg einfach mal los.",true);
+    animationinprogress = false;
   },6000)
-  animationinprogress = false;
   cards_Start();
 },4000)
 
@@ -97,9 +98,9 @@ function CheckEvent(){
             TraktorL.style.display="block";
             setTimeout(()=>{
               TraktorL.style.left="-70vh";
-              Stand_CO2 +=3;
-              // addanimation("c",20,55);
-              // UpdateTubes();
+              Stand_CO2 +=5;
+              addanimation("c",20,55);
+              UpdateTubes();
               setTimeout(()=>{ 
                 document.getElementById("Damm").style.display ="block";
                 setTimeout(()=>{
@@ -165,6 +166,10 @@ function CheckEvent(){
           document.getElementById("K1_5").style.display="none";
           document.getElementById("K2").style.display="block";
           document.getElementById("Unkraut").style.display="block";
+          ShowText("Siehst du die kleinen schwarzen Punkte auf den Pflanzen? Das sind Kartoffelkäfer",true);
+          setTimeout(()=>{
+            ShowText("Das ist aber kein Problem. Wir können sie einfach mit den Händen absammeln und so die Kartoffeln schützen.",true);
+          },4000)
           animationinprogress=false
         },2000)
       },500);
@@ -184,6 +189,9 @@ function CheckEvent(){
 
     if(Fortschrittspointer ==9){
       setTimeout(()=>{
+        Stand_H2O +=5;
+        addanimation("w",20,55);
+        UpdateTubes();
         document.getElementById("Gießen").style.display="block";
         MoveTo(15);
       },500);
@@ -197,6 +205,7 @@ function CheckEvent(){
           document.getElementById("K3").style.display="block";
           document.getElementById("K2").style.display="none";
           document.getElementById("Gießen").style.display="none";
+          ShowText("Die Pflanzen sehen super aus! Reif für die Ernte, würde ich sagen.",true);
           animationinprogress=false;
         },2500)
       },500);
@@ -224,9 +233,9 @@ function CheckEvent(){
           TraktorL.style.display="block";
           setTimeout(()=>{
             TraktorL.style.left="-70vh";
-            Stand_CO2 +=3;
-            // addanimation("c",20,55);
-            // UpdateTubes();
+            Stand_CO2 +=5;
+            addanimation("c",20,55);
+            UpdateTubes();
             setTimeout(()=>{ 
               setTimeout(()=>{
                 GoTo(12);
@@ -234,7 +243,6 @@ function CheckEvent(){
                 setTimeout(()=>{
                   document.getElementById("Kiste").style.display="block";
                   revealpuzzlepiece();
-                  ShowText("Gut gemacht! Die Karotten sind aus der Erde. Außerdem hast du ein Puzzelteil gefunden!",true);
                 },500)
                 setTimeout(()=>{
                   animationinprogress = false;
@@ -254,6 +262,9 @@ function CheckEvent(){
     }
     if(Fortschrittspointer ==13){
       setTimeout(()=>{
+        Stand_CO2 +=5;
+        addanimation("c",15,0);
+        UpdateTubes();
         document.getElementById("BoxPacked").style.display="block";
       },500);
     }

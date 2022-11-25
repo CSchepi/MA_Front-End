@@ -33,9 +33,10 @@ setTimeout(()=>{
 },1000)
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
+  ShowText("Wie du dir vielleicht denken kannst, finde ich Tomaten super!",true);
+
   setTimeout(()=>{
-    // ShowText("Anfangstext 2 (optional)",true);
+    ShowText("Daher wollen wir uns heute anschauen, wie man sie anbaut.",true);
   },6000)
   animationinprogress = false;
   cards_Start();
@@ -86,8 +87,12 @@ function CheckEvent(){
     //CHANGE
     if(Fortschrittspointer == 1){
       setTimeout(()=>{
+        ShowText("Tomaten werden als Jungpflanzen gepflanzt. Ich hab doch noch ein paar in der Scheune stehen.",true);
         document.getElementById("tor").style.display="block";
         document.getElementById("topf").style.display="block";
+        Stand_CO2 +=15;
+        addanimation("c",35,30);
+        UpdateTubes();
       },500);
     }
 
@@ -111,6 +116,7 @@ function CheckEvent(){
     if(Fortschrittspointer == 5){
       setTimeout(()=>{
         document.getElementById("saat").style.display="block";
+        ShowText("Lass uns den Pflänzchen eine kleine Wachstumshilfe geben und ihnen ein Gerüst aus Stöcken bauen.",true);
       },500);
     }
     if(Fortschrittspointer == 6){
@@ -143,6 +149,7 @@ function CheckEvent(){
         document.getElementById("MM1").style.display="block";
         document.getElementById("MM2").style.display="block";
         document.getElementById("MV").style.display="block";
+        ShowText("Damit die Tomaten schön saftig sind brauchen sie natürlich auch viel Wasser. Da reicht der Regen manchmal nicht aus.",true);
         },2200)
       },500);
     }
@@ -155,6 +162,9 @@ function CheckEvent(){
 
     if(Fortschrittspointer ==10){
       setTimeout(()=>{
+        Stand_H2O +=10;
+        addanimation("w",25,55);
+        UpdateTubes();
         document.getElementById("wasser").style.display="block";
         MoveTo(18);
       },500);
@@ -173,6 +183,7 @@ function CheckEvent(){
         document.getElementById("GM1").style.display="block";
         document.getElementById("GM2").style.display="block";
         document.getElementById("GV").style.display="block";
+        ShowText("Schnell noch tüten holen und dann kann geerntet werden!",true);
         },2200)
       },500);
     }
@@ -180,6 +191,9 @@ function CheckEvent(){
     if(Fortschrittspointer ==12){
       setTimeout(()=>{
         document.getElementById("tüten_leer").style.display="block";
+        Stand_CO2 +=25;
+        addanimation("c",15,0);
+        UpdateTubes();
       },500);
     }
     

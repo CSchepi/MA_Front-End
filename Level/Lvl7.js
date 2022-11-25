@@ -36,11 +36,11 @@ setTimeout(()=>{
 
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
-  setTimeout(()=>{
-    document.getElementById("bd4").style.opacity = "0";
-    // ShowText("Anfangstext 2 (optional)",true);
-  },6000)
+  ShowText("Heute arbeiten wir am Weinberg. Hier gibt es bald leckere Trauben zu ernten.",true);
+    setTimeout(()=>{
+      document.getElementById("bd4").style.opacity = "0";
+      ShowText("Rebstöcke (so heißen die Bäume), müssen regelmäßig zurückgeschnitten werden, damit die Trauben saftig sind. ",true);
+    },6000)
   animationinprogress = false;
   cards_Start();
 },4000)
@@ -127,7 +127,11 @@ function CheckEvent(){
             document.getElementById("w2").style.display="block";
             document.getElementById("w3").style.display="block";
             document.getElementById("w4").style.display="block";
-            animationinprogress=false;
+            ShowText("Oh nein - die Reblaus hat sich auf unseren Pflanzen breit gemacht.",true);
+            setTimeout(()=>{
+              ShowText("Leider führt kein weg am Sprizuen mit Pflanzenschutzmittel vorbei. ",true);
+              animationinprogress=false;
+            },3000)
           },2000)
         },500)
       },500);
@@ -141,6 +145,9 @@ function CheckEvent(){
     if(Fortschrittspointer == 7){
       animationinprogress=true;
         setTimeout(()=>{
+          Stand_H2O +=7;
+          addanimation("w",30,65);
+          UpdateTubes();
           document.getElementById("w"+TommiField).style.opacity="1";
           document.getElementById("w"+TommiField).style.transition="1s ease";
           setTimeout(()=>{
@@ -160,6 +167,9 @@ function CheckEvent(){
     if(Fortschrittspointer == 8){
       animationinprogress=true;
         setTimeout(()=>{
+          Stand_H2O +=7;
+          addanimation("w",30,65);
+          UpdateTubes();
           document.getElementById("w"+TommiField).style.opacity="1";
           document.getElementById("w"+TommiField).style.transition="1s ease";
           setTimeout(()=>{
@@ -178,6 +188,9 @@ function CheckEvent(){
     if(Fortschrittspointer == 9){
       animationinprogress=true;
         setTimeout(()=>{
+          Stand_H2O +=6;
+          addanimation("w",30,65);
+          UpdateTubes();
           document.getElementById("w"+TommiField).style.opacity="1";
           document.getElementById("w"+TommiField).style.transition="1s ease";
           setTimeout(()=>{
@@ -196,6 +209,7 @@ function CheckEvent(){
         setTimeout(()=>{
           document.getElementById("traubeH").style.display="block";
           document.getElementById("traubeV").style.display="block";
+          ShowText("Die ganze Arbeit war es wert! Schau dir die schönen Weintrauben an.",true);
         },2200)
       },500);
     }
@@ -236,6 +250,9 @@ function CheckEvent(){
 
     if(Fortschrittspointer ==14){
       setTimeout(()=>{
+        Stand_CO2 +=25;
+        addanimation("c",15,0);
+        UpdateTubes();
         document.getElementById("box").style.display="block";
       },500);
     }

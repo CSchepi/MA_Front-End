@@ -40,8 +40,8 @@ function InitiateCards(){
                     if(cardnum<10){fillzeros = "00"}
                     let zutaten = recipedata["ingredientlist"].replaceAll("//","<br>");
                     let cname = recipedata["name"];
-                    if(cname.length >20){
-                        cname = cname.slice(0,18)+"…";
+                    if(cname.length >18){
+                        cname = cname.slice(0,16)+"…";
                     }
                     document.getElementById(id).innerHTML=
                     '<div id="CR'+cardnum+'Front" style="display: block;">'+
@@ -97,6 +97,17 @@ function InitiateCards(){
             document.getElementById(id).classList.add("cmed"+cardinfos["region"]); 
             let optionalstyle1 = "";
             let optionalstyle2 = "";
+            let seasonstart = ((Number(cardinfos["seasonstart"])-1)/11)*100;
+            let seasonend = ((Number(cardinfos["seasonend"])-1)/11)*100;
+            let seasondifference = seasonend-seasonstart;
+            let optionalseasonspan ="";
+            if(seasondifference<0){
+                seasondifference = 100-seasonstart
+                optionalseasonspan='    <div class="cseasonspan" style="width: '+seasonend+'%;left:0%;"></div>';
+            }
+            else{
+                seasondifference -=1;
+            }
             // console.log("Nummer: "+cardnum+" : "+(cardinfos["infobar"].length+kategorystring.length));
             if(cardinfos["infobar"].length+kategorystring.length>=19){
                 optionalstyle1=" ccategorylong";
@@ -112,9 +123,10 @@ function InitiateCards(){
                 '<p class="csubtitle'+optionalstyle2+'">Saison:</p>'+
                 '<div class="cseasontext">❄️ &emsp;&ensp; 🌱 &emsp;&ensp; ☀️ &emsp;&ensp; 🍂 &emsp;&ensp; ❄️</div>'+
                 '<div class="cseasonbar  cpointseason">'+
-                '    <div class="cseasonspan" style="width: 34%;left:40%;"></div>'+
-                '    <div class="cseasonstart" style="left: 40%;"></div>'+
-                '    <div class="cseasonend" style="left: 75%;"></div>'+
+                '    <div class="cseasonspan" style="width: '+seasondifference+'%;left:'+seasonstart+'%;"></div>'+
+                optionalseasonspan+
+                '    <div class="cseasonstart" style="left: '+seasonstart+'%;"></div>'+
+                '    <div class="cseasonend" style="left: '+seasonend+'%;"></div>'+
                 '    <div class="cinfo cseasoninfo">'+cardinfos["name"]+' '+seasonverb+' von '+MonthNumberToString(cardinfos["seasonstart"])+' bis '+MonthNumberToString(cardinfos["seasonend"])+' Saison.</div>'+
                 '</div>'+
                 '<p class="csubtitle">Umwelt:</p>'+

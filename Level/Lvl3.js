@@ -6,7 +6,7 @@ let HelpComments = [];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint
-let Fortschrittspointer = 12;
+let Fortschrittspointer = 0;
 let wrongactioncount = 0;
 let Stand_CO2 = 0;
 let Stand_H2O = 0;
@@ -29,11 +29,12 @@ function getLevelNumber(){
 
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
+  ShowText("Es ist Frühling und die Apfelbäume blühen. Und genau darum dreht es sich dieses mal.",true);  
+
   setTimeout(()=>{
-    // ShowText("Anfangstext 2 (optional)",true);
+    ShowText("Also auf geht's. Die Bäume sehen nach dem Winter etwas ramponiert aus.",true);
+    animationinprogress = false;
   },6000)
-  animationinprogress = false;
   cards_Start();
 },4000)
 
@@ -95,6 +96,7 @@ function CheckEvent(){
     if(Fortschrittspointer == 3){
       setTimeout(()=>{
         document.getElementById("s"+TommiField).style.display="none";
+        ShowText("Damit die Bäume genug Nährstoffe haben sollten wir sie etwas düngen.",true);
       },500);
     }
     if(Fortschrittspointer == 4){
@@ -107,10 +109,16 @@ function CheckEvent(){
       let animationinprogress =true;
       setTimeout(()=>{
         document.getElementById("dBaum").style.display="block";
+        Stand_H2O +=10;
+        addanimation("w",5,65);
+        UpdateTubes();
         setTimeout(()=>{
+          Stand_H2O +=10;
+          addanimation("w",35,65);
+          UpdateTubes();
           animationinprogress =false;
           MoveTo(16)
-        },500)
+        },3000)
       },500);
     }
 
@@ -128,6 +136,7 @@ function CheckEvent(){
           document.getElementById("a4").style.display="block"
           document.getElementById("a5").style.display="block"
           document.getElementById("a6").style.display="block"
+          ShowText("Äpfel sind wirklich pflegeleicht. Schon sind die Früchte reif zum Ernten.",true);
         },2500)
       },500);
     }
@@ -199,6 +208,7 @@ function CheckEvent(){
       setTimeout(()=>{
         document.getElementById("a"+TommiField).style.display="none";
         document.getElementById("k"+TommiField).style.display="block";
+        ShowText("Noch schnell verpacken und ab damit auf den Markt.",true);
       },500);
     }
     if(Fortschrittspointer ==13){
@@ -214,7 +224,15 @@ function CheckEvent(){
     }
     if(Fortschrittspointer ==14){
       setTimeout(()=>{
-        document.getElementById("box").style.display="block";
+        Stand_CO2 +=20;
+        addanimation("c",15,0);
+        UpdateTubes();
+        setTimeout(()=>{
+          Stand_H2O +=20;
+          addanimation("w",15,0);
+          UpdateTubes();
+          document.getElementById("box").style.display="block";
+        },3000)
       },500);
     }
     if(Fortschrittspointer ==15){

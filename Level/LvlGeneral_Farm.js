@@ -171,13 +171,13 @@ function GoTo(target){
 
         root.style.setProperty('--tommi-left', px);
         root.style.setProperty('--tommi-top', py);
-      },(i-1)*2000)
+      },(i-1)*20)
     }
     setTimeout(()=>{
       TommiPosition = target;
       currentlymoving = false;
       move(0);
-    },(targetpath.length-1)*2000)
+    },(targetpath.length-1)*20)
   }
 }
 
@@ -220,19 +220,22 @@ function duplicatearray(arraytocopy){
 }
 
 //Audio Output 
-let mute = sessionStorage.getItem("mute");
+let mute = false;
 function Mute(){
-  if(mute){
-    mute=false;
-    sessionStorage.setItem("mute",0);
+  if(!mute){
+    mute=true;
+    sessionStorage.setItem("mute",true);
     document.getElementById("voiceimg").src="../img/Icons/voice_0.png";
   }
   else{
-    mute=true;
-    sessionStorage.setItem("mute",1);
+    mute=false;
+    sessionStorage.setItem("mute",false);
     document.getElementById("voiceimg").src="../img/Icons/voice_1.png";
   }
 }
+setTimeout(()=>{
+  Mute();
+},500)
 
 let audioactive = true;
 function Audiocontroll(){
@@ -254,6 +257,15 @@ let textfield = document.getElementsByClassName("textfield")[0];
 let textiswriting = false;
 let textisshowing = false;
 //Content maximal 115 Zeichen lang!
+
+var msg = new SpeechSynthesisUtterance();
+var voices = window.speechSynthesis.getVoices();
+msg.voice = voices[10]; 
+msg.volume = 0.7; // From 0 to 1
+msg.rate = 1.3; // From 0.1 to 10
+msg.pitch = 0.2; // From 0 to 2
+msg.lang = 'de';
+
 function ShowText(content,notempty){
   if(notempty){
     textiswriting = true;
@@ -261,6 +273,11 @@ function ShowText(content,notempty){
     textfield.style.bottom ="2.2vh"; 
     textfieldtext.innerText = "";
     setTimeout(()=>{
+      msg.text = content;
+      console.log(mute);
+      if(!mute){
+        window.speechSynthesis.speak(msg);
+      }
       for(let i = 0; i<=content.length;i++){
         setTimeout(()=>{
           textfieldtext.innerText = content.substring(0,i);

@@ -1,6 +1,6 @@
 
 //APFEL
-let Regionabfolge = [];
+let Regionabfolge = [[12],[15],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[18],[10],[1,2,3,4,5,6],[15],[12],[3],[21],[12],[6],[9],[1,5],[1,5],[16],[6],[2,11],[2,11],[21],[11],[17]];
 //CHANGE
 let HelpComments = [];
 let timesbeforespeaking = 1;
@@ -29,11 +29,15 @@ function getLevelNumber(){
 
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
+  ShowText("Heute machen wir mein Leibgericht. Nudeln! Alles was wir dafür bauchen haben wir schon einmal gemacht.",true);
+
   setTimeout(()=>{
-    // ShowText("Anfangstext 2 (optional)",true);
+    ShowText("Zuerst stellen wir unser eigenes Mehl her und danach sammeln wir noch ein paar Eier. Du weißt ja wie.",true);
+    setTimeout(()=>{
+      ShowText("Wenn du hilfe brauchst, helfe ich dir natürlich immer weiter.",true);
+      animationinprogress = false;
+    },6000)
   },6000)
-  animationinprogress = false;
   cards_Start();
 },4000)
 
@@ -56,6 +60,7 @@ function MoveTo(position){
 }
 
 function CheckEvent(){
+  console.log(Regionabfolge[Fortschrittspointer]);
   if(Regionabfolge[Fortschrittspointer].includes(TommiField)){
     Fortschrittspointer ++;
     let points = 0; 
@@ -76,63 +81,324 @@ function CheckEvent(){
     //Game Logic happening here 
     //CHANGE
     if(Fortschrittspointer == 1){
+      let TraktorKlein = document.getElementById("TrK");
+      let TraktorL = document.getElementById("TrL");
+      let TraktorR = document.getElementById("TrR");
+      TraktorKlein.style.display="none";
+      animationinprogress = true;
       setTimeout(()=>{
-
-      },500);
+        GoTo(8);
+      },500)
+      setTimeout(()=>{
+        TraktorR.style.left="-60vh";
+        TraktorR.style.transition="5s linear";
+        TraktorL.style.left="00vh";
+        TraktorL.style.transition="5s linear";
+        TraktorR.style.display="block";
+        setTimeout(()=>{
+          TraktorR.style.left="20vh";
+          setTimeout(()=>{
+            TraktorR.style.display="none";
+            TraktorL.style.display="block";
+            setTimeout(()=>{
+              TraktorL.style.left="-70vh";
+              Stand_CO2 +=5;
+              addanimation("c",20,55);
+              UpdateTubes();
+              setTimeout(()=>{ 
+                document.getElementById("stein").style.display ="none";
+                setTimeout(()=>{
+                  GoTo(12);
+                  setTimeout(()=>{
+                    animationinprogress = false;
+                    TraktorKlein.style.display="block";
+                    },8500)
+                },1000)
+              },5200)
+            },100)
+          },5200)
+        },100)
+      },9000)
     }
 
     if(Fortschrittspointer == 2){
       setTimeout(()=>{
-
+        document.getElementById("samen").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 3){
       setTimeout(()=>{
-
+        document.getElementById("klein").style.display="block";
       },500);
     }
     if(Fortschrittspointer == 4){
       setTimeout(()=>{
-
+        document.getElementById("kanne").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 5){
       setTimeout(()=>{
-
+        document.getElementById("wasser").style.display="block";
+        Stand_H2O +=10;
+        addanimation("w",25,55);
+        UpdateTubes();
+        MoveTo(18);
       },500);
     }
     if(Fortschrittspointer == 6){
+      animationinprogress=true;
       setTimeout(()=>{
-
+        document.getElementById("kanne").style.display="block";
+        NextSeason();
+        setTimeout(()=>{
+          document.getElementById("mittel").style.display="block";
+          document.getElementById("klein").style.display="none";
+          document.getElementById("wasser").style.display="none";
+          animationinprogress=false;
+        },2200)
       },500);
     }
 
     if(Fortschrittspointer == 7){
       setTimeout(()=>{
-
+        document.getElementById("dünger_sack").style.display="none";
       },500);
     }
 
     if(Fortschrittspointer == 8){
       setTimeout(()=>{
-
+        document.getElementById("dünger").style.display="block";
+        Stand_H2O +=10;
+        addanimation("w",25,55);
+        UpdateTubes();
+        MoveTo(15);
       },500);
     }
 
     if(Fortschrittspointer == 9){
+      animationinprogress=true;
       setTimeout(()=>{
-
+        NextSeason();
+        setTimeout(()=>{
+          document.getElementById("groß").style.display="block";
+          document.getElementById("mittel").style.display="none";
+          document.getElementById("dünger").style.display="none";
+          document.getElementById("TrK").style.display="none";
+          document.getElementById("MäK").style.display="block";
+          animationinprogress=false;
+        },2200)
       },500);
     }
 
     if(Fortschrittspointer ==10){
+      let TraktorKlein = document.getElementById("MäK");
+      let TraktorL = document.getElementById("MäL");
+      let TraktorR = document.getElementById("MäR");
+      TraktorKlein.style.display="none";
+      animationinprogress = true;
       setTimeout(()=>{
+        GoTo(8);
+      },500)
+      setTimeout(()=>{
+        TraktorL.style.display="none";
+        TraktorR.style.left="-60vh";
+        TraktorR.style.transition="5s linear";
+        TraktorL.style.left="00vh";
+        TraktorL.style.transition="5s linear";
+        TraktorR.style.display="block";
+        setTimeout(()=>{
+          TraktorR.style.left="20vh";
+          setTimeout(()=>{
+            TraktorR.style.display="none";
+            TraktorL.style.display="block";
+            setTimeout(()=>{
+              TraktorL.style.left="-70vh";
+              Stand_CO2 +=5;
+              addanimation("c",20,55);
+              UpdateTubes();
+              setTimeout(()=>{ 
+                setTimeout(()=>{
+                  GoTo(12);
+                  document.getElementById("groß").style.display="none";
+                  setTimeout(()=>{
+                    document.getElementById("kiste").style.display="block";
+                   },500)
+                  setTimeout(()=>{
+                    animationinprogress = false;
+                    TraktorKlein.style.display="block";
+                  },8500)
+                },1000)
+              },5200)
+            },100)
+          },5200)
+        },100)
+      },9000)
+    }
 
+    if(Fortschrittspointer ==11){
+      setTimeout(()=>{
+        document.getElementById("kiste").style.display="none";
       },500);
     }
 
+    if(Fortschrittspointer ==12){
+      setTimeout(()=>{
+        Stand_CO2 +=5;
+        addanimation("c",15,0);
+        UpdateTubes();
+        setTimeout(()=>{
+          Stand_H2O +=10;
+          addanimation("w",15,0);
+          UpdateTubes();
+          document.getElementById("mehl").style.display="block";
+          MoveTo(12);
+        },3000)
+      })
+    }
+    if(Fortschrittspointer == 13){
+      setTimeout(()=>{
+        blackdrop.style.display="block";
+        blackdrop.style.opacity="0";
+        let bd2 = document.getElementById("bd2");
+        let bd3 = document.getElementById("bd3");
+        let bd4 = document.getElementById("bd4");
+        bd2.style.opacity=1;
+        bd3.style.opacity=0;
+        bd4.style.opacity=0;
+        setTimeout(()=>{
+          blackdrop.style.opacity="0.99";
+        },100)
+        setTimeout(()=>{
+          document.getElementById("acker").style.display="none";
+          document.getElementById("mühle").style.display="none";
+          document.getElementById("MäK").style.display="none";
+          document.getElementById("zv").style.display="block";
+          document.getElementById("zh").style.display="block";
+          document.getElementById("stall").style.display="block";
+          document.getElementById("fabrik").style.display="block";
+          let Connectiongraph_adapt = [[1,8,17,19],[0,2],[1,3,5],[2],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
+          document.getElementById("graph6old").remove();
+          document.getElementById("graph3").remove();
+          setTimeout(()=>{
+             adaptConnectionGraph(Connectiongraph_adapt);
+          },1000)
+          blackdrop.style.opacity="0";
+          setTimeout(()=>{
+            blackdrop.style.opacity="none";
+          },3000)
+        },3200)
+      },500)
+    }
+    if(Fortschrittspointer == 14){
+      animationinprogress=true
+      setTimeout(()=>{
+        document.getElementById("rampe").style.display="block";
+        document.getElementById("chicken").style.opacity="0";
+        document.getElementById("chicken").style.display="block";
+        document.getElementById("chicken").style.transition="1s ease";
+        setTimeout(()=>{
+          document.getElementById("chicken").style.opacity="1";
+          animationinprogress=false;
+        },1000)
+      },500);
+    }
+
+    if(Fortschrittspointer == 15){
+      setTimeout(()=>{
+        Stand_H2O +=10;
+        addanimation("w",5,20);
+        UpdateTubes();
+        document.getElementById("sf1").style.display="block";
+        document.getElementById("sf5").style.display="block";
+      },500);
+    }
+
+    if(Fortschrittspointer == 16){
+      setTimeout(()=>{
+        Stand_CO2 +=5;
+        addanimation("c",25,55);
+        UpdateTubes();
+        document.getElementById("f"+TommiField).style.display="block";
+        document.getElementById("sf"+TommiField).style.display="none";
+        const index = Regionabfolge[17].indexOf(TommiField);
+        if (index > -1) { 
+          Regionabfolge[16].splice(index, 1); 
+        }
+      },500);
+    }
+    if(Fortschrittspointer == 17){
+      setTimeout(()=>{
+        Stand_CO2 +=5;
+        addanimation("c",25,55);
+        UpdateTubes();
+        document.getElementById("f"+TommiField).style.display="block";
+        document.getElementById("sf"+TommiField).style.display="none";
+        MoveTo(16);
+      },500);
+    }
+    if(Fortschrittspointer == 18){
+      setTimeout(()=>{
+        document.getElementById("schild").style.display="block";
+      },500);
+    }
+
+    if(Fortschrittspointer == 19){
+      setTimeout(()=>{
+        document.getElementById("schild").style.display="none";
+        document.getElementById("korb").style.display="block";
+        revealpuzzlepiece();
+        ShowText("Klasse gemacht! Jetzt haben wir eigentlich schon alles für den Nudelteig.",true);
+      },500);
+    }
+    
+    if(Fortschrittspointer == 20){
+      setTimeout(()=>{
+        if(TommiField==2){
+          document.getElementById("korb").style.display="none";
+        }
+        else{
+          document.getElementById("mehl").style.display="none";
+        }
+        const index = Regionabfolge[21].indexOf(TommiField);
+        if (index > -1) { 
+          Regionabfolge[16].splice(index, 1); 
+        }
+      },500);
+    }
+    if(Fortschrittspointer == 21){
+      setTimeout(()=>{
+        if(TommiField==2){
+          document.getElementById("korb").style.display="none";
+        }
+        else{
+          document.getElementById("mehl").style.display="none";
+        }
+      },500);
+    }
+
+    if(Fortschrittspointer == 22){
+      setTimeout(()=>{
+        
+        Stand_CO2 +=5;
+        addanimation("c",15,0);
+        UpdateTubes();
+        setTimeout(()=>{
+
+          Stand_H2O +=10;
+          addanimation("w",15,0);
+          UpdateTubes();
+          
+          ShowText("Für den Teig braucht man eigentlich nur Mehl, Eier und etwas Wasser oder Öl. Das ist wirklich einfach!",true);
+          document.getElementById("nudeln").style.display="block";
+        },3000)
+      },500);
+    }if(Fortschrittspointer == 23){
+      setTimeout(()=>{
+        document.getElementById("nudeln").style.display="none";
+      },500);
+    }
     if(Fortschrittspointer == Regionabfolge.length){
       LevelCompleted(33,10); //Enter Product Number and Lvl number //CHANGE
     }

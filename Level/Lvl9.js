@@ -34,11 +34,11 @@ setTimeout(()=>{
           
 //CHANGE
 setTimeout(()=>{
-  ShowText("Anfangstext",true);
+  ShowText("Die Kühe scharren schon mit den Hufen und wollen auf die Weide.",true);revealpuzzlepiece();
   setTimeout(()=>{
-    // ShowText("Anfangstext 2 (optional)",true);
+    ShowText("Also raus mit ihnen. Wir bekommen dafür im Gegenzug leckere Milch.",true);
+    animationinprogress = false;
   },6000)
-  animationinprogress = false;
   cards_Start();
 },4000)
 
@@ -104,7 +104,10 @@ function CheckEvent(){
           pig1.style.opacity="1";
           pig2.style.opacity="1";
           setTimeout(()=>{
-            Stand_CO2 +=20;
+            
+            Stand_CO2 +=10;
+            addanimation("c",25,55);
+            UpdateTubes();
             // addanimation("c",20,55);
             // UpdateTubes();
           },2000)
@@ -127,9 +130,9 @@ function CheckEvent(){
         setTimeout(()=>{
           tank.style.left="0vh"
           setTimeout(()=>{
-            Stand_H2O +=30;
-            // addanimation("w",5,47);
-            // UpdateTubes();
+            Stand_H2O +=20;
+            addanimation("w",5,47);
+            UpdateTubes();
             animationinprogress=false;
           },2000)
         },300)
@@ -145,9 +148,9 @@ function CheckEvent(){
       setTimeout(()=>{
         document.getElementById("heu").style.display = "block";
         setTimeout(()=>{
-          Stand_CO2 +=20;
-          // addanimation("c",45,50);
-          // UpdateTubes();
+          Stand_CO2 +=10;
+          addanimation("c",45,50);
+          UpdateTubes();
           MoveTo(11)
         },1500)
     },500);
@@ -159,7 +162,12 @@ function CheckEvent(){
         setTimeout(()=>{
           document.getElementById("heu").style.display = "none";
           document.getElementById("heu_klein").style.display = "block";
+          document.getElementById("canE").style.display="block";
           setTimeout(()=>{
+            Stand_CO2 +=10;
+            addanimation("c",45,50);
+            UpdateTubes();
+            ShowText("Jetzt da die Kühe fleißig gegessen haben, ist es Zeit sie zu Melken. Das geht aber nicht hier auf dem Feld.",true);
             animationinprogress=false;
           },2000)
         },2000)
@@ -186,6 +194,10 @@ function CheckEvent(){
     if(Fortschrittspointer==11){
       setTimeout(()=>{
         document.getElementById("canF").style.display="block";
+        ShowText("Damit die Milch auch ein bisschen länger haltbar wird, muss sie noch aufbereitet werden.",true);
+        Stand_CO2 +=10;
+        addanimation("c",45,15);
+        UpdateTubes();
         revealpuzzlepiece();
       },500)
     }
@@ -198,7 +210,15 @@ function CheckEvent(){
   
     if(Fortschrittspointer==13){
       setTimeout(()=>{
-        document.getElementById("milch").style.display="block";
+        Stand_CO2 +=10;
+        addanimation("c",15,0);
+        UpdateTubes();
+        setTimeout(()=>{
+          Stand_H2O +=10;
+          addanimation("w",15,0);
+          UpdateTubes();
+          document.getElementById("milch").style.display="block";
+        },3000)
       },500)
     }
     if(Fortschrittspointer==14){
