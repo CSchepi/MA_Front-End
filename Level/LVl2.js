@@ -34,8 +34,6 @@ setTimeout(()=>{
 //CHANGE
 setTimeout(()=>{
   ShowText("Dieses mal stellen wir Schweinefleisch her. Dafür müssen die Tiere erstmal aus dem Stall.",true);
-  revealpuzzlepiece();
-
   setTimeout(()=>{
     // ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
   },6000)

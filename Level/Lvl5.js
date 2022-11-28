@@ -35,7 +35,6 @@ setTimeout(()=>{
 //CHANGE
 setTimeout(()=>{
   ShowText("Ein Frühstücksei und der Tag kann beginnen! Heute schauen wir uns an, wo die eigentlich herkommen.",true);
-
   setTimeout(()=>{
     ShowText("Zuerst müssen die Hühner natürlich aus dem Stall gelassen werden.",true);
     animationinprogress = false;

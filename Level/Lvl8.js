@@ -34,7 +34,6 @@ setTimeout(()=>{
 //CHANGE
 setTimeout(()=>{
   ShowText("Wie du dir vielleicht denken kannst, finde ich Tomaten super!",true);
-
   setTimeout(()=>{
     ShowText("Daher wollen wir uns heute anschauen, wie man sie anbaut.",true);
   },6000)
