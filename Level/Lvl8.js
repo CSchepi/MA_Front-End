@@ -33,9 +33,9 @@ setTimeout(()=>{
 },1000)
 //CHANGE
 setTimeout(()=>{
-  ShowText("Wie du dir vielleicht denken kannst, finde ich Tomaten super!",true);
+  ShowText("Wie du dir vielleicht denken kannst, finde ich Tomaten super!Daher wollen wir sie heute anbaut.",true);
   setTimeout(()=>{
-    ShowText("Daher wollen wir uns heute anschauen, wie man sie anbaut.",true);
+    ShowText("Tomaten werden als Jungpflanzen gepflanzt. Ich hab doch noch ein paar in der Scheune stehen.",true);
   },6000)
   animationinprogress = false;
   cards_Start();
@@ -86,7 +86,6 @@ function CheckEvent(){
     //CHANGE
     if(Fortschrittspointer == 1){
       setTimeout(()=>{
-        ShowText("Tomaten werden als Jungpflanzen gepflanzt. Ich hab doch noch ein paar in der Scheune stehen.",true);
         document.getElementById("tor").style.display="block";
         document.getElementById("topf").style.display="block";
         Stand_CO2 +=15;

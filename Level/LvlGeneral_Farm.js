@@ -171,13 +171,13 @@ function GoTo(target){
 
         root.style.setProperty('--tommi-left', px);
         root.style.setProperty('--tommi-top', py);
-      },(i-1)*20)
+      },(i-1)*2000)
     }
     setTimeout(()=>{
       TommiPosition = target;
       currentlymoving = false;
       move(0);
-    },(targetpath.length-1)*20)
+    },(targetpath.length-1)*2000)
   }
 }
 
