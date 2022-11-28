@@ -25,7 +25,6 @@ function getLevelNumber(){
 
 setTimeout(()=>{
   ShowText("Hi! Heute wollen wir versuchen unsere eigenen Karotten anzubauen. Bist du bereit?",true);
-  addpoints(88);
   setTimeout(()=>{
     ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
   },6000)
