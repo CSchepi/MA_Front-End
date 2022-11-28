@@ -120,3 +120,18 @@ h3 img{
   background-color: rgb(220,255,220);
   border-radius: 1vh;
 }
+.gotocardview{
+  position: fixed;
+  top: 92vh;
+  width: 10vw;
+  margin-left: 85vw;
+  height: 3vh;
+  border-radius: 1vh;
+  border: darkgreen;
+  transition: 0.7s ease;
+  cursor: pointer;
+}
+.gotocardview:hover{
+  border-radius: 0;
+  background-color: lightgreen;
+}

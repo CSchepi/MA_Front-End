@@ -3,6 +3,7 @@
   --tommi-top: 39;
   --cylinder-co2:0; /*in percent*/
   --cylinder-water:0; /*in percent*/
+  --scale:1;
 }
 body{
   overflow: hidden;
@@ -14,6 +15,7 @@ body{
   display: flex;
   justify-content: center;
   overflow: hidden;
+  transform: scale(var(--scale));
 }
 .backdrop{
   position: relative;
@@ -42,6 +44,7 @@ body{
   margin: 0;
   margin-top: 2vh;
   width: 126vh;
+  transform: scale(var(--scale));
 }
 #blackdrop{
   position: absolute;
@@ -80,13 +83,13 @@ body{
   position: absolute;
   height: 60vh;
   margin-top: 20vh;
-  transform: translateX(-73vh);
+  transform: translateX(calc(-73vh * var(--scale)));
 }
 .cylinder2{
   position: absolute;
   height: 60vh;
   margin-top: 20vh;
-  transform: translateX(73vh);
+  transform: translateX(calc(73vh * var(--scale)));
 }
 #c1value, #c2value{
   transition: 2.5s ease;
@@ -246,4 +249,20 @@ margin-left: 6vh;
 }
  #webgazerGazeDot, #webgazerVideoContainer{ 
   display: none !important;
+}
+#ButtonWeiter1, #ButtonWeiter2{
+  position: fixed;
+  top: 92vh;
+  width: 10vw;
+  margin-left: 85vw;
+  height: 3vh;
+  border-radius: 1vh;
+  border: darkgreen;
+  transition: 0.7s ease;
+  cursor: pointer;
+}
+#ButtonWeiter1:hover, #ButtonWeiter2:hover{
+  
+  border-radius: 0;
+  background-color: lightgreen;
 }

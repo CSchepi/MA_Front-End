@@ -402,7 +402,6 @@ function RevealScore(){
   document.getElementsByClassName("card0")[0].style.display="none";
   document.getElementById("WinText").style.display="none";
   document.getElementsByClassName("lvlbar")[0].style.display="block";
-  resultpoints=85;
   let cardstoreveal = []
   if(resultpoints>=35&&prevownedcards.length<98){cardstoreveal.push(0);}
   if(resultpoints>=60&&prevownedcards.length<99){cardstoreveal.push(0);}
@@ -493,3 +492,13 @@ function ExitLevel(){
   window.location.href="../Navigation.html";
 }
 
+
+function Reframe(){
+  let ratio = window.innerHeight /window.innerWidth;
+  if(ratio>0.6){
+    let factor = (1 - ratio) +0.6;
+    root.style.setProperty('--scale', factor);
+  }
+}
+
+Reframe();
