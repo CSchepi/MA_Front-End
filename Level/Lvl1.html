@@ -101,23 +101,27 @@
       </svg>
 
       <!-- Punkteanzeige und Puzzelteil für Bonusspiel -->
-      <div class="lvlbar">
-        <div class="lbbarcontainer"><div class="lbbar" id="lbbar" style="width: 0%;"><div class="lbshine"></div></div></div>
-        <img src="../img/LVL_General/StarEmpty.png" alt="" class="lbstar lbstar1" id="lbstar1empty">
-        <img src="../img/LVL_General/Star.png" alt="" class="lbstar lbstar1" id="lbstar1full">
-        <img src="../img/LVL_General/Effect - Star_Sparkel.gif" alt="" class="lbstar lbstar1 lbstarsparkel" id="lbstarspark1">
-        <img src="../img/LVL_General/StarEmpty.png" alt="" class="lbstar lbstar2" id="lbstar2empty">
-        <img src="../img/LVL_General/Star.png" alt="" class="lbstar lbstar2" id="lbstar2full">
-        <img src="../img/LVL_General/Effect - Star_Sparkel.gif" alt="" class="lbstar lbstar2 lbstarsparkel" id="lbstarspark2">
-        <img src="../img/LVL_General/StarEmpty.png" alt="" class="lbstar lbstar3" id="lbstar3empty">
-        <img src="../img/LVL_General/Star.png" alt="" class="lbstar lbstar3" id="lbstar3full">
-        <img src="../img/LVL_General/Effect - Star_Sparkel.gif" alt="" class="lbstar lbstar3 lbstarsparkel" id="lbstarspark3">
-    </div>
-    <div class="puzzlepiecewrapper">
-      <img id="puzzlepiece" onclick="OpenPuzzle()" src="../img/LVL_General/Puzzlepiece.png" alt="">
-    </div>
+      
+      <div class="puzzlepiecewrapper">
+        <img id="puzzlepiece" onclick="OpenPuzzle()" src="../img/LVL_General/Puzzlepiece.png" alt="">
+      </div>  
     </div>
   </div>
+    
+  <div id="lvlbarwrapper">
+    <div class="lvlbar">
+      <div class="lbbarcontainer"><div class="lbbar" id="lbbar" style="width: 0%;"><div class="lbshine"></div></div></div>
+      <img src="../img/LVL_General/StarEmpty.png" alt="" class="lbstar lbstar1" id="lbstar1empty">
+      <img src="../img/LVL_General/Star.png" alt="" class="lbstar lbstar1" id="lbstar1full">
+      <img src="../img/LVL_General/Effect - Star_Sparkel.gif" alt="" class="lbstar lbstar1 lbstarsparkel" id="lbstarspark1">
+      <img src="../img/LVL_General/StarEmpty.png" alt="" class="lbstar lbstar2" id="lbstar2empty">
+      <img src="../img/LVL_General/Star.png" alt="" class="lbstar lbstar2" id="lbstar2full">
+      <img src="../img/LVL_General/Effect - Star_Sparkel.gif" alt="" class="lbstar lbstar2 lbstarsparkel" id="lbstarspark2">
+      <img src="../img/LVL_General/StarEmpty.png" alt="" class="lbstar lbstar3" id="lbstar3empty">
+      <img src="../img/LVL_General/Star.png" alt="" class="lbstar lbstar3" id="lbstar3full">
+      <img src="../img/LVL_General/Effect - Star_Sparkel.gif" alt="" class="lbstar lbstar3 lbstarsparkel" id="lbstarspark3">
+    </div>
+  </div> 
 
   <div class="Puzzlecontainer">
     <div class="allsite">
@@ -152,12 +156,12 @@
           <div class="memorycard" id="card23" onclick="FlipMemoryCard(23)"></div>
       </div>
     </div>
-</div>
+  </div>
 
 
-<div class="textfield"><p id="textfieldtext"></p></div>
+  <div class="textfield"><p id="textfieldtext"></p></div>
    
-<div class="blackonend" id="EndScreen">
+  <div class="blackonend" id="EndScreen">
   <h1 id="WinText">Level abgeschlossen!</h1>
   <div class="revealcardcontainer">
      <!-- Change to level related card id -->
@@ -165,13 +169,13 @@
   </div>
   <button id="ButtonWeiter1" onclick="RevealScore()">Weiter ></button>
   <button id="ButtonWeiter2" onclick="window.location.href='../level_overview.html'">Weiter ></button>
-</div>
+  </div>
 
-<div class="singlecard" id="singlecardwrapper">
-  <div class="closefull" onclick="CloseFullscrean()"><p>×</p></div>
-</div>
-
-<div id='impressum' onclick='window.open("../impressum.html", "_blank")'>impressum</div>
+  <div class="singlecard" id="singlecardwrapper">
+    <div class="closefull" onclick="CloseFullscrean()"><p>×</p></div>
+  </div>
+  
+  <div id='impressum' onclick='window.open("../impressum.html", "_blank")'>impressum</div>
 
 <script src="./Lvl1.js"></script>
 <script src="./LvlGeneral_Farm.js"></script>

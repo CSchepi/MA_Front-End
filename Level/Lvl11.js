@@ -32,7 +32,7 @@ setTimeout(()=>{
   ShowText("Leider sind bisher nur die ersten 10 Level implementiert. Danke, dass du so weit gespielt hast!",true);
   setTimeout(()=>{
     // ShowText("Anfangstext 2 (optional)",true);
-    window.location.href="../level_overview.html"
+    // window.location.href="../level_overview.html"
   },6000)
   animationinprogress = false;
   cards_Start();

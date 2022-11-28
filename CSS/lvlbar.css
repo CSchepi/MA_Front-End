@@ -1,15 +1,21 @@
 :root{
     --lvlbar-scale: 1.5vh;
 }
+#lvlbarwrapper{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 9vh;
+}
 
 .lvlbar{
     position: absolute;
-    
     width: calc(30*var(--lvlbar-scale));
     height: calc(4*var(--lvlbar-scale));
     border-radius: calc(0.4*var(--lvlbar-scale));
-    margin: var(--lvlbar-scale);
-    margin-left: 35vh;
+
     padding: 0;
 }
 .lbbarcontainer{

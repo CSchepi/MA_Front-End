@@ -401,7 +401,7 @@ function RevealScore(){
   document.getElementById("ButtonWeiter1").style.display="none";
   document.getElementsByClassName("card0")[0].style.display="none";
   document.getElementById("WinText").style.display="none";
-  document.getElementsByClassName("lvlbar")[0].style.display="block";
+  document.getElementsByClassName("lvlbar")[0].style.display="block"; 
   let cardstoreveal = []
   if(resultpoints>=35&&prevownedcards.length<98){cardstoreveal.push(0);}
   if(resultpoints>=60&&prevownedcards.length<99){cardstoreveal.push(0);}
@@ -496,7 +496,7 @@ function ExitLevel(){
 function Reframe(){
   let ratio = window.innerHeight /window.innerWidth;
   if(ratio>0.6){
-    let factor = (1 - ratio) +0.6;
+    let factor = (1 - ratio) +0.55;
     root.style.setProperty('--scale', factor);
   }
 }

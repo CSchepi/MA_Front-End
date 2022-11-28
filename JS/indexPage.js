@@ -15,6 +15,8 @@ function Login(){
     },1500)
     let username=document.getElementById("loginName").value;
     let pw= document.getElementById("loginPw").value;
+    console.log(pw);
+    console.log(username);
     if(username!=null && pw!=null){
         pw = PWencrypt(pw);
         if(!username.includes('@')){
@@ -81,7 +83,9 @@ function Register(){
                         reqaddUser.onreadystatechange = ()=>{
                         if (reqaddUser.readyState == 4 && reqaddUser.status == 200){
                             data = JSON.parse(reqaddUser.responseText);
-                            gotoHome();
+                            document.getElementById("loginName").value = username;
+                            document.getElementById("loginPw").value = document.getElementById("Rpw1").value;
+                            Login();
                             }
                         }
                     }
@@ -108,6 +112,7 @@ function RegisterBack(){
     ToRegisterField.style.display="inline";
 }
 function gotoHome(){
+    console.log(data);
     RegisterField.style.display="none";
     LoginField.style.display="none";
     ToRegisterField.style.display="none";

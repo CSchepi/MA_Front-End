@@ -216,12 +216,13 @@ margin-left: 6vh;
   background: rgba(0,0,0,0.95);
   top: 0;
   left: 0;
+  z-index: 1;
 }
 .blackonend h1{
   position: absolute;
   text-align: center;
   width: 100%;
-  z-index: 10;
+  z-index: 9;
   color: white;
   margin-top: 10vh;
 }
