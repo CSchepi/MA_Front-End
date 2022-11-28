@@ -39,7 +39,7 @@ setTimeout(()=>{
   },6000)
   animationinprogress = false;
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){
@@ -161,7 +161,7 @@ function CheckEvent(){
           document.getElementById("heu").style.display = "none";
           document.getElementById("heu_klein").style.display = "block";
           setTimeout(()=>{
-            ShowText("Und schon ist es zeit für's schlachten. Das gehört nunmal auch dazu.",true);
+            ShowText("Und schon ist es Zeit für's schlachten. Das gehört nunmal auch dazu.",true);
             animationinprogress=false;
           },2000)
         },2000)
@@ -207,7 +207,7 @@ function CheckEvent(){
     },500);
   }
     if(Fortschrittspointer == Regionabfolge.length){
-      LevelCompleted(39,2); //Enter Product Number and Lvl number //CHANGE
+      LevelCompleted(2,2); //Enter Product Number and Lvl number //CHANGE
     }
 
   }

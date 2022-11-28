@@ -34,8 +34,8 @@ function InitiateCards(){
                     if(cardnum<10){fillzeros = "00"}
                     let zutaten = recipedata["ingredientlist"].replaceAll("//","<br>");
                     let cname = recipedata["name"];
-                    if(cname.length >20){
-                        cname = cname.slice(0,18)+"…";
+                    if(cname.length >18){
+                        cname = cname.slice(0,16)+"…";
                     }
                     document.getElementById(id).innerHTML=
                     '<div id="CR'+cardnum+'Front" style="display: block;">'+
@@ -46,10 +46,10 @@ function InitiateCards(){
                         '<p class="crsubtitle">Zutaten:</p>'+
                         '<p class="cringredients">'+zutaten+'</p>'+
                         '<hr class="crseperator">'+
-                        '<div class="cpoints cpointumwelt crpoints1" style="width: calc(100%/2);">'+
+                        '<div class="cpoints cpointumwelt crpoints1" value="'+recipedata["carbonmedal"]+'" style="width: calc('+(recipedata["carbonmedal"]*20)+'%/2);">'+
                         '    <img class="cpointimg" src="../img/Cards/CO2Points.png" alt="">'+
                         '</div>'+
-                        '<div class="cpoints cpointwater crpoints2" style="width: calc(100%/2);">'+
+                        '<div class="cpoints cpointwater crpoints2" value="'+recipedata["watermedal"]+'" style="width: calc('+(recipedata["watermedal"]*20)+'%/2);">'+
                         '    <img class="cpointimg cpointimgwater" src="../img/Cards/H2OPoints.png" alt="">'+
                         '</div>'+
                         '<div class="cshine" id="CshineR'+cardnum+'-1"></div>'+
@@ -60,13 +60,12 @@ function InitiateCards(){
                         '<img src="../img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard(\'R'+cardnum+'\',0)">'+
                         '<h3 class="cname cbacktext">'+cname+'</h3>'+
                         '<div class="ctextfield">'+recipedata["backtext"]+'</div>'+
-                        '<a href="./index.html">Jetzt Kochen! ➜</a>'+
+                        '<a href="../RecipeSingleView.html?r='+cardnum+'">Jetzt Kochen! ➜</a>'+
                         '<svg class="barcode"'+
-                            'jsbarcode-value="RezeptR'+cardnum+'"'+
-                            'jsbarcode-textmargin="0" '+
-                            'jsbarcode-fontoptions="bold"'+
-                            'jsbarcode-lineColor= "#077"'+
-                            'jsbarcode-displayValue=false>'+
+                        'jsbarcode-format="CODE128"'+
+                        'jsbarcode-value="R'+fillzeros+cardnum+'"'+
+                        'jsbarcode-width="5" '+
+                        'jsbarcode-displayValue=false '+
                         '</svg>'+  
                     '</div>';
                 }
@@ -89,29 +88,48 @@ function InitiateCards(){
             if([57, 58, 38, 65, 66, 69, 70, 71, 75, 76, 78, 80, 81, 82, 83, 84, 85, 86, 88, 89, 92].includes(Number(cardnum))){seasonverb="hat";}
             if([39,55,67,95,97,98,99,100].includes(Number(cardnum))){dativ_n="n";}
             document.getElementById(id).classList.add("ckat"+cardinfos["type"]);
-            document.getElementById(id).classList.add("cmed"+cardinfos["region"]);
+            document.getElementById(id).classList.add("cmed"+cardinfos["region"]); 
+            let optionalstyle1 = "";
+            let optionalstyle2 = "";
+            let seasonstart = ((Number(cardinfos["seasonstart"])-1)/11)*100;
+            let seasonend = ((Number(cardinfos["seasonend"])-1)/11)*100;
+            let seasondifference = seasonend-seasonstart;
+            let optionalseasonspan ="";
+            if(seasondifference<0){
+                seasondifference = 100-seasonstart
+                optionalseasonspan='    <div class="cseasonspan" style="width: '+seasonend+'%;left:0%;"></div>';
+            }
+            else{
+                seasondifference -=1;
+            }
+            // console.log("Nummer: "+cardnum+" : "+(cardinfos["infobar"].length+kategorystring.length));
+            if(cardinfos["infobar"].length+kategorystring.length>=19){
+                optionalstyle1=" ccategorylong";
+                optionalstyle2=" csubtitleshort";
+            }
             document.getElementById(id).innerHTML=
             '<div id="C'+cardnum+'Front" style="display: block;">'+
                 '<img src="../img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard('+cardnum+',1)"> '+
                 '<h3 class="cname">'+cardinfos["name"]+'</h3>'+
                 '<img src="../img/Cards/Zutaten/'+cardnum+'.jpg"" alt="" class="cimg">'+
                 '<img src="../img/Cards/Medallien/M-'+cardinfos["region"]+'-'+cardinfos["type"]+'.png" alt="" class="cstamp">'+
-                '<div class="ccategory">Nr.'+numbersting+': '+cardinfos["infobar"]+' / '+kategorystring+'  </div>'+
-                '<p class="csubtitle">Saison:</p>'+
+                '<div class="ccategory'+optionalstyle1+'">Nr.'+numbersting+': '+cardinfos["infobar"]+' / '+kategorystring+'  </div>'+
+                '<p class="csubtitle'+optionalstyle2+'">Saison:</p>'+
                 '<div class="cseasontext">❄️ &emsp;&ensp; 🌱 &emsp;&ensp; ☀️ &emsp;&ensp; 🍂 &emsp;&ensp; ❄️</div>'+
                 '<div class="cseasonbar  cpointseason">'+
-                '    <div class="cseasonspan" style="width: 34%;left:40%;"></div>'+
-                '    <div class="cseasonstart" style="left: 40%;"></div>'+
-                '    <div class="cseasonend" style="left: 75%;"></div>'+
+                '    <div class="cseasonspan" style="width: '+seasondifference+'%;left:'+seasonstart+'%;"></div>'+
+                optionalseasonspan+
+                '    <div class="cseasonstart" style="left: '+seasonstart+'%;"></div>'+
+                '    <div class="cseasonend" style="left: '+seasonend+'%;"></div>'+
                 '    <div class="cinfo cseasoninfo">'+cardinfos["name"]+' '+seasonverb+' von '+MonthNumberToString(cardinfos["seasonstart"])+' bis '+MonthNumberToString(cardinfos["seasonend"])+' Saison.</div>'+
                 '</div>'+
                 '<p class="csubtitle">Umwelt:</p>'+
-                '<div class="cpoints cpointumwelt" style="width: calc(60%/2);">'+
+                '<div class="cpoints cpointumwelt" style="width: calc('+(cardinfos["carbonmedal"]*20)+'%/2);">'+
                 '    <img class="cpointimg" src="../img/Cards/CO2Points.png" alt="">'+
                 '    <div class="cinfo cumweltinfo">Die Produktion von 100g '+cardinfos["name"]+dativ_n+' erzeugt '+cardinfos["carbonpoints"]+'g CO2.</div>'+
                 '</div>'+
                 '<p class="csubtitle cwatertitle">Wasser:</p>'+
-                '<div class="cpoints cpointwater" style="width: calc(30%/2);">'+
+                '<div class="cpoints cpointwater" style="width: calc('+(cardinfos["watermedal"]*20)+'%/2);">'+
                 '    <img class="cpointimg cpointimgwater" src="../img/Cards/H2OPoints.png" alt="">'+
                 '    <div class="cinfo cwaterinfo">Die Produktion von 100g '+cardinfos["name"]+dativ_n+' benötigt '+cardinfos["waterpoints"]+' Lieter Wasser.</div>'+
                 '</div>'+
@@ -124,16 +142,16 @@ function InitiateCards(){
                 '<h3 class="cname cbacktext">'+cardinfos["name"]+'</h3>'+
                 '<div class="ctextfield">'+cardinfos["backtext"]+'</div>'+
                 '<svg class="barcode"'+
-                    'jsbarcode-value="Zutat'+cardnum+'"'+
-                    'jsbarcode-textmargin="0" '+
-                    'jsbarcode-fontoptions="bold"'+
-                    'jsbarcode-lineColor= "#077"'+
-                    'jsbarcode-displayValue=true>'+
+                    'jsbarcode-format="CODE128"'+
+                    'jsbarcode-value="I'+numbersting+'"'+
+                    'jsbarcode-width="5" '+
+                    'jsbarcode-displayValue=false '+
                 '</svg>'+   
             '</div>';
         }
     }
 }
+
 
 // Manual shine function
 function shine(cardnumber){

@@ -25,12 +25,13 @@ function getLevelNumber(){
 
 setTimeout(()=>{
   ShowText("Hi! Heute wollen wir versuchen unsere eigenen Karotten anzubauen. Bist du bereit?",true);
+
   setTimeout(()=>{
     ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
   },6000)
   animationinprogress = false;
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){
@@ -203,7 +204,7 @@ function CheckEvent(){
             document.getElementById("Gießen").style.display="none";
             document.getElementById("K2").style.display ="none";
             document.getElementById("K3").style.display ="block";
-            ShowText("Herbst ist Erntezeit! Unsere Karotten sehen genau richtig aus um geerntet zu werden. ",true);
+            ShowText("Herbst ist Erntezeit! Unsere Karotten sehen genau richtig aus, um geerntet zu werden. ",true);
           },2000)
         },1000)
       },500)

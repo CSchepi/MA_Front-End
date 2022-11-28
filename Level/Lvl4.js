@@ -32,11 +32,11 @@ setTimeout(()=>{
   ShowText("Wir sind wieder zurück auf dem Acker. Dieses mal sind aber die Kartoffeln dran.",true);
 
   setTimeout(()=>{
-    ShowText("Es geht fast so wie mit den Karotten, also leg einfach mal los.",true);
+    ShowText("Kartoffeln pflanzt man fast genau so an wie Karotten.Probier es doch einfach mal aus.",true);
     animationinprogress = false;
   },6000)
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){
@@ -168,8 +168,8 @@ function CheckEvent(){
           document.getElementById("Unkraut").style.display="block";
           ShowText("Siehst du die kleinen schwarzen Punkte auf den Pflanzen? Das sind Kartoffelkäfer",true);
           setTimeout(()=>{
-            ShowText("Das ist aber kein Problem. Wir können sie einfach mit den Händen absammeln und so die Kartoffeln schützen.",true);
-          },4000)
+            ShowText("Das ist aber kein Problem. Wir können sie einfach mit den Händen absammeln.",true);
+          },5500)
           animationinprogress=false
         },2000)
       },500);

@@ -11,16 +11,21 @@ let root = document.querySelector(':root');
 function FillInOwnedCards(){
     let innerhtml = '<img src="./img/Cards/AddCard.png" onclick="window.location.href=\'AddCardNav.html\'"  id="addcartfield" alt="">';
     let Ingredients = sessionStorage.getItem("ingredients").split(",");
-    // let Ingredients = [];
-    // for(let i = 1; i<101;i++){  Ingredients.push(i); }
+    //  let Ingredients = [];
+    //  for(let i = 1; i<101;i++){  Ingredients.push(i); }
     let Recipes = sessionStorage.getItem("recipes").split(",");
     // let Recipes = [];
     // for(let i = 300; i<400;i++){  Recipes.push(i); }
     for(let i = 0; i<Ingredients.length;i++){
-        innerhtml +='<div class="card cardI" onclick="FullScreen(this,2)" id="C'+Ingredients[i]+'"></div>';
+        if(Ingredients[i]!=""){
+            innerhtml +='<div class="card cardI" onclick="FullScreen(this,2)" id="C'+Ingredients[i]+'"></div>';
+
+        }
     }
     for(let i = 0; i<Recipes.length;i++){
-        innerhtml +='<div class="card crezept" onclick="FullScreen(this,2)" id="CR'+Recipes[i]+'"></div>'
+        if(Recipes[i]!=""){
+            innerhtml +='<div class="card crezept" onclick="FullScreen(this,2)" id="CR'+Recipes[i]+'"></div>'
+        }
     }
     cardwrapper.innerHTML = innerhtml;
     cards_Start();

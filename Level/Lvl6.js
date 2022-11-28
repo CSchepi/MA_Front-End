@@ -36,7 +36,7 @@ setTimeout(()=>{
   },6000)
   animationinprogress = false;
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){
@@ -150,11 +150,14 @@ function CheckEvent(){
         document.getElementById("kanne").style.display="block";
         NextSeason();
         setTimeout(()=>{
-          ShowText("Wusstest du, dass Mehl aus allen möglichen Getreidesorten hergestellt werden kann? Dazu zählen neben Weizen auch Mais, Roggen, Gerste, Hafer und Reis.",true);
+          ShowText("Wusstest du, dass Mehl aus allen möglichen Getreidesorten hergestellt werden kann?",true);
+          setTimeout(()=>{
+            ShowText("Dazu zählen neben Weizen auch Mais, Roggen, Gerste, Hafer und Reis.",true);
+            animationinprogress=false;
+          },5500)
           document.getElementById("mittel").style.display="block";
           document.getElementById("klein").style.display="none";
           document.getElementById("wasser").style.display="none";
-          animationinprogress=false;
         },2200)
       },500);
     }
@@ -260,7 +263,7 @@ function CheckEvent(){
     if(Fortschrittspointer ==13){
       setTimeout(()=>{
         document.getElementById("mehl").style.display="none";
-        ShowText("Klasse! Das Mehl kann jetzt für alles mögliche verwendet werden. Vielleicht brauchen wir es ja später selbst nochmal.",true);
+        ShowText("Das Mehl kann für alles mögliche verwendet werden. Vielleicht brauchen wir es ja später selbst nochmal.",true);
       },500);
     }
 

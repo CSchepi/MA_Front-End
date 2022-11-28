@@ -94,7 +94,7 @@ function Register(){
         }
     }
     else{
-        window.alert("Make sure to enter all information.")
+        window.alert("Stelle sicher, dass du alles eingegeben hast.")
     }
 
     }

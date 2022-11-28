@@ -43,7 +43,7 @@ setTimeout(()=>{
     },6000)
   animationinprogress = false;
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){
@@ -129,9 +129,9 @@ function CheckEvent(){
             document.getElementById("w4").style.display="block";
             ShowText("Oh nein - die Reblaus hat sich auf unseren Pflanzen breit gemacht.",true);
             setTimeout(()=>{
-              ShowText("Leider führt kein weg am Sprizuen mit Pflanzenschutzmittel vorbei. ",true);
+              ShowText("Leider führt kein Weg am Spritzen mit Pflanzenschutzmittel vorbei. ",true);
               animationinprogress=false;
-            },3000)
+            },5500)
           },2000)
         },500)
       },500);
@@ -250,7 +250,7 @@ function CheckEvent(){
 
     if(Fortschrittspointer ==14){
       setTimeout(()=>{
-        Stand_CO2 +=25;
+        Stand_CO2 +=20;
         addanimation("c",15,0);
         UpdateTubes();
         document.getElementById("box").style.display="block";

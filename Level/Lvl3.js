@@ -30,13 +30,12 @@ function getLevelNumber(){
 //CHANGE
 setTimeout(()=>{
   ShowText("Es ist Frühling und die Apfelbäume blühen. Und genau darum dreht es sich dieses mal.",true);  
-
   setTimeout(()=>{
     ShowText("Also auf geht's. Die Bäume sehen nach dem Winter etwas ramponiert aus.",true);
     animationinprogress = false;
   },6000)
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){

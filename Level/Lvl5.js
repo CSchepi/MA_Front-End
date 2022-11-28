@@ -40,7 +40,7 @@ setTimeout(()=>{
     animationinprogress = false;
   },6000)
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){

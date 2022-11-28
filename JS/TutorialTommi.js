@@ -26,14 +26,14 @@ tut_Progress.onreadystatechange = ()=>{
           if(tutorialprogress[2]=="0"){
             StartTutorialLevel(2);
           }
-          document.getElementById("tutorialtext").innerText="Jetzt ist es an der Zeit Lebensmittel herzustellen. Ich begleite dich durch das Spiel. Viel spaß und bis gleich!"
+          document.getElementById("tutorialtext").innerText="Jetzt ist es an der Zeit Lebensmittel herzustellen. Ich begleite dich durch das Spiel. Viel Spaß und bis gleich!"
         }
 
         if(page=="CardOverview.html"){
           if(tutorialprogress[3]=="0"){
             StartTutorial(3);
           }
-          document.getElementById("tutorialtext").innerText="Hier siehst du alle deine gesammelten Karten. Du kannst sie über die Knöpfe in der Leiste Filtern und auch ausdrucken."
+          document.getElementById("tutorialtext").innerText="Hier siehst du alle deine gesammelten Karten. Du kannst sie über die Knöpfe in der Leiste filtern und auch ausdrucken."
         }
 
         if(page=="ScannCode.html"){
@@ -47,7 +47,7 @@ tut_Progress.onreadystatechange = ()=>{
           if(tutorialprogress[5]=="0"){
             StartTutorial(5);
           }
-          document.getElementById("tutorialtext").innerText="Hier kannst du an neuen Rezepten basteln. Klicke einfach euf bis zu 5 Zutatenkarten oder scanne den Barcode von Lebensmitteln die du zuhause hast."
+          document.getElementById("tutorialtext").innerText="Hier kannst du an neuen Rezepten basteln. Klicke einfach auf bis zu 5 Zutatenkarten oder scanne den Barcode von Lebensmitteln die du Zuhause hast."
         }
 
         if(page=="Week_Planer.html"){
@@ -93,7 +93,7 @@ function CloseTutorial(pos){
   let tut_ProgressC = new XMLHttpRequest();
   tut_ProgressC.open("GET","https://ma-tommi.herokuapp.com/updateTutprogress?id="+sessionStorage.getItem("_id")+""+progressstring,true);
   tut_ProgressC.send();
-  if(pos==2){
+  if(pos==2 || pos==6){
     window.location.reload();
   }
 }

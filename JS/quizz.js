@@ -83,5 +83,15 @@ function ClickAnswer(num){
 
 
 function won(){
-  CompletePuzzle();
+  document.body.innerHTML+='<div id="greenbright"></div>';
+  setTimeout(()=>{
+    document.getElementById("greenbright").style.opacity="0.5"
+    setTimeout(()=>{
+      document.getElementById("greenbright").style.opacity="0"
+      setTimeout(()=>{
+        document.getElementById("greenbright").remove;
+        CompletePuzzle();
+      },1500)
+    },500)
+  },500)
 }

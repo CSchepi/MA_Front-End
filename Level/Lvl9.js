@@ -34,13 +34,13 @@ setTimeout(()=>{
           
 //CHANGE
 setTimeout(()=>{
-  ShowText("Die Kühe scharren schon mit den Hufen und wollen auf die Weide.",true);revealpuzzlepiece();
+  ShowText("Die Kühe scharren schon mit den Hufen und wollen auf die Weide.",true);
   setTimeout(()=>{
     ShowText("Also raus mit ihnen. Wir bekommen dafür im Gegenzug leckere Milch.",true);
     animationinprogress = false;
   },6000)
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){
@@ -167,7 +167,7 @@ function CheckEvent(){
             Stand_CO2 +=10;
             addanimation("c",45,50);
             UpdateTubes();
-            ShowText("Jetzt da die Kühe fleißig gegessen haben, ist es Zeit sie zu Melken. Das geht aber nicht hier auf dem Feld.",true);
+            ShowText("Jetzt da die Kühe fleißig gegessen haben, ist es Zeit sie zu melken. Das geht aber nicht hier auf dem Feld.",true);
             animationinprogress=false;
           },2000)
         },2000)

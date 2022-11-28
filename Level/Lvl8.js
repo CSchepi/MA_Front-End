@@ -39,7 +39,7 @@ setTimeout(()=>{
   },6000)
   animationinprogress = false;
   cards_Start();
-},4000)
+},5500)
 
 
 function MoveTo(position){
@@ -114,6 +114,7 @@ function CheckEvent(){
     if(Fortschrittspointer == 5){
       setTimeout(()=>{
         document.getElementById("saat").style.display="block";
+        document.getElementById("löcher").style.display="none";
         ShowText("Lass uns den Pflänzchen eine kleine Wachstumshilfe geben und ihnen ein Gerüst aus Stöcken bauen.",true);
       },500);
     }
@@ -181,7 +182,7 @@ function CheckEvent(){
         document.getElementById("GM1").style.display="block";
         document.getElementById("GM2").style.display="block";
         document.getElementById("GV").style.display="block";
-        ShowText("Schnell noch tüten holen und dann kann geerntet werden!",true);
+        ShowText("Schnell noch Tüten holen und dann kann geerntet werden!",true);
         },2200)
       },500);
     }
@@ -204,6 +205,16 @@ function CheckEvent(){
     if(Fortschrittspointer ==14){
       setTimeout(()=>{
         document.getElementById("tüten").style.display="block";
+        
+        document.getElementById("GH").style.display="none";
+        document.getElementById("GM1").style.display="none";
+        document.getElementById("GM2").style.display="none";
+        document.getElementById("GV").style.display="none";
+
+        document.getElementById("MH").style.display="block";
+        document.getElementById("MM1").style.display="block";
+        document.getElementById("MM2").style.display="block";
+        document.getElementById("MV").style.display="block";
         revealpuzzlepiece();
       },500);
     }
