@@ -31,7 +31,7 @@ setTimeout(()=>{
    adaptConnectionGraph(Connectiongraph_adapt);
 },1000)
 
-//CHANGE
+//CHANGEE
 setTimeout(()=>{
   ShowText("Dieses mal stellen wir Schweinefleisch her. Dafür müssen die Tiere erstmal aus dem Stall.",true);
   setTimeout(()=>{
