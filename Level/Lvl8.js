@@ -2,7 +2,7 @@
 //APFEL
 let Regionabfolge = [[14],[16],[1,2,3,4,5,6],[11],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[16],[18],[1,2,3,4,5,6],[18],[21],[11],[1,2,3,4,5,6],[11],[17]];
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Ich muss die Pflanzen aus der Scheune holen"],["Ich muss erstmal löcher graben"],["Erst die Löcher, dann die Pflanzen"],["Jetzt sind die kleinen Pflanzen dran"],["In jedes Loch eine Pflanze"],["Die Stöcke liegen beim Brunnen"],["Ich sollte die Stecken aufs Feld stellen"],[""],["Die Tomaten brauchen noch Wasser"],["Für jede Pflanze etwas Wasser"],[""],["Ich muss die Tüten von der Fabrik holen"],["Ich sollte die leeren Tüten mitnehmen"],["Jetzt ist es Zeit die Tomaten zu ernten"],["Die vollen Tüten stehen bereit."],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint

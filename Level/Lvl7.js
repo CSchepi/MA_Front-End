@@ -2,7 +2,7 @@
 //APFEL
 let Regionabfolge = [[11],[1,5,6],[1,5,6],[1,5,6],[11],[15],[2,3,4],[2,3,4],[2,3,4],[15],[1,2,3,4,5,6],[1,2,3,4,5,6],[18],[21],[15],[17]];
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Ich brauche eine Schere für die Bäume"],["Manche Bäume haben unschöne Äste"],["Manche Bäume haben unschöne Äste"],["Manche Bäume haben unschöne Äste"],[""],["Das Schutzmittel steht an der Scheune"],["Ich muss die Bäume mit weißen Blättern spritzen"],["Ich muss die Bäume mit weißen Blättern spritzen"],["Ich muss die Bäume mit weißen Blättern spritzen"],[""],["Die Trauben können geerntet werden"],["Die Trauben können geerntet werden"],["Schnell noch die Kisten aufsammeln"],["Auf dem Hügel wird alles verpackt."],["Nur noch die verpackten Trauben mitnehmen."],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint

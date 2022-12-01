@@ -2,7 +2,7 @@
 //APFEL
 let Regionabfolge = [[12],[15],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[18],[10],[1,2,3,4,5,6],[15],[12],[3],[21],[11],[17]];
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Mal wider ab zum Traktor"],["Weizensamen sind bei der Scheune"],["Es passen ganz viele Samen auf den Acker"],["Die Gießkanne ist beim Brunnen"],["Das Wasser muss noch zu den Pflanzen"],[""],["Als nächstes muss ich den Dünger holen"],["Der Dünger muss aufs Feld"],[""],["Geerntet wird mit dem Mähdrescher"],["Ich muss das Weizen holen"],["Die Windmühle hilft mir beim mahlen"],["Das fertige Mehl steht bereit"],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint

@@ -2,7 +2,7 @@
 //APFEL
 let Regionabfolge = [[11],[2,6],[2,6],[15],[1,2,3,4,5,6],[16],[1,2,3,4,5,6],[1,2,3,4,5,6],[1,2,3,4,5,6],[1,2,3,4,5,6],[1,2,3,4,5,6],[1,2,3,4,5,6],[18],[21],[15],[17]];
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Ich brauche eine Baumschere"],["Ich muss alle betroffenen Bäume zurückschneiden"],["Noch mehr Bäume brauchen das."],["Der Dünger steht an der Scheune"],["Der Dünger muss zu den Bäumen"],[""],["Die Apfel kann ich per Hand pflücken"],["Ein Baum nach dem Anderen"],["Ein Baum nach dem Anderen"],["Ein Baum nach dem Anderen"],["Ein Baum nach dem Anderen"],["Ein Baum nach dem Anderen"],["Ich muss die Kisten einsammeln"],["Verpackt wird auf dem Hügel"],["Schnell noch die Kisten einsammeln"],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint

@@ -2,7 +2,7 @@
 //MILCH
 let Regionabfolge = [[14],[1,2,3,4,5,6],[18],[1],[9],[3],[11],[1,2,3,4,5,6],[14],[11],[14],[12],[21],[11],[17]]; //CHANGE
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Die Kühen sind noch im Stall"],["Die Tiere müssen auf die Weide"],["Die Kühe sehen durstig aus"],["Das Wasser muss noch auf die Weide"],["Futter ist in den Silos"],["Das Futter muss auch auf die Weide"],[""],["Ich muss die Kühe wieder in den Stall bringen"],["Ab zum Stall"],["Die leeren Milchkannen stehen bereit"],["In der Scheune wird gemolken."],["Die Milch muss noch verarbeitet werden"],["Die Fabrik auf der Scheune hilft mir weiter"],["Schnell noch die Milchkartons einsammeln."],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint

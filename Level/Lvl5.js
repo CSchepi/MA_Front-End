@@ -2,7 +2,7 @@
 //EI
 let Regionabfolge = [[6],[9],[1,5],[1,5],[16],[11],[1,2,3,4,5,6],[11],[6],[2],[21],[18],[17]];
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Die Hühner sind im Stall auf dem Acker"],["Futter gibts bei den Silos"],["Das Futter muss ins Gehege"],["Das Futter muss ins Gehege"],[""],["Ich sollte erstmal Schaufel und Eimer holen"],["Der Hühnerkot muss vom Feld"],[""],["Ah - Im Stall liegen Eier"],["Ich sollte den Korb mit den Eiern holen"],["Eierkartongs gibt es auf dem Hügel"],["Die Verpackten Eier stehen bereit, eingesammelt zu werden."],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint

@@ -2,7 +2,7 @@
 //Kartoffel
 let Regionabfolge = [[12],[9],[1,3,5],[1,3,5],[1,3,5],[15],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[15],[12],[3],[21],[15],[17]];
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Der Traktor hilft mit den schweren Steinen"],["Die Samen sind am Silo"],["ich muss auf den Acker"],["Da ist noch platz für mehr Kartoffeln"],["Da ist noch platz für mehr Kartoffeln"],[""],["Ich kann auf dem Acker die Käfer absammeln"],["Wasser gibts beim Brunnen"],["Ab mit der Gieskanne aufs Feld"],[""],["Geerntet wird mit dem Traktor"],["Ich muss die Kiste holen"],["Die Kartoffeln müssen zur Fabrik"],["Die verpackten Kartoffeln sind an der Scheune"],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint

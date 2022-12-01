@@ -2,7 +2,7 @@
 //APFEL
 let Regionabfolge = [[12],[15],[1,2,3,4,5,6],[18],[1,2,3,4,5,6],[18],[10],[1,2,3,4,5,6],[15],[12],[3],[21],[12],[6],[9],[1,5],[1,5],[16],[6],[2,11],[2,11],[21],[11],[17]];
 //CHANGE
-let HelpComments = [];
+let HelpComments = [["Der Traktor hilft mit den Steinen"],["Die Samen stehen an der Scheune"],["Die Samen müssen aufs Feld"],["Ich brauche noch etwas Wasser"],["Ich sollte die Pflanzen gießen"],[""],["Ich brauche noch Dünger"],["Der Dünger muss noch aufs Feld"],[""],["Mit dem Mähdrescher gehts am einfachsten"],["ich muss das Getreide einsammeln"],["Die Mühle hilft mir neim mahlen"],[""],["Die Hühner müssen aus dem Stall"],["Futter gibts im Silo"],["Ich muss das Futter noch austreuen"],["Jedes Huhn soll genug zu essen haben"],[""],["Es wurden Eier im Hühnerstall gelegt"],["Eier und Mehl können jetzt verarbeitet werden"],["Eier und Mehl können jetzt verarbeitet werden"],["Ich muss die Sachen zur Fabrik bringen"],["Die Nudeln stehen bereit zum Verkauf!"],["Zum Markt gehts über den Wegweiser"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint
