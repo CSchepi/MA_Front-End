@@ -23,6 +23,8 @@ function getpoints(){
 }
 
 function drawBar(){
+    bar = document.getElementById("lbbar");
+    new ResizeObserver(outputsize).observe(bar);
     bar.style.width=points+"%";
 }
 drawBar();
@@ -66,4 +68,4 @@ function FillStar(number){
     },10)
 }
 
-new ResizeObserver(outputsize).observe(bar)
+new ResizeObserver(outputsize).observe(bar);

@@ -171,13 +171,13 @@ function GoTo(target){
 
         root.style.setProperty('--tommi-left', px);
         root.style.setProperty('--tommi-top', py);
-      },(i-1)*200)
+      },(i-1)*2000)
     }
     setTimeout(()=>{
       TommiPosition = target;
       currentlymoving = false;
       move(0);
-    },(targetpath.length-1)*200)
+    },(targetpath.length-1)*2000)
   }
 }
 
@@ -356,7 +356,9 @@ function CompletePuzzle(){
   document.getElementsByClassName("homebutton")[0].style.display="block";
   document.getElementById("audio").style.display="block";
   document.getElementById("speach").style.display="block";
-  addpoints(25);
+  setTimeout(()=>{
+    addpoints(25);
+  },1000)
 }
 let resultpoints = 0
 let updateuser_req = new XMLHttpRequest();

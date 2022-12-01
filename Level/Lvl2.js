@@ -182,6 +182,7 @@ function CheckEvent(){
     if(Fortschrittspointer==9){
       Stand_H2O +=50;
       addanimation("w",15,0);
+      ShowText("Nur noch die Kartons holen.",true);
       UpdateTubes();
   }
     if(Fortschrittspointer==10){
