@@ -93,8 +93,14 @@ function CloseTutorial(pos){
   let tut_ProgressC = new XMLHttpRequest();
   tut_ProgressC.open("GET","https://ma-tommi.herokuapp.com/updateTutprogress?id="+sessionStorage.getItem("_id")+""+progressstring,true);
   tut_ProgressC.send();
-  if(pos==2 || pos==6){
-    window.location.reload();
+  tut_ProgressC.onreadystatechange = ()=>{
+    if(tut_ProgressC.status==200&&tut_ProgressC.readyState==4&&tut_ProgressC.responseText){
+      if(pos==2 || pos==6){
+        setTimeout(()=>{
+          window.location.reload();
+        },500);
+      }
+    }
   }
 }
 
