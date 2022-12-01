@@ -89,7 +89,7 @@ function won(){
     setTimeout(()=>{
       document.getElementById("greenbright").style.opacity="0"
       setTimeout(()=>{
-        document.getElementById("greenbright").remove;
+        document.getElementById("greenbright").remove();
         CompletePuzzle();
       },1500)
     },500)

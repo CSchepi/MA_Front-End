@@ -162,6 +162,7 @@ function CheckEvent(){
           document.getElementById("heu_klein").style.display = "block";
           setTimeout(()=>{
             ShowText("Und schon ist es Zeit für's schlachten. Das gehört nunmal auch dazu.",true);
+            document.getElementById("Schild_Schlachten").style.display = "block";
             animationinprogress=false;
           },2000)
         },2000)
@@ -172,6 +173,7 @@ function CheckEvent(){
         let pig2 =    document.getElementById("pig2");
         pig2.style.opacity ="0";
         pig2.style.display ="none";
+        document.getElementById("Schild_Schlachten").style.display = "none";
         setTimeout(()=>{
           revealpuzzlepiece();
         },1000);
