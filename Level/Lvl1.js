@@ -28,7 +28,7 @@ setTimeout(()=>{
 
   setTimeout(()=>{
     ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
-  },6000)
+  },7000)
   animationinprogress = false;
   cards_Start();
 },5500)
@@ -148,6 +148,7 @@ function CheckEvent(){
     if(Fortschrittspointer == 5){
       setTimeout(()=>{
         document.getElementById("Kanne").style.display = "none";
+        ShowText("Gut, ich hab die Gießkanne aufgesammelt, jetzt muss ich nur noch gießen.",true);
       },500)
     }
 

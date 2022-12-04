@@ -40,7 +40,7 @@ setTimeout(()=>{
     setTimeout(()=>{
       document.getElementById("bd4").style.opacity = "0";
       ShowText("Rebstöcke (so heißen die Bäume), müssen regelmäßig zurückgeschnitten werden, damit die Trauben saftig sind. ",true);
-    },6000)
+    },7000)
   animationinprogress = false;
   cards_Start();
 },5500)

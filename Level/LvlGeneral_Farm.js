@@ -242,6 +242,7 @@ function Audiocontroll(){
   if(audioactive){
     audioactive =false;
     audio.volume = 0;
+    audio.pause();
     document.getElementById("audioimg").src="../img/Icons/music_0.png";
   }
   else{
@@ -276,7 +277,11 @@ function ShowText(content,notempty){
       msg.text = content;
       console.log(mute);
       if(!mute){
+        audio.volume = 0.04;
         window.speechSynthesis.speak(msg);
+        setTimeout(()=>{
+          audio.volume=0.13;
+        },5000)
       }
       for(let i = 0; i<=content.length;i++){
         setTimeout(()=>{

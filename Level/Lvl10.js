@@ -36,7 +36,7 @@ setTimeout(()=>{
     setTimeout(()=>{
       ShowText("Wenn du hilfe brauchst, helfe ich dir natürlich immer weiter.",true);
       animationinprogress = false;
-    },6000)
+    },7000)
   },6000)
   cards_Start();
 },4000)

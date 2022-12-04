@@ -36,7 +36,7 @@ setTimeout(()=>{
   ShowText("Wie du dir vielleicht denken kannst, finde ich Tomaten super!Daher wollen wir sie heute anbaut.",true);
   setTimeout(()=>{
     ShowText("Tomaten werden als Jungpflanzen gepflanzt. Ich hab doch noch ein paar in der Scheune stehen.",true);
-  },6000)
+  },7000)
   animationinprogress = false;
   cards_Start();
 },5500)

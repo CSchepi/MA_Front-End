@@ -33,7 +33,7 @@ setTimeout(()=>{
   setTimeout(()=>{
     ShowText("Also auf geht's. Die Bäume sehen nach dem Winter etwas ramponiert aus.",true);
     animationinprogress = false;
-  },6000)
+  },7000)
   cards_Start();
 },5500)
 

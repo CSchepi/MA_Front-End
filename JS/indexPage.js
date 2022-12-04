@@ -15,8 +15,6 @@ function Login(){
     },1500)
     let username=document.getElementById("loginName").value;
     let pw= document.getElementById("loginPw").value;
-    console.log(pw);
-    console.log(username);
     if(username!=null && pw!=null){
         pw = PWencrypt(pw);
         if(!username.includes('@')){

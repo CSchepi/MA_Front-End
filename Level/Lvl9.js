@@ -38,7 +38,7 @@ setTimeout(()=>{
   setTimeout(()=>{
     ShowText("Also raus mit ihnen. Wir bekommen dafür im Gegenzug leckere Milch.",true);
     animationinprogress = false;
-  },6000)
+  },7000)
   cards_Start();
 },5500)
 

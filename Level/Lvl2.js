@@ -29,7 +29,7 @@ function getLevelNumber(){
 let Connectiongraph_adapt = [[1,8,17,19],[0,2],[1,3,5],[2],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
 setTimeout(()=>{
    adaptConnectionGraph(Connectiongraph_adapt);
-},1000)
+},7000)
 
 //CHANGEE
 setTimeout(()=>{
@@ -130,7 +130,7 @@ function CheckEvent(){
             Stand_H2O +=30;
             addanimation("w",5,47);
             UpdateTubes();
-            ShowText("Noch eine kleinigkeit zu essen und die Tiere sind rundum glücklich.",true);
+            ShowText("Noch eine Kleinigkeit zu essen und die Tiere sind rundum glücklich.",true);
             animationinprogress=false;
           },2000)
         },300)
@@ -161,7 +161,7 @@ function CheckEvent(){
           document.getElementById("heu").style.display = "none";
           document.getElementById("heu_klein").style.display = "block";
           setTimeout(()=>{
-            ShowText("Und schon ist es Zeit für's schlachten. Das gehört nunmal auch dazu.",true);
+            ShowText("Und schon ist es Zeit für's Schlachten. Das gehört nunmal auch dazu.",true);
             document.getElementById("Schild_Schlachten").style.display = "block";
             animationinprogress=false;
           },2000)

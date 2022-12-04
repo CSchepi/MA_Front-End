@@ -38,7 +38,7 @@ setTimeout(()=>{
   setTimeout(()=>{
     ShowText("Zuerst müssen die Hühner natürlich aus dem Stall gelassen werden.",true);
     animationinprogress = false;
-  },6000)
+  },7000)
   cards_Start();
 },5500)
 

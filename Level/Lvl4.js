@@ -34,7 +34,7 @@ setTimeout(()=>{
   setTimeout(()=>{
     ShowText("Kartoffeln pflanzt man fast genau so an wie Karotten.Probier es doch einfach mal aus.",true);
     animationinprogress = false;
-  },6000)
+  },7000)
   cards_Start();
 },5500)
 
