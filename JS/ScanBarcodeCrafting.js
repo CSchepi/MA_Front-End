@@ -57,8 +57,7 @@ function eanfound(decodedText){
 }
 
 function onScanFailure(error) {
-  
-    AddCardType(producttotest[1][0])
+    // AddCardType(producttotest[1][0])
 }
 
 function AddCardType(producttotest){
