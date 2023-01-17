@@ -1,3 +1,4 @@
+//Open information taxt of the titles 
 function openField(num){
     let field = document.getElementById("text"+num);
     let triangle = document.getElementById("arrow"+num);

@@ -8,6 +8,7 @@ let userid =sessionStorage.getItem("_id");
 
 let Recipes = sessionStorage.getItem("recipes").split(",");
 
+//Changing cards to gray and not clicable if no recipe exists for it and all so far selected cards
 function FilterAvailables(){
     let requeststring = "";
     if(!cardsinfield.length==0){
@@ -16,6 +17,7 @@ function FilterAvailables(){
     }
     let allcards = document.getElementsByClassName("card");
     let availablenonselected = [];
+    //server side calculation of available cards based on previous input
     let restIng_req = new XMLHttpRequest();
     restIng_req.open("GET","https://ma-tommi.herokuapp.com/getIngredientswhileCrafting?id="+userid+""+requeststring,true);
     restIng_req.send();
@@ -25,6 +27,7 @@ function FilterAvailables(){
             for(let i = 0; i<availablenonselected.length;i++){
                 availablenonselected[i] = Number(availablenonselected[i]);
             }
+            //Add class "notavailable" to all cards not included in server result
             for(let i = 0; i < allcards.length; i++){
                 allcards[i].classList.remove("notavailable");
                 let cardnumber = allcards[i].id.replace("C","");
@@ -32,6 +35,7 @@ function FilterAvailables(){
                     allcards[i].classList.add("notavailable");
                 }
             }
+            //sort all not available cards to end of row (per kategory)
             setTimeout(()=>{
                 for(let i = 0; i<5;i++){
                     let categoryfield = document.getElementById("KatWrapp"+i);
@@ -53,6 +57,7 @@ function FilterAvailables(){
     
 }
 
+//Scrolling through the cards of a kategory
 function ShowNext(cat){
     if(cat ==1 || cat==3){
         cardkatpointer[cat]= (cardkatpointer[cat]-1+cardsprokat[cat].length)%cardsprokat[cat].length;
@@ -63,8 +68,10 @@ function ShowNext(cat){
     ShowRelevantCards()
 }
 
+//cloering in not available cards gray and making them not clickable
 function ShowRelevantCards(){
     let allcards = document.getElementsByClassName("card");
+    //ignor all cards in the crafting area
     for(let i = 0; i < allcards.length; i++){
         if(!allcards[i].classList.contains("alwaysvisible")){
             allcards[i].style.display="none";
@@ -79,6 +86,7 @@ function ShowRelevantCards(){
     }
 }
 
+//adds users owned cards to html and sorting into product kategory
 function FillInOwnedCards(){
     let innerhtml0 = '';
     let innerhtml1 = '';
@@ -95,7 +103,6 @@ function FillInOwnedCards(){
             document.getElementById("C"+bonuscard).click();
         },500);
     }
-    // Ingredients = Ingredients.concat([1,2,3,4,6,20,21,22,23,24,60,61,62,63,64,88,89,90]);
     for(let i = 0; i<Ingredients.length; i++){
         let Item = Ingredients[i];
         if(Item<17){
@@ -119,6 +126,7 @@ function FillInOwnedCards(){
             cardsprokat[4].push(Item);
         }
     }
+    //Adding Buttons after last or before first card based on the side of the screen on which the kategory is displayed
     if(cardsprokat[0].length>3){    innerhtml0 += '<div class="shownext"><button onclick="ShowNext(0)">❯</button></div>'; }
     if(cardsprokat[1].length>3){    innerhtml1 = '<div class="showprev"><button onclick="ShowNext(1)">❮</button></div>'+innerhtml1; }
     if(cardsprokat[2].length>3){    innerhtml2 += '<div class="shownext"><button onclick="ShowNext(2)">❯</button></div>'; }
@@ -136,6 +144,7 @@ function FillInOwnedCards(){
 
 FillInOwnedCards();
 
+//moves card fron crafting area to side kategory
 function RemoveInput(kat,cardnum){
     const removeindex = cardsinfield.indexOf(cardnum);
     if (removeindex > -1) {
@@ -157,6 +166,7 @@ function RemoveInput(kat,cardnum){
     FilterAvailables();
 }
 
+//moves card from Kategory to crafting area
 function Add(kat,cardnum){
     if(document.getElementById("C"+cardnum).classList.contains("notavailable"))
     {
@@ -188,6 +198,7 @@ function Add(kat,cardnum){
     FilterAvailables();
 }
 
+//Displaying the calculated Card that uses all given ingredients with animation + making it fullscrean 
 function ShowResult(){
     
     let options = null;
@@ -236,6 +247,7 @@ function ShowResult(){
     }
 }
 
+//restarting recipe crafter when result is accepted by user
 function CloseFullscreanCrafter(){
     window.location.href="";
 }

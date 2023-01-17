@@ -2,7 +2,7 @@
 let printcards = document.getElementsByClassName("card");
 let toremove = [];
 let toclone = [];
-
+//fill in Cards Front and Back in a layout that can be printed 
 for(let i = 0; i<printcards.length;i++){
   if(printcards[i].style.display != "none"){
     toclone.push(printcards[i].id);

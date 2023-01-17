@@ -54,6 +54,10 @@ tut_Progress.onreadystatechange = ()=>{
           if(tutorialprogress[5]=="0"){
             StartTutorial(5);
           }
+          //show product scanner guiding image if feater wasn't used yet
+          if(tutorialprogress[5]=="2"){
+            document.getElementById("tryit").remove();
+          }
           document.getElementById("tutorialtext").innerText="Hier kannst du an neuen Rezepten basteln. Klicke einfach auf bis zu 5 Zutatenkarten oder scanne den Barcode von Lebensmitteln die du Zuhause hast."
         }
 
@@ -95,7 +99,9 @@ function StartTutorialLevel(pos){
 function CloseTutorial(pos){
  
   document.getElementById("TutorialWrapper").style.display="none";
+  
   if(pos=="7"){
+    //Writing tutorial progress of Product scanner on same entry as crafting
     tutorialprogress[5]=2;
   }
   else{

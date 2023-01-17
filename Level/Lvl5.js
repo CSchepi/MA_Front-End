@@ -32,6 +32,9 @@ setTimeout(()=>{
    adaptConnectionGraph(Connectiongraph_adapt);
 },1000)
 
+function getpuzzletype(){
+  return 1;
+}
 //CHANGE
 setTimeout(()=>{
   ShowText("Ein Frühstücksei und der Tag kann beginnen! Heute schauen wir uns an, wo die eigentlich herkommen.",true);

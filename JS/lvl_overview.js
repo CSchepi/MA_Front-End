@@ -6,6 +6,7 @@ if(nextunplayed==0){
 }
 let selectedlvl = nextunplayed;
 
+//creating graphics for every level based on level progress of user
 function CreateLvlMarkings(){
     for(let i = 0; i <lvlprogress.length;i++){
         let lvlIcon = document.getElementById("lvl"+(i+1));
@@ -27,7 +28,7 @@ setTimeout(()=>{
 },300)
 
 
-
+//Marking level the user cliced on 
 function SelectLvl(lvlnumber){
     if(selectedlvl==lvlnumber){
         PlayLvl(lvlnumber);
@@ -46,7 +47,7 @@ function SelectLvl(lvlnumber){
     }
 }
 
-
+//start level by redirecting to according html file
 function PlayLvl(){
     window.location.href="./Level/Lvl"+selectedlvl+".html";
 }

@@ -5,6 +5,7 @@ let Recipes = [];
 let RecipePointer=0;
 let root = document.querySelector(':root');
 
+//Fill in HTML divs for owned recipes 
 function FillInOwnedCards(){
     let innerhtml = '';
     let Recipes = sessionStorage.getItem("recipes").split(",");
@@ -26,6 +27,7 @@ let filtertext = "";
 let waterfilter = 5;
 let carbonfilter = 5;
 
+//Filter Recipe Crads based on substring search in title 
 function FilterText(filterstring){
     if(filterstring!=""){
         waterfilter=5
@@ -57,6 +59,7 @@ function FilterText(filterstring){
     ShiftRecipes(0);
 }
 
+//Filter Cards based on carbon AND Waterpoints 
 function FilterPoints(carbon, water){
     if(carbon!=5&&water!=5){
         FilterText("");
@@ -91,7 +94,7 @@ function FilterPoints(carbon, water){
     ShiftRecipes(0);
 }
 
-
+//Show arrows to scroll through owned recipes if not all fit onto the screen
 function UpdateArrows(){
     if(Recipes.length>10){
         if(RecipePointer>0){
@@ -113,6 +116,7 @@ function UpdateArrows(){
     }
 }
 
+//Scroll through recipes
 function ShiftRecipes(val){
     RecipePointer += val;
     for(let i = 0; i<Recipes.length;i++){
@@ -126,6 +130,7 @@ function ShiftRecipes(val){
     UpdateArrows();
 }
 
+//Change Graphic in Filter Field when medal filter clicked
 function FilterPoint(cat,num){
     if(cat=="C"){
         let children = document.getElementsByClassName("co2filter")[0].children;
@@ -149,6 +154,7 @@ function FilterPoint(cat,num){
     }
 }
 
+//Move Card from top to placeholder and update tubes 
 function SelectForDay(cardnum){
     if(!full){
         filled[nextpointer]=cardnum;
@@ -165,6 +171,8 @@ function SelectForDay(cardnum){
         UpdatePlan();
     }
 }
+
+//Move card from placeholder to top
 function RemoveSelected(position){
     document.getElementById("delday"+position).style.display="none";
     let toselect = document.getElementById("cardstoselect");
@@ -177,6 +185,7 @@ function RemoveSelected(position){
     },1000)
 }
 
+//Select placeholder to move next card to 
 function ChangePlaceholder(topos){    
     document.getElementById('day'+(nextpointer+1)+'placeholder').style.border ="none";
     nextpointer = topos;
@@ -184,6 +193,7 @@ function ChangePlaceholder(topos){
 
 }
 
+//Calculate and Show footprint average in cylinders
 function UpdatePlan(){
     let checkfull= true;
     let findnext = null;

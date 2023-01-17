@@ -26,7 +26,9 @@ let animationinprogress = true;
 function getLevelNumber(){
   return 4;
 }
-
+function getpuzzletype(){
+  return 0;
+}
 //CHANGE
 setTimeout(()=>{
   ShowText("Wir sind wieder zurück auf dem Acker. Dieses mal sind aber die Kartoffeln dran.",true);

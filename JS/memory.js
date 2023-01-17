@@ -62,21 +62,41 @@ let allurls = [[
 'https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bm9vZGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
 ]]
 
+
+let paircount = 12;
+let difficultyscore = getdifficulty();
+console.log(difficultyscore);
+if(difficultyscore<9){document.getElementById("card23").remove();document.getElementById("card22").remove();remove1pair();}
+if(difficultyscore<7){document.getElementById("card21").remove();document.getElementById("card20").remove();remove1pair();}
+if(difficultyscore<5){document.getElementById("card19").remove();document.getElementById("card18").remove();remove1pair();}
+if(difficultyscore<3){document.getElementById("card17").remove();document.getElementById("card16").remove();remove1pair();}
+if(difficultyscore<1){document.getElementById("card15").remove();document.getElementById("card14").remove();remove1pair();}
+function remove1pair(){
+    paircount--;
+    cardorder.pop();
+    cardorder.pop();
+    cardlinks.pop();
+    cardlinks.pop();
+    cardsopen.pop();
+    cardsopen.pop();    
+}
+console.log(paircount);
 let LvlNumber = getLevelNumber();
 let urls = allurls[LvlNumber-1];
+// generating a random distribution for images
 function Initialshuffle(){
-    for(let i = 1; i<12;i++){
+    for(let i = 1; i<paircount;i++){
         let placed1 = false;
         let placed2 = false;
         while(!placed1){
-            let pos = Math.floor(Math.random() * 24);
+            let pos = Math.floor(Math.random() * (paircount*2));
             if(cardorder[pos]==0){
                 cardorder[pos]=i;
                 placed1 = true;
             }
         }
         while(!placed2){
-            let pos = Math.floor(Math.random() * 24);
+            let pos = Math.floor(Math.random() * (paircount*2));
             if(cardorder[pos]==0){
                 cardorder[pos]=i;
                 placed2 = true;
@@ -85,8 +105,9 @@ function Initialshuffle(){
     }
 }
 Initialshuffle();
+console.log(cardorder);
 
-
+//Check state of game and flip cards if possible
 function FlipMemoryCard(cnumber){
     //only do something if a card with image side down is clicked and previous turn is over
     if(!cardsopen[cnumber]&&!disableclick){ 
@@ -103,6 +124,7 @@ function FlipMemoryCard(cnumber){
     }
 }
 
+//Animate the flipping of a card based on previous side 
 function Rotate(cnumber, sidetoturnto){
     //cnumber marks card to act on and sidetoturnto is 0 for turne to close and 1 for turne to open
     let card = document.getElementById("card"+cnumber);
@@ -118,7 +140,7 @@ function Rotate(cnumber, sidetoturnto){
     },420)
 }
 
-
+//Check for solve of memory
 function checkmatch(secondcard){
     let firstcard = opencard;
     if(cardorder[firstcard]==cardorder[secondcard]){
@@ -126,7 +148,7 @@ function checkmatch(secondcard){
         firstturned=false;
         foundpairs++;
         disableclick=false;
-        if(foundpairs>=12){
+        if(foundpairs>=paircount){
             setTimeout(()=>{
                 GameWon();
             },1000)
@@ -145,6 +167,7 @@ function checkmatch(secondcard){
     }
 }
 
+//Animate Feedback when game is complete
 function GameWon(){
     document.body.innerHTML+='<div id="greenbright"></div>';
     setTimeout(()=>{
@@ -158,6 +181,7 @@ function GameWon(){
       },500)
     },500)
 }
+
 
 function SetLevel(LvlNumber){
     urls = allurls[LvlNumber];

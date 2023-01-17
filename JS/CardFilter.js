@@ -1,3 +1,4 @@
+//Get HTML elements and setting initial values
 let cssroot = document.querySelector(':root');
 let checkzutaten = document.getElementById("CheckboxZutat");
 let checkrezepte = document.getElementById("CheckboxRezept");
@@ -8,14 +9,12 @@ let numbershowing = 0;
 let cardwrapper = document.getElementsByClassName("cardwrapper")[0];
 let root = document.querySelector(':root');
 
+//Get all cards a user ownes and adding the according html divs on which cards.js will operate
 function FillInOwnedCards(){
     let innerhtml = '<img src="./img/Cards/AddCard.png" onclick="window.location.href=\'AddCardNav.html\'"  id="addcartfield" alt="">';
     let Ingredients = sessionStorage.getItem("ingredients").split(",");
-    //  let Ingredients = [];
-    //  for(let i = 1; i<101;i++){  Ingredients.push(i); }
     let Recipes = sessionStorage.getItem("recipes").split(",");
-    // let Recipes = [];
-    // for(let i = 300; i<400;i++){  Recipes.push(i); }
+
     for(let i = 0; i<Ingredients.length;i++){
         if(Ingredients[i]!=""){
             innerhtml +='<div class="card cardI" onclick="FullScreen(this,2)" id="C'+Ingredients[i]+'"></div>';
@@ -33,6 +32,7 @@ function FillInOwnedCards(){
 }
 FillInOwnedCards();
 
+//enable printing when less than 10 cards are showing
 function countShowing(){
     numbershowing = 0;
     let cards = document.getElementsByClassName("card");
@@ -56,6 +56,7 @@ function countShowing(){
     }
 }
 
+//Open PrintWindow 
 function TryPrintElem(Elem){
     if(numbershowing<9){
         PrintElem(Elem);
@@ -65,8 +66,9 @@ function TryPrintElem(Elem){
     }
 }
 
-
+//Apply all the filter from filter bar
 function ShowZutaten(val){
+    //Filter by string
     if(FilterStringValue !=""){
         FilterString(FilterStringValue);
         return;
@@ -77,9 +79,11 @@ function ShowZutaten(val){
     document.getElementById("MedDropdown").style.background="white";
     document.getElementById("MedOptions").classList.add("optionsshowable");
     document.getElementById("KatOptions").classList.add("optionsshowable");
+    //show only ingredients
     if(val){
         displaycards("cardI", "block");
     }
+    //show only recipes
     else{
         checkrezepte.checked="true";
         document.getElementById("KatDropdown").style.background="rgb(230,230,230)";
@@ -91,6 +95,8 @@ function ShowZutaten(val){
     }
     countShowing();
 }
+
+//Show recipes (not used)
 function ShowRezepte(val){
     if(FilterStringValue !=""){
         FilterString(FilterStringValue);
@@ -115,8 +121,11 @@ function ShowRezepte(val){
     }
     countShowing();
 }
+
+//filter by medals and kathegory
 let MedFilter = 5;
 let KatFilter = 5;
+//Show only Cards with Kathegory X and changing filter bar accordingly
 function FilterKat(val){
     TextInputField.value="";
     KatFilter = val;
@@ -145,6 +154,7 @@ function FilterKat(val){
     }
     countShowing();
 }
+//Show only Cards with Medal X and changing filter bar accordingly
 function FilterMed(val){
     TextInputField.value="";
     MedFilter = val;
@@ -171,13 +181,15 @@ function FilterMed(val){
     }
     countShowing();
 }
-
+//going through all cards and hiding / showing according to parameters
 function displaycards(classname, value){
     let allrelevant = document.getElementsByClassName(classname);
     for(let i =0; i< allrelevant.length;i++){
         allrelevant[i].style.display=value;
     }
 }
+
+//going through all cards and hiding / showing according to parameters (2 classes possible)
 function displaycards2(class1, class2, value){
     let allrelevant = document.getElementsByClassName(class1);
     for(let i =0; i< allrelevant.length;i++){
@@ -190,6 +202,7 @@ function displaycards2(class1, class2, value){
 let availablecards = document.getElementsByClassName("card"); 
 let FilterStringValue = "";
 
+//Filter by string (finding matching substrings in card titles)
 function FilterString(tofilter){
     FilterStringValue = tofilter;
     document.getElementById("KatDropdown").innerText="Kathegorie ▼";

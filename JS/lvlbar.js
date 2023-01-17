@@ -1,6 +1,7 @@
 // Points reach from 0 -100
 //1 Star at 35 points, 2 Stars at 60 points, 3 Stars at 79 Points
 
+//initial values and documents from html
 let points = 0;
 let bar = document.getElementById("lbbar");
 let star1 = document.getElementById("lbstar1full")
@@ -8,11 +9,15 @@ let star2 = document.getElementById("lbstar2full")
 let star3 = document.getElementById("lbstar3full")
 let stars = 0;
 
+//increasing points or reduce if attention loss 
 function addpoints(amount){
     points += amount;
+    if(points<0){points=0};
     if(points>100){points = 100};
     drawBar();
 }
+
+//setting points ignoring previous value
 function setpoints(amount){
     points = amount;
     stars = 0;
@@ -22,6 +27,7 @@ function getpoints(){
     return points;
 }
 
+//drawing the bar by width (0-100%)
 function drawBar(){
     bar = document.getElementById("lbbar");
     new ResizeObserver(outputsize).observe(bar);
@@ -29,6 +35,7 @@ function drawBar(){
 }
 drawBar();
 
+//Check if bar moved past star and start star-animation
 function outputsize(){
     let maxbarwidth = document.getElementsByClassName("lbbarcontainer")[0].offsetWidth;
     let barpercent = bar.offsetWidth/maxbarwidth;
@@ -51,6 +58,7 @@ function outputsize(){
     }
 }
 
+//Animate the filling of a Star
 function FillStar(number){
     stars=number;
     let star = document.getElementById("lbstar"+number+"full")
@@ -68,4 +76,5 @@ function FillStar(number){
     },10)
 }
 
+//Listener for resizing bar to check stars
 new ResizeObserver(outputsize).observe(bar);

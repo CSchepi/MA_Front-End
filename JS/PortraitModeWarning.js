@@ -1,5 +1,5 @@
 let ShowAgain = sessionStorage.getItem('PortraitModeShowAgain');
-
+//set initial values based on sessionstorage
 if(ShowAgain==null){
     sessionStorage.setItem('PortraitModeShowAgain',true);
     ShowAgain=true;
@@ -11,11 +11,13 @@ if(ShowAgain=="true"){
     ShowAgain=true;
 }
 
+//If taller than whide: Show warning
 if(window.innerHeight>window.innerWidth&&ShowAgain)
     {
         ShowOverlay();
     }
 
+//check ration on resize of window
 window.addEventListener('resize', ()=>{
     if(window.innerHeight>window.innerWidth&&ShowAgain)
     {
@@ -30,6 +32,7 @@ window.addEventListener('resize', ()=>{
     }
 });
 
+//Inserting html code for overlay
 function ShowOverlay(){
     window.scroll(0,0);
     document.body.style.overflow="hidden";
@@ -49,6 +52,7 @@ function ShowOverlay(){
         blockeritem.style.display='inline-block';
     }
 }
+//closing overlay and change user preferences if necessary
 function skip(){
     document.body.style.overflow="visible";
     let checkbox = document.getElementById('PortraitCheckBox').checked;

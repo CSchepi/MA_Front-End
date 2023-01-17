@@ -1,3 +1,7 @@
+:root{
+    --widthpieces: 7;
+    --heightpieces: 5;
+}
 #puzzlewrapper{
     width: 100%;
     display: flex;
@@ -7,8 +11,8 @@
 #puzzlefield{
     position: absolute;
     margin-top: 15vh;
-    height: 50vh;
-    width: 70vh;
+    height: calc( var(--heightpieces) * 10vh);
+    width: calc( var(--widthpieces) * 10vh);
 }
 #tranparentpreviewwrapper{
     position: absolute;
@@ -19,7 +23,7 @@
 #tranparentpreview{
     position: absolute;
     opacity: 0.5;
-    height: 50vh;
+    height: calc( var(--heightpieces) * 10vh);
 }
 .pp, .ppframe{
     position: relative;
@@ -33,7 +37,7 @@
     z-index: 1;
 }
 .ppimage{
-    height: 50vh;
+    height:calc( var(--heightpieces) * 10vh);
 }
 .ppframe{
     width: 9.4vh;

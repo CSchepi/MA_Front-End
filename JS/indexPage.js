@@ -8,6 +8,7 @@ let data=null;
 let wakeupt = new XMLHttpRequest().open("GET","https://ma-tommi.herokuapp.com/getIngredients?filternum=1").send();
 ClearSessionStorage();
 
+//Sending login information to server and logging in when match 
 function Login(){
     document.getElementById("loadingcircle").style.display="inline";
     setTimeout(()=>{
@@ -36,11 +37,13 @@ function Login(){
     }
 }
 
+//Open registration field
 function ToRegister(){
     RegisterField.style.display="inline";
     LoginField.style.display="none";
     ToRegisterField.style.display="none";
 }
+//Creating new User and checking validity of input
 function Register(){
     username = document.getElementById("Rname").value;
     birthday = document.getElementById("Rday").valueAsNumber;
@@ -65,6 +68,7 @@ function Register(){
             window.alert("Das Spiel ist für Kinder unter 6 Jahren nicht geeignet.")
         }
         else{
+            //Check availability of input
             requsername = new XMLHttpRequest();
             requsername.open("GET","https://ma-tommi.herokuapp.com/checkUsername?name="+username)
             requsername.send();
@@ -75,6 +79,7 @@ function Register(){
                     }
                     else{
                         console.log("All information are valide.");
+                        //Creating account and login in
                         reqaddUser = new XMLHttpRequest();
                         reqaddUser.open("GET","https://ma-tommi.herokuapp.com/addUser?name="+username+"&pw="+pw1+"&bd="+birthday)
                         reqaddUser.send();
@@ -99,16 +104,19 @@ function Register(){
 
 }
 
+
 function calculateAge(birthday) { // birthday is a date
     var ageDifMs = Date.now() - birthday;
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    var ageDate = new Date(ageDifMs);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
+  //close registration window
 function RegisterBack(){
     RegisterField.style.display="none";
     LoginField.style.display="inline";
     ToRegisterField.style.display="inline";
 }
+//Adding all user information to session storage after login and redirecting to navigation page after login animation
 function gotoHome(){
     console.log(data);
     RegisterField.style.display="none";
@@ -127,6 +135,7 @@ function gotoHome(){
     },5000)
 }
 
+//Encrypting Passwort for not being visible in DB 
 function PWencrypt(pw){
     pw = String(pw);
     let output="";

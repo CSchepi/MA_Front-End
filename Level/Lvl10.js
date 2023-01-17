@@ -26,7 +26,9 @@ let animationinprogress = true;
 function getLevelNumber(){
   return 10;
 }
-
+function getpuzzletype(){
+  return 0;
+}
 //CHANGE
 setTimeout(()=>{
   ShowText("Heute machen wir mein Leibgericht. Nudeln! Alles was wir dafür bauchen haben wir schon einmal gemacht.",true);

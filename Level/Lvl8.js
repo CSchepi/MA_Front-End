@@ -32,6 +32,9 @@ setTimeout(()=>{
    adaptConnectionGraph(Connectiongraph_adapt);
 },1000)
 //CHANGE
+function getpuzzletype(){
+  return 1;
+}
 setTimeout(()=>{
   ShowText("Wie du dir vielleicht denken kannst, finde ich Tomaten super!Daher wollen wir sie heute anbaut.",true);
   setTimeout(()=>{

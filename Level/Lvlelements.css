@@ -4,6 +4,8 @@
   --cylinder-co2:0; /*in percent*/
   --cylinder-water:0; /*in percent*/
   --scale:1;
+  --showcamera: none;
+  --showdot: none;
 }
 body{
   overflow: hidden;
@@ -248,8 +250,11 @@ margin-left: 6vh;
 .gif{
   width: 20%;
 }
- #webgazerGazeDot, #webgazerVideoContainer{ 
-  display: none !important;
+ #webgazerVideoContainer{ 
+  display: var(--showcamera) !important;
+}
+ #webgazerGazeDot{ 
+  display: var(--showdot) !important;
 }
 #ButtonWeiter1, #ButtonWeiter2{
   position: fixed;
@@ -267,6 +272,7 @@ margin-left: 6vh;
   border-radius: 0;
   background-color: lightgreen;
 }
+
 #greenbright{
   position: absolute;
   height: 100%;
@@ -274,6 +280,16 @@ margin-left: 6vh;
   top: 0;
   left: 0;
   background-color: lightgreen;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+#redbright{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: lightcoral;
   opacity: 0;
   transition: 0.5s ease;
 }

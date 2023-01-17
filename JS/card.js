@@ -1,13 +1,17 @@
 let cards_req = new XMLHttpRequest();
 let allcards = "['{}']";
 let fullScreen = false;
+
+//get Information about all Ingredients
 function cards_Start(){
     cards_req.open("GET","https://ma-tommi.herokuapp.com/getIngredients",true);
     cards_req.send();
     cards_req.onreadystatechange = ()=>{
         if(cards_req.status==200&&cards_req.readyState==4&&cards_req.responseText){
             allcards = JSON.parse(cards_req.responseText);
+            // Start Card generation 
             InitiateCards();    
+            // Start Barcode geneartion on Cards (3 times due to different client-processing-speeds) //can only be created when card is initialised
             setTimeout(()=>{
                 JsBarcode(".barcode").init();   
             },500)
@@ -20,22 +24,28 @@ function cards_Start(){
         }
     }
 }
+
+// Create Cards based on html divs with card class in document
 function InitiateCards(){
+    //find all places for cards to be inserted
     let cards = document.getElementsByClassName("card");
     for(var c = 0; c<cards.length; c++){
         let card = cards[c];
         let id = card.id;
         let cardnum = id.replace('C','');
+        //Create Recipe Card
         if(cardnum.charAt(0)=="R"){
             cardnum = cardnum.replace('R','');
             let recipedata = null;
             let recipe_req = new XMLHttpRequest();
+            //get relevant recipe
             recipe_req.open("GET","https://ma-tommi.herokuapp.com/getRecipes?filternum="+cardnum,true);
             recipe_req.send();
             recipe_req.onreadystatechange = ()=>{
                 if(recipe_req.status==200&&recipe_req.readyState==4&&recipe_req.responseText){
                     recipedata = JSON.parse(recipe_req.responseText)[0];   
                     let fillzeros = ""
+                    //stylizing information to be displayed
                     if(cardnum<100){fillzeros = "0"}
                     if(cardnum<10){fillzeros = "00"}
                     let zutaten = recipedata["ingredientlist"].replaceAll("//","<br>");
@@ -43,6 +53,7 @@ function InitiateCards(){
                     if(cname.length >18){
                         cname = cname.slice(0,16)+"…";
                     }
+                    //Creating HTML Element with all recipe information (1. div: Front, 2. div: Back)
                     document.getElementById(id).innerHTML=
                     '<div id="CR'+cardnum+'Front" style="display: block;">'+
                         '<img src="./img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard(\'R'+cardnum+'\',1)"> '+
@@ -77,14 +88,17 @@ function InitiateCards(){
                 }
             }
         }
+        //create  Ingredient Card
         else{
             let cardinfos = allcards[(cardnum-1)];
             let numbersting = cardnum;
+            //stylizing information to be displayed
             if(cardnum<100){numbersting="0"+cardnum}
             if(cardnum<10){numbersting="00"+cardnum}
             let kategorystring = "Nüsse"
             let seasonverb = "haben"
             let dativ_n=""
+            // Define card kategory and transform language endings to match product name (e.g. singular vs pluarl endings)
             if(cardnum<95){kategorystring="Gemüse"}
             if(cardnum<62){kategorystring="Obst"}
             if(cardnum<38){kategorystring="Verarbeitet"; seasonverb ="hat"}
@@ -97,6 +111,7 @@ function InitiateCards(){
             document.getElementById(id).classList.add("cmed"+cardinfos["region"]); 
             let optionalstyle1 = "";
             let optionalstyle2 = "";
+            //Creating Season span(s)
             let seasonstart = ((Number(cardinfos["seasonstart"])-1)/11)*100;
             let seasonend = ((Number(cardinfos["seasonend"])-1)/11)*100;
             let seasondifference = seasonend-seasonstart;
@@ -108,11 +123,11 @@ function InitiateCards(){
             else{
                 seasondifference -=1;
             }
-            // console.log("Nummer: "+cardnum+" : "+(cardinfos["infobar"].length+kategorystring.length));
             if(cardinfos["infobar"].length+kategorystring.length>=19){
                 optionalstyle1=" ccategorylong";
                 optionalstyle2=" csubtitleshort";
             }
+            //Creating HTML Element with all ingredient information (1. div: Front, 2. div: Back)
             document.getElementById(id).innerHTML=
             '<div id="C'+cardnum+'Front" style="display: block;">'+
                 '<img src="./img/Cards/Flip.png" alt="" class="cflip"  onclick="TurnCard('+cardnum+',1)"> '+
@@ -158,7 +173,7 @@ function InitiateCards(){
     }
 }
 
-// Manual shine function
+// Manual shine function adding shine stripes moving over card
 function shine(cardnumber){
     let shineelement = document.getElementById("Cshine"+cardnumber+"-1");
     let shineelement2 = document.getElementById("Cshine"+cardnumber+"-2");
@@ -176,6 +191,7 @@ function shine(cardnumber){
     },1000)
 }
 
+//map number of month to string
 function MonthNumberToString(number){
     number = Number(number);
     switch(number){
@@ -196,6 +212,7 @@ function MonthNumberToString(number){
 }
 
 let turning = false;
+//function to turn card to front or Back and showing according div (including animation)
 function TurnCard(cardnumber, side){
     turning= true;
     let card = document.getElementById("C"+cardnumber);
@@ -218,6 +235,7 @@ function TurnCard(cardnumber, side){
 }
 document.getElementById("singlecardwrapper").style.display = "none";
 
+//Enlargen card and moving to center of screen
 function FullScreen(element,skalingfactor){
     setTimeout(()=>{
         if(!turning && !fullScreen){
@@ -234,7 +252,7 @@ function FullScreen(element,skalingfactor){
         }
     },50)
 }
-
+//Close Fullscreen of card 
 function CloseFullscrean(){
     document.getElementById("singlecardwrapper").style.opacity = 0;
     setTimeout(()=>{

@@ -32,6 +32,9 @@ setTimeout(()=>{
    adaptConnectionGraph(Connectiongraph_adapt);
 },1000)
           
+function getpuzzletype(){
+  return 2;
+}
 //CHANGE
 setTimeout(()=>{
   ShowText("Die Kühe scharren schon mit den Hufen und wollen auf die Weide.",true);

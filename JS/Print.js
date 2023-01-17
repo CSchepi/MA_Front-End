@@ -1,3 +1,4 @@
+//Open new Window and initializing browser integrated print comand of the page
 function PrintElem(elem)
 {
     var mywindow = window.open('', 'PRINT', 'height=400,width=600');

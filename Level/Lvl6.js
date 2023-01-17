@@ -27,6 +27,9 @@ function getLevelNumber(){
   return 6;
 }
 
+function getpuzzletype(){
+  return 2;
+}
 //CHANGE
 setTimeout(()=>{
   ShowText("Egal ob Brot, Nudeln oder Plätzchen - Nichts davon geht ohne Mehl. Also ab auf den Acker!",true);

@@ -21,6 +21,7 @@ let Waypoints=[[-13,57],[0,57],[24,58],[48,60],[2,75],[20,75],[45,76],[20,97],[-
 let Connectiongraph = [[1,8,17,19],[0,2],[1,3,5],[2,15],[5],[2,4,6],[5],[0,5,8,17,19],[0,9,17,19],[8,10],[9,11],[10,12,20],[11,13],[12,14,15],[13],[3,13,16],[15,17,18],[0,8,16,19],[16,19],[0,8,17,18],[11,21],[20]];
 
 
+//Level dependent connectiongraph changes
 function adaptConnectionGraph(newgraph){
   Connectiongraph = newgraph; 
 }
@@ -36,6 +37,7 @@ let currentlymoving = false;
 currentScene=1;
 bd1.style.opacity = "1";
 
+//Set Background season (1 = spring, 2= summer, 3= fall, 4= winter)
 function SetCurrentScene(num){
   currentScene=num;
   bd1.style.opacity = 0;
@@ -58,6 +60,7 @@ setTimeout(()=>{
   },3000)
 },300)
 
+//Display the golden Puzzlepiece and moving it to the top right corner
 function revealpuzzlepiece(){
   let piece = document.getElementsByClassName("puzzlepiecewrapper")[0];
   piece.style.transform ="scale(0.1)";
@@ -71,6 +74,7 @@ function revealpuzzlepiece(){
   },50)
 }
 
+//Switch Background to next season
 function NextSeason(){
   currentScene=(currentScene)%4+1;
   blackdrop.style.display="block";
@@ -93,8 +97,7 @@ function NextSeason(){
   },250)
 }
 
-
-
+//Transforming Tommis position and loading the appropriate walking animation  
 function move(val){
   let Tommi = document.getElementById("Tommi");
   // 0 = Stop 1 = front 2 = back 3=left 4=back
@@ -116,18 +119,21 @@ function move(val){
   }
 }
 
+//Initialize the movement of Tommi to a spicific target 
 function GoTo(target){
   if(textisshowing && !textiswriting){
     textisshowing=false;
     ShowText("",false);
   }
+  //Only apply moving if not already moving or text schowing
   else if(!currentlymoving && !textisshowing){
     currentlymoving = true;
-    let targetpath = pathfinding(target,[[TommiPosition]]);
+    let targetpath = pathfinding(target,[[TommiPosition]]); //Find path
     if(targetpath==null){
       window.alert("Something went horribly wrong!");
       return null;
     }
+    //Move along calculated path.
     for(let i in targetpath){
       setTimeout(()=>{
         //Make tommi visible
@@ -181,7 +187,7 @@ function GoTo(target){
   }
 }
 
-
+//recoursive algorithm to find shortest way (based on number of edges, no weighting function) bewtwen last point of patharray and target (Starting with initla patharry: [current_position])
 function pathfinding(target, pathsarray){
   if(pathsarray[0].length>20){
     return null;
@@ -238,6 +244,7 @@ setTimeout(()=>{
 },500)
 
 let audioactive = true;
+//Mute or resume Music
 function Audiocontroll(){
   if(audioactive){
     audioactive =false;
@@ -257,7 +264,7 @@ let textfieldtext = document.getElementById("textfieldtext");
 let textfield = document.getElementsByClassName("textfield")[0];
 let textiswriting = false;
 let textisshowing = false;
-//Content maximal 115 Zeichen lang!
+//Content maximum of 115 characters!
 
 var msg = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
@@ -267,6 +274,7 @@ msg.rate = 1.3; // From 0.1 to 10
 msg.pitch = 0.2; // From 0 to 2
 msg.lang = 'de';
 
+//Display informational Text in a window at the bottom of the playarea
 function ShowText(content,notempty){
   if(notempty){
     textiswriting = true;
@@ -338,7 +346,19 @@ setTimeout(()=>{
   StartNextSong();
 },10000)
 
+//Changing scene to puzzle scene
 function OpenPuzzle(){
+  let scriptEle = document.createElement("script");
+  if(getpuzzletype() == 0){
+    scriptEle.setAttribute("src", "../JS/memory.js");
+  }
+  if(getpuzzletype() == 2){
+    scriptEle.setAttribute("src", "../JS/puzzle.js");
+  }
+  scriptEle.setAttribute("type", "text/javascript");
+
+  document.body.appendChild(scriptEle);
+
   document.getElementsByClassName("Puzzlecontainer")[0].style.display = "block";
   document.getElementsByClassName("lvlbar")[0].style.display="none";
   document.getElementsByClassName("homebutton")[0].style.display="none";
@@ -346,6 +366,7 @@ function OpenPuzzle(){
   document.getElementById("speach").style.display="none";
 }
 
+//Changing scene back to to farming simulation scene
 function ClosePuzzle(){
   document.getElementsByClassName("Puzzlecontainer")[0].style.display = "none";
   document.getElementsByClassName("lvlbar")[0].style.display="block";
@@ -354,6 +375,7 @@ function ClosePuzzle(){
   document.getElementById("speach").style.display="block";
 }
 
+//Called when puzzle was completetd and changing back to farming simulation scene
 function CompletePuzzle(){
   document.getElementById("puzzlepiece").style.display="none";
   document.getElementsByClassName("Puzzlecontainer")[0].style.display = "none";
@@ -375,6 +397,7 @@ if(prevownedcards[0]==0){prevownedcards=[];}
 let lvl_num = 0;
 let lvl_product = 0;
 
+//called by each level when last step of levelprogess is reached 
 function LevelCompleted(productnumber, lvlnum){
   lvl_num=lvlnum-1;
   lvl_product = productnumber;
@@ -382,13 +405,13 @@ function LevelCompleted(productnumber, lvlnum){
   setTimeout(()=>{
     document.getElementById("EndScreen").style.opacity="1";
   },20)
-  
+  //Update Ingredient of Level if not already owned
   if(lvl_progress[lvl_num]==0){
     prevownedcards.push(lvl_product)
     updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+productnumber);
     updateuser_req.send();
   }
-
+  //set lvl bar to 0 to fill it up again and reviel cards for each new star
   document.getElementsByClassName("lvlbar")[0].style.display="none";
   resultpoints = getpoints();
   setpoints(0);
@@ -403,7 +426,7 @@ function LevelCompleted(productnumber, lvlnum){
   },2000)
 }
 
-
+//Fill up lvlbar and for every new Star: Reviel new Ingredient card
 function RevealScore(){
   document.getElementById("ButtonWeiter1").style.display="none";
   document.getElementsByClassName("card0")[0].style.display="none";
@@ -424,6 +447,7 @@ function RevealScore(){
           if(lvl_progress[lvl_num]<3){
             lvl_progress[lvl_num]=3;
             RevielCard(Number(i)+1);
+            //add Ingredient card to users DB entry
             prevownedcards.push(cardstoreveal[i])
             updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
             updateuser_req.send();
@@ -438,6 +462,7 @@ function RevealScore(){
           if(lvl_progress[lvl_num]<2){
             lvl_progress[lvl_num]=2;
             RevielCard(Number(i)+1);
+            //add Ingredient card to users DB entry
             prevownedcards.push(cardstoreveal[i])
             updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
             updateuser_req.send();
@@ -454,6 +479,7 @@ function RevealScore(){
         if(lvl_progress[lvl_num]<1){
           lvl_progress[lvl_num]=1;
           RevielCard(Number(i)+1);
+          //add Ingredient card to users DB entry
           prevownedcards.push(cardstoreveal[i])
           updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
           updateuser_req.send();
@@ -462,6 +488,7 @@ function RevealScore(){
     },(1000+4000*i))
   }
   setTimeout(()=>{
+    //Updating Player DB entry on lvl progress and acomplished stars for the level
     let LvlPString = lvl_progress.toString().replaceAll(",","_");
     sessionStorage.setItem("lvlprogress",lvl_progress);
     sessionStorage.setItem("ingredients", prevownedcards);
@@ -470,6 +497,7 @@ function RevealScore(){
     updateuser_req.send();
   },1000+4000*cardstoreveal.length)
 }
+//Algorithm to find a card which is not owned yet and is not part of the 24 levels
 function FindNewCards(cardarray){
   let possibilities = [3,4,5,6,7,8,10,11,13,14,15,16,18,20,21,22,23,24,25,26,27,28,32,35,38,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,67,68,70,71,72,74,75,77,80,81,82,83,84,85,86,87,89,90,92,93,94,95,96,97,99,100]
   let ownedcards = sessionStorage.getItem("ingredients").split(",");
@@ -486,6 +514,7 @@ function FindNewCards(cardarray){
   
 }
 
+//Animation to reviel a new card
 function RevielCard(num){
   //Num from 0-3
   let card = document.getElementsByClassName("card"+num)[0];
@@ -495,11 +524,13 @@ function RevielCard(num){
     card.style.transition = "0.5s ease";
   },2000)
 }
+
+//Redirect to navigation page
 function ExitLevel(){
   window.location.href="../Navigation.html";
 }
 
-
+// Adjust play area size to screen size so that cylinders are visible
 function Reframe(){
   let ratio = window.innerHeight /window.innerWidth;
   if(ratio>0.6){

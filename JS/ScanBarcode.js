@@ -1,5 +1,5 @@
+ // when scan succesfull, adding Card to user 
  function onScanSuccess(decodedText, decodedResult) {
-   // handle the scanned code as you like, for example:
    let cardnum = undefined;
    let filler = ""
    let isnew=false;
@@ -9,6 +9,7 @@
    for(let i in prevownedcards){prevownedcards[i]=Number(prevownedcards[i])}
    let prevownedrecipes = sessionStorage.getItem("recipes").split(",");
    for(let i in prevownedrecipes){prevownedrecipes[i]=Number(prevownedrecipes[i])}
+   //For ingredient card: Check if already owned, else add
    if(decodedText[0]=="I"){
      cardnum = Number(decodedText[1]+decodedText[2]+decodedText[3]);
      if(!prevownedcards.includes(cardnum)){
@@ -19,6 +20,7 @@
        updateuser_req.send();
      }
    }
+   //For recipe card: Check if already owned, else add
    if(decodedText[0]=="R"){
      cardnum = Number(decodedText[1]+decodedText[2]+decodedText[3]);
      if(!prevownedrecipes.includes(cardnum)){
@@ -30,6 +32,7 @@
      }
      filler ="R";
    }
+   //Animate Card in Fullscrean 
    if(cardnum != undefined){
      document.getElementsByClassName("newcardwrapper")[0].style.display="flex";
      let cardid = "C"+filler+cardnum;
@@ -58,11 +61,8 @@
    { fps: 5, qrbox: 250 },
    /* verbose= */ false);
  html5QrcodeScanner.render(onScanSuccess, onScanFailure);
- 
-// var html5QrcodeScanner = new Html5QrcodeScanner(
-// "qr-reader", { fps: 10, qrbox: 250 });
-// html5QrcodeScanner.render(onScanSuccess);
 
+//restart scanner on resize due to shifting in scann area
 window.addEventListener('resize', ()=>{
   location.reload();
 });

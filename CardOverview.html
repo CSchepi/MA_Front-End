@@ -23,6 +23,8 @@
     <div class="singlecard" id="singlecardwrapper">
         <div class="closefull" onclick="CloseFullscrean()"><p>×</p></div>
     </div>
+
+    <!-- Filter line above card galery -->
     <div class="filterwrapper">
         <div class="filter">Filter:</div>
         <div class="filter"><input id="FilterStringInput" type="text" placeholder="Textsuche" oninput="FilterString(this.value)">🔍</div>
@@ -33,6 +35,7 @@
         <button id="PrintButton" onclick="TryPrintElem('cardwrapper')">🖶</button>
       </div>
 
+    <!-- Galery in which cards that match filter are shown + Add Card Placeholder -->
     <div class="cardwrapper" id="cardwrapper">
         <img src="./img/Cards/AddCard.png" id="addcartfield" onclick="window.location.href='AddCardNav.html'" alt="">
     </div>

@@ -1,3 +1,4 @@
+//level baesd data consisting of ImageURL, Question and 4 answeres
 let questions = [
   [["URL","Question",["Correct","wrong","wrong","wrong"]]],
   [
@@ -32,6 +33,7 @@ let levelnumber = getLevelNumber()-1;
 let LevelQuestions = questions[levelnumber];
 let questionpointer = 0;
 let correctone=0;
+//show question with image, question and answeres
 function nextQuestion(){
  if(questionpointer<LevelQuestions.length){
   let questiondata = LevelQuestions[questionpointer];
@@ -56,6 +58,8 @@ function nextQuestion(){
 }
 nextQuestion();
 let speedtrap = false;
+
+//check selected answer and animate feedback
 function ClickAnswer(num){
   if(!speedtrap){
     speedtrap=true;
@@ -81,6 +85,9 @@ function ClickAnswer(num){
   }  
 }
 
+
+
+//check for completion of quizz and animation feedback
 
 function won(){
   document.body.innerHTML+='<div id="greenbright"></div>';

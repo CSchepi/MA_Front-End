@@ -26,6 +26,21 @@ let animationinprogress = true;
 function getLevelNumber(){
   return 3;
 }
+function increasewrongactioncount(){
+  wrongactioncount++;
+}
+function givefreehint(){
+  let sprechblasentext = HelpComments[Fortschrittspointer][Math.floor(Math.random()*HelpComments[Fortschrittspointer].length)];
+  document.getElementById("Sprechblasentext").innerText = sprechblasentext;
+  document.getElementById("Sprechblasencontainer").style.opacity="1";
+  setTimeout(()=>{
+    document.getElementById("Sprechblasencontainer").style.opacity="0";
+  },4000)
+}
+function getpuzzletype(){
+  return 2;
+}
+
 
 //CHANGE
 setTimeout(()=>{

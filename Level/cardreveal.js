@@ -1,6 +1,7 @@
 let cards_req = new XMLHttpRequest();
 let allcards = "['{}']";
 let fullScreen = false;
+// Load in all ingredients from DB
 function cards_Start(){
     cards_req.open("GET","https://ma-tommi.herokuapp.com/getIngredients",true);
     cards_req.send();
@@ -14,6 +15,8 @@ function cards_Start(){
         }
     }
 }
+
+// Identical code to card.js but with the routs to images and files being adjusted to the JS file location
 function InitiateCards(){
     let cards = document.getElementsByClassName("card");
     for(var c = 0; c<cards.length; c++){
@@ -153,7 +156,7 @@ function InitiateCards(){
 }
 
 
-// Manual shine function
+// Manual shine function adding shine stripes moving over card
 function shine(cardnumber){
     let shineelement = document.getElementById("Cshine"+cardnumber+"-1");
     let shineelement2 = document.getElementById("Cshine"+cardnumber+"-2");
@@ -171,6 +174,7 @@ function shine(cardnumber){
     },1000)
 }
 
+//map number of month to string
 function MonthNumberToString(number){
     number = Number(number);
     switch(number){
@@ -191,6 +195,7 @@ function MonthNumberToString(number){
 }
 
 let turning = false;
+//function to turn card to front or Back and showing according div (including animation)
 function TurnCard(cardnumber, side){
     turning= true;
     let card = document.getElementById("C"+cardnumber);
@@ -212,6 +217,7 @@ function TurnCard(cardnumber, side){
 }
 document.getElementById("singlecardwrapper").style.display = "none";
 
+//Enlargen card and moving to center of screen
 function FullScreen(element,skalingfactor){
     setTimeout(()=>{
         if(!turning && !fullScreen){
@@ -229,6 +235,7 @@ function FullScreen(element,skalingfactor){
     },50)
 }
 
+//Close Fullscreen of card 
 function CloseFullscrean(){
     document.getElementById("singlecardwrapper").style.opacity = 0;
     setTimeout(()=>{

@@ -1,14 +1,19 @@
+//Order of the areas the user has to click (if multiple options: Array in Array)
 let Regionabfolge = [[12],[15],[1,3,5],[4],[18],[1,2,3,4,5,6],[18],[11],[1,2,3,4,5,6],[11],[12],[3],[21],[15],[17]];
+//Hints that can be given at each step (if multiple texts: Array in Array)
 let HelpComments = [["Hierfür brauche ich eine Maschine","Ich sollte den Traktor nehmen"],["Ich muss die Säcke mit den Samen holen"],["Ich muss die Samen auf dem Acker einpflanzen"],[],["Am Brunnen steht eine Gießkanne"],["Ich muss auf das Feld um die Pfanzen zu gießen"],[""],["Hier liegt doch irgendwo das passende Werkzeug rum"],["Ab aufs Feld!"],[""],["Für die Ernte brauche ich den Traktor"],["Ich sollte die Kiste aufsammeln"],["Auf dem Hügel gibt es eine Fabrik."],["Die fertigen Karotten stehen an neben der Scheune"],["Ich sollte zum Schild mit dem Einkaufswagen gehen"]];
 let timesbeforespeaking = 1;
 let timesbefore1hint = 2; //including times before speak 
 let timesbefore2hint = 3; //including times before speak  & timesbefore 1. hint
+// shows which step the user is working on
 let Fortschrittspointer = 0;
 let wrongactioncount = 0;
+// values for the cylinder fillings
 let Stand_CO2 = 0;
 let Stand_H2O = 0;
 const TankRoot = document.querySelector(':root'); 
 let ActionFields = [1,2,3,4,5,6,9,11,12,14,15,17,18,21];
+//none specific help sentences
 let wrongsentences = ["Das brauche ich vielleicht später einmal.","Hier bin ich falsch.","Das brauche ich gerade nicht.","Probier vielleicht was anderes aus.","Hier gibt's nichts für mich zu tun."]
 
 let TommiWalking = false;
@@ -19,13 +24,29 @@ let checkspeed = 200;
 let textisdisplayed = true;
 let animationinprogress = true;
 
+//returns level number
 function getLevelNumber(){
   return 1;
 }
-
+//to be accessed by attentiontracker 
+function increasewrongactioncount(){
+  wrongactioncount++;
+}
+//to be accessed by attentiontracker
+function givefreehint(){
+  let sprechblasentext = HelpComments[Fortschrittspointer][Math.floor(Math.random()*HelpComments[Fortschrittspointer].length)];
+  document.getElementById("Sprechblasentext").innerText = sprechblasentext;
+  document.getElementById("Sprechblasencontainer").style.opacity="1";
+  setTimeout(()=>{
+    document.getElementById("Sprechblasencontainer").style.opacity="0";
+  },4000)
+}
+function getpuzzletype(){
+  return 0;
+}
+//start sequence
 setTimeout(()=>{
   ShowText("Hi! Heute wollen wir versuchen unsere eigenen Karotten anzubauen. Bist du bereit?",true);
-
   setTimeout(()=>{
     ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen! Klicke Gegenstände an, um sie zu benutzen.",true);
   },7000)
@@ -34,10 +55,13 @@ setTimeout(()=>{
 },5500)
 
 
+//Moves the character to a position on the walking graph
 function MoveTo(position){
+  //disable position 17 if not correct and redirect to 16
   if(position == 17 && Regionabfolge[Fortschrittspointer]!=17){
     position = 16;
   }
+  //condicions to be able to move tommi
   if(position != TommiField && !animationinprogress){
     textisdisplayed = getTextShowing();
     if(!TommiinAction){
@@ -52,6 +76,7 @@ function MoveTo(position){
 }
 
 function CheckEvent(){
+  //correct field chosen  add points to score depending on previous wrong guess count
   if(Regionabfolge[Fortschrittspointer].includes(TommiField)){
     Fortschrittspointer ++;
     let points = 0; 
@@ -289,6 +314,7 @@ function CheckEvent(){
     }
 
   }
+  //Consequences of a wrong move
   else{
     if(ActionFields.includes(TommiField)){
       wrongactioncount ++;
@@ -328,7 +354,7 @@ function UpdateTubes(){
 }
 UpdateTubes();
 
-
+//adds animation for smoke or water particles on co2 emission / water usage
 let gifcounter = 0;
 function addanimation(type,left,top){
   createdgif = gifcounter;

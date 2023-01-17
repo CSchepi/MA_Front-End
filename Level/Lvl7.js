@@ -33,10 +33,13 @@ let Connectiongraph_adapt = [[1,8,17,19],[0,2],[1,3,5],[2],[5],[2,4,6],[5],[0,5,
 setTimeout(()=>{
    adaptConnectionGraph(Connectiongraph_adapt);
 },1000)
-
+function getpuzzletype(){
+  return 0;
+}
 //CHANGE
 setTimeout(()=>{
   ShowText("Heute arbeiten wir am Weinberg. Hier gibt es bald leckere Trauben zu ernten.",true);
+  revealpuzzlepiece();
     setTimeout(()=>{
       document.getElementById("bd4").style.opacity = "0";
       ShowText("Rebstöcke (so heißen die Bäume), müssen regelmäßig zurückgeschnitten werden, damit die Trauben saftig sind. ",true);

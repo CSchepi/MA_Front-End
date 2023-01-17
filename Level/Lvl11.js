@@ -24,9 +24,11 @@ let animationinprogress = true;
 
 //CHANGE
 function getLevelNumber(){
-  return 3;
+  return 11;
 }
-
+function getpuzzletype(){
+  return 1;
+}
 //CHANGE
 setTimeout(()=>{
   ShowText("Leider sind bisher nur die ersten 10 Level fertig. Danke, dass du so weit gespielt hast!",true);
