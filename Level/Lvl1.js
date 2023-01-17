@@ -27,7 +27,7 @@ setTimeout(()=>{
   ShowText("Hi! Heute wollen wir versuchen unsere eigenen Karotten anzubauen. Bist du bereit?",true);
 
   setTimeout(()=>{
-    ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen!",true);
+    ShowText("Zuerst müssen wir diese schweren Steine vom Acker bringen! Klicke Gegenstände an, um sie zu benutzen.",true);
   },7000)
   animationinprogress = false;
   cards_Start();

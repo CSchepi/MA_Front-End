@@ -2,17 +2,18 @@ var path = window.location.pathname;
 var page = path.split("/").pop();
 let tutorialprogress =null;
 let tut_Progress = new XMLHttpRequest();
+//get information which tutorials were already shown 
 tut_Progress.open("GET","https://ma-tommi.herokuapp.com/getTutprogress?id="+sessionStorage.getItem("_id"),true);
 tut_Progress.send();
 tut_Progress.onreadystatechange = ()=>{
     if(tut_Progress.status==200&&tut_Progress.readyState==4&&tut_Progress.responseText){
         tutorialprogress = JSON.parse(tut_Progress.responseText);
-
+        //Fill in according tutorial text and opening tutorial overlay
         if(page=="Navigation.html"){
           if(tutorialprogress[0]=="0"){
             StartTutorial(0);
           }
-          document.getElementById("tutorialtext").innerText="Das ist die Übersichtseite. Von hier aus kannst du alle Bereiche erkunden. Fang doch mal damit an auf -Spielen- zu klicken."
+          document.getElementById("tutorialtext").innerText="Wilkommen bei Tommi. Das ist die Übersichtseite. Von hier aus kannst du alle Bereiche erkunden. Klick doch mal auf -Spielen-."
         }
 
         if(page=="level_overview.html"){
@@ -26,7 +27,7 @@ tut_Progress.onreadystatechange = ()=>{
           if(tutorialprogress[2]=="0"){
             StartTutorialLevel(2);
           }
-          document.getElementById("tutorialtext").innerText="Jetzt ist es an der Zeit Lebensmittel herzustellen. Ich begleite dich durch das Spiel. Viel Spaß und bis gleich!"
+          document.getElementById("tutorialtext").innerText="Jetzt ist es an der Zeit Lebensmittel herzustellen. Ich begleite dich durch das Spiel. An den Seiten des Spielfelds siehst du den Wasserverbrauch und den CO2 ausstoß. Viel Spaß und bis gleich!"
         }
 
         if(page=="CardOverview.html"){
@@ -41,6 +42,12 @@ tut_Progress.onreadystatechange = ()=>{
             StartTutorial(4);
           }
           document.getElementById("tutorialtext").innerText="Scanne den Barcode auf der Rückseite von neuen Karten, die du mit deinen Freunden getauscht hast."
+        }
+        if(page=="ScannCodeCrafting.html"){
+          if(tutorialprogress[5]=="1"){
+            StartTutorial(7);
+          }
+          document.getElementById("tutorialtext").innerText="Hier kannst du den Barcode von Lebensmitteln, die du Zuhause hast Einscannen, um so passende Rezepte zu erhalten, selbst wenn du noch keine passende Karte freigeschaltet hast."
         }
 
         if(page=="Recipe_Crafter.html"){
@@ -59,7 +66,7 @@ tut_Progress.onreadystatechange = ()=>{
     }
 }
 
-
+//Add Overlay HTML
 function StartTutorial(pos){
   document.body.innerHTML+='<div id="TutorialWrapper" style="z-index:10">'+
   '<div id="tutorialdarken" style="position: fixed; width:100%; height:100%; background:rgba(0,0,0,0.8);top:0;left: 0;"></div>'+
@@ -71,6 +78,7 @@ function StartTutorial(pos){
   '</div>'+
   '</div>'
 }
+//Add Overlay HTML (for Level screen)
 function StartTutorialLevel(pos){
   document.body.innerHTML+='<div id="TutorialWrapper">'+
   '<div id="tutorialdarken" style="position: fixed; width:100%; height:100%; background:rgba(0,0,0,0.8);top:0;left: 0;"></div>'+
@@ -83,9 +91,16 @@ function StartTutorialLevel(pos){
   '</div>'
 }
 
+//close HTML Overlay and update progress to DB
 function CloseTutorial(pos){
+ 
   document.getElementById("TutorialWrapper").style.display="none";
-  tutorialprogress[pos]=1;
+  if(pos=="7"){
+    tutorialprogress[5]=2;
+  }
+  else{
+    tutorialprogress[pos]=1;
+  }
   let progressstring = "";
   for(let i in tutorialprogress){
     progressstring+="&new_tutprogress="+tutorialprogress[i];
