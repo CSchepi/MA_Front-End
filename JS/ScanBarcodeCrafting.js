@@ -63,7 +63,8 @@ function eanfound(decodedText){
 }
 
 function onScanFailure(error) {
-    AddCardType(producttotest[1][0])
+    // AddCardType(producttotest[1][0])
+    console.log("fail");
 }
 
 //Get detected Ingredient information and displaying 
