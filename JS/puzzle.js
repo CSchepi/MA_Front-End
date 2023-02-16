@@ -13,7 +13,7 @@ let puzzleimages = [
 ]
 let correct=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-let difficultyscore = getdifficulty();
+let difficultyscore = 10;
 console.log(difficultyscore);
 let rows = 5;
 let columns = 7;

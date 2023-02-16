@@ -64,7 +64,7 @@ let allurls = [[
 
 
 let paircount = 12;
-let difficultyscore = getdifficulty();
+let difficultyscore = 10
 console.log(difficultyscore);
 if(difficultyscore<9){document.getElementById("card23").remove();document.getElementById("card22").remove();remove1pair();}
 if(difficultyscore<7){document.getElementById("card21").remove();document.getElementById("card20").remove();remove1pair();}

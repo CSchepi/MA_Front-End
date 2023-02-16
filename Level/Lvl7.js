@@ -39,7 +39,6 @@ function getpuzzletype(){
 //CHANGE
 setTimeout(()=>{
   ShowText("Heute arbeiten wir am Weinberg. Hier gibt es bald leckere Trauben zu ernten.",true);
-  revealpuzzlepiece();
     setTimeout(()=>{
       document.getElementById("bd4").style.opacity = "0";
       ShowText("Rebstöcke (so heißen die Bäume), müssen regelmäßig zurückgeschnitten werden, damit die Trauben saftig sind. ",true);
