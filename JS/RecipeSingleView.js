@@ -1,7 +1,7 @@
 let rec_num = new URLSearchParams(window.location.search).get('r');
 let recipe_req = new XMLHttpRequest();
 //get recipe information from DB
-recipe_req.open("GET","https://ma-tommi.herokuapp.com/getRecipes?filternum="+rec_num,true);
+recipe_req.open("GET","https://cs-tommi.herokuapp.com/getRecipes?filternum="+rec_num,true);
 recipe_req.send();
 recipe_req.onreadystatechange = ()=>{
     if(recipe_req.status==200&&recipe_req.readyState==4&&recipe_req.responseText){

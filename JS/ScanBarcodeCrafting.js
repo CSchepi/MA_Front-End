@@ -71,7 +71,7 @@ function onScanFailure(error) {
 function AddCardType(producttotest){
     scannedcardnum = producttotest[0];
     let getdbproduct_req = new XMLHttpRequest;
-    getdbproduct_req.open("GET","https://ma-tommi.herokuapp.com/getIngredients?filternum="+producttotest[0]);
+    getdbproduct_req.open("GET","https://cs-tommi.herokuapp.com/getIngredients?filternum="+producttotest[0]);
     getdbproduct_req.send();
     getdbproduct_req.onreadystatechange=()=>{
         if(getdbproduct_req.status==200&&getdbproduct_req.readyState==4&&getdbproduct_req.responseText){

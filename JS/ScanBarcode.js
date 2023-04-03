@@ -16,7 +16,7 @@
        isnew=true;
        prevownedcards.push(cardnum);
        sessionStorage.setItem("ingredients", prevownedcards);
-       updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardnum);
+       updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardnum);
        updateuser_req.send();
      }
    }
@@ -27,7 +27,7 @@
        isnew=true;
        prevownedrecipes.push(cardnum);
        sessionStorage.setItem("recipes", prevownedrecipes);
-       updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addR="+cardnum);
+       updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addR="+cardnum);
        updateuser_req.send();
      }
      filler ="R";

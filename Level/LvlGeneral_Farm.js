@@ -408,7 +408,7 @@ function LevelCompleted(productnumber, lvlnum){
   //Update Ingredient of Level if not already owned
   if(lvl_progress[lvl_num]==0){
     prevownedcards.push(lvl_product)
-    updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+productnumber);
+    updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+productnumber);
     updateuser_req.send();
   }
   //set lvl bar to 0 to fill it up again and reviel cards for each new star
@@ -449,7 +449,7 @@ function RevealScore(){
             RevielCard(Number(i)+1);
             //add Ingredient card to users DB entry
             prevownedcards.push(cardstoreveal[i])
-            updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
+            updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
             updateuser_req.send();
           }
         }
@@ -464,7 +464,7 @@ function RevealScore(){
             RevielCard(Number(i)+1);
             //add Ingredient card to users DB entry
             prevownedcards.push(cardstoreveal[i])
-            updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
+            updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
             updateuser_req.send();
           }
         }
@@ -481,7 +481,7 @@ function RevealScore(){
           RevielCard(Number(i)+1);
           //add Ingredient card to users DB entry
           prevownedcards.push(cardstoreveal[i])
-          updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
+          updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&addI="+cardstoreveal[i]);
           updateuser_req.send();
         }
       }
@@ -493,7 +493,7 @@ function RevealScore(){
     sessionStorage.setItem("lvlprogress",lvl_progress);
     sessionStorage.setItem("ingredients", prevownedcards);
     document.getElementById("ButtonWeiter2").style.display="block";
-    updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&LP="+LvlPString);
+    updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?id="+sessionStorage.getItem("_id")+"&LP="+LvlPString);
     updateuser_req.send();
   },1000+4000*cardstoreveal.length)
 }

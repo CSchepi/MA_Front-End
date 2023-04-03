@@ -215,7 +215,7 @@ function UpdatePlan(){
         else{
             innerHTML+='<div class="card dayselector crezept" id="CR'+filled[i]+'" id="day'+(i+1)+'selected"></div>';
             let getrecipe_req = new XMLHttpRequest;
-            getrecipe_req.open("GET","https://ma-tommi.herokuapp.com/getRecipes?filternum="+filled[i]);
+            getrecipe_req.open("GET","https://cs-tommi.herokuapp.com/getRecipes?filternum="+filled[i]);
             getrecipe_req.send();
             getrecipe_req.onreadystatechange = ()=>{
                 if(getrecipe_req.status==200&&getrecipe_req.readyState==4&&getrecipe_req.responseText){

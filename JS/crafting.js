@@ -19,7 +19,7 @@ function FilterAvailables(){
     let availablenonselected = [];
     //server side calculation of available cards based on previous input
     let restIng_req = new XMLHttpRequest();
-    restIng_req.open("GET","https://ma-tommi.herokuapp.com/getIngredientswhileCrafting?id="+userid+""+requeststring,true);
+    restIng_req.open("GET","https://cs-tommi.herokuapp.com/getIngredientswhileCrafting?id="+userid+""+requeststring,true);
     restIng_req.send();
     restIng_req.onreadystatechange = ()=>{
         if(restIng_req.status==200){
@@ -209,7 +209,7 @@ function ShowResult(){
         requeststring= requeststring.replaceAll(",","_");
     }
     let Recipeoptions_req = new XMLHttpRequest();
-    Recipeoptions_req.open("GET","https://ma-tommi.herokuapp.com/getCraftedRecipe?id="+userid+""+requeststring,true);
+    Recipeoptions_req.open("GET","https://cs-tommi.herokuapp.com/getCraftedRecipe?id="+userid+""+requeststring,true);
     Recipeoptions_req.send();
     Recipeoptions_req.onreadystatechange = ()=>{
         if(Recipeoptions_req.responseText && Recipeoptions_req.readyState==4 && Recipeoptions_req.status==200){
@@ -233,7 +233,7 @@ function ShowResult(){
             setTimeout(()=>{  
                 document.getElementById("CR"+rezipenum).style.transform="RotateY(720deg)";
                 let updateuser_req = new XMLHttpRequest();
-                updateuser_req.open("GET","https://ma-tommi.herokuapp.com/updateUser?addR="+rezipenum+"&id="+userid,true);
+                updateuser_req.open("GET","https://cs-tommi.herokuapp.com/updateUser?addR="+rezipenum+"&id="+userid,true);
                 updateuser_req.send();
                 Recipes.push(rezipenum);
                 sessionStorage.setItem("recipes",Recipes);

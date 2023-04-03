@@ -4,7 +4,7 @@ let fullScreen = false;
 
 //get Information about all Ingredients
 function cards_Start(){
-    cards_req.open("GET","https://ma-tommi.herokuapp.com/getIngredients",true);
+    cards_req.open("GET","https://cs-tommi.herokuapp.com/getIngredients",true);
     cards_req.send();
     cards_req.onreadystatechange = ()=>{
         if(cards_req.status==200&&cards_req.readyState==4&&cards_req.responseText){
@@ -39,7 +39,7 @@ function InitiateCards(){
             let recipedata = null;
             let recipe_req = new XMLHttpRequest();
             //get relevant recipe
-            recipe_req.open("GET","https://ma-tommi.herokuapp.com/getRecipes?filternum="+cardnum,true);
+            recipe_req.open("GET","https://cs-tommi.herokuapp.com/getRecipes?filternum="+cardnum,true);
             recipe_req.send();
             recipe_req.onreadystatechange = ()=>{
                 if(recipe_req.status==200&&recipe_req.readyState==4&&recipe_req.responseText){

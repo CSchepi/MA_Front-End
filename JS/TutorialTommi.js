@@ -3,7 +3,7 @@ var page = path.split("/").pop();
 let tutorialprogress =null;
 let tut_Progress = new XMLHttpRequest();
 //get information which tutorials were already shown 
-tut_Progress.open("GET","https://ma-tommi.herokuapp.com/getTutprogress?id="+sessionStorage.getItem("_id"),true);
+tut_Progress.open("GET","https://cs-tommi.herokuapp.com/getTutprogress?id="+sessionStorage.getItem("_id"),true);
 tut_Progress.send();
 tut_Progress.onreadystatechange = ()=>{
     if(tut_Progress.status==200&&tut_Progress.readyState==4&&tut_Progress.responseText){
@@ -112,7 +112,7 @@ function CloseTutorial(pos){
     progressstring+="&new_tutprogress="+tutorialprogress[i];
   }
   let tut_ProgressC = new XMLHttpRequest();
-  tut_ProgressC.open("GET","https://ma-tommi.herokuapp.com/updateTutprogress?id="+sessionStorage.getItem("_id")+""+progressstring,true);
+  tut_ProgressC.open("GET","https://cs-tommi.herokuapp.com/updateTutprogress?id="+sessionStorage.getItem("_id")+""+progressstring,true);
   tut_ProgressC.send();
   tut_ProgressC.onreadystatechange = ()=>{
     if(tut_ProgressC.status==200&&tut_ProgressC.readyState==4&&tut_ProgressC.responseText){

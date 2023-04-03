@@ -5,7 +5,7 @@ let data=null;
 
 
 //wake up backend
-let wakeupt = new XMLHttpRequest().open("GET","https://ma-tommi.herokuapp.com/getIngredients?filternum=1").send();
+let wakeupt = new XMLHttpRequest().open("GET","https://cs-tommi.herokuapp.com/getIngredients?filternum=1").send();
 ClearSessionStorage();
 
 //Sending login information to server and logging in when match 
@@ -20,7 +20,7 @@ function Login(){
         pw = PWencrypt(pw);
         if(!username.includes('@')){
             let req = new XMLHttpRequest();
-            req.open("GET","https://ma-tommi.herokuapp.com/getUser?name="+username+"&pw="+pw);
+            req.open("GET","https://cs-tommi.herokuapp.com/getUser?name="+username+"&pw="+pw);
             req.send();
             req.onreadystatechange = ()=>{
                 if (req.readyState == 4 && req.status == 200){
@@ -70,7 +70,7 @@ function Register(){
         else{
             //Check availability of input
             requsername = new XMLHttpRequest();
-            requsername.open("GET","https://ma-tommi.herokuapp.com/checkUsername?name="+username)
+            requsername.open("GET","https://cs-tommi.herokuapp.com/checkUsername?name="+username)
             requsername.send();
             requsername.onreadystatechange = ()=>{
                 if (requsername.readyState == 4 && requsername.status == 200){
@@ -81,7 +81,7 @@ function Register(){
                         console.log("All information are valide.");
                         //Creating account and login in
                         reqaddUser = new XMLHttpRequest();
-                        reqaddUser.open("GET","https://ma-tommi.herokuapp.com/addUser?name="+username+"&pw="+pw1+"&bd="+birthday)
+                        reqaddUser.open("GET","https://cs-tommi.herokuapp.com/addUser?name="+username+"&pw="+pw1+"&bd="+birthday)
                         reqaddUser.send();
                         reqaddUser.onreadystatechange = ()=>{
                         if (reqaddUser.readyState == 4 && reqaddUser.status == 200){
